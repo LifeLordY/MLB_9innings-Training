@@ -7,7 +7,7 @@
     <style>
         /* --- 1. 網頁背景設定 --- */
         body {
-            background-color: #1f1f1f; /* 深色背景 */
+            background-color: #0f0f0f; /* 深色背景 */
             color: #ffffff;
             font-family: "微軟正黑體", sans-serif;
             margin: 0;
@@ -16,12 +16,12 @@
 
         /* --- 2. 固定大小、圓角的長方形主容器 --- */
         .container {
-            width: 800px; /* 【固定寬度】：你可以修改這個數值來測試大小 (例如 1000px 或 600px) */
+            width: 600px; /* 【固定寬度】：你可以修改這個數值來測試大小 (例如 1000px 或 600px) */
             min-height: 500px; /* 給予最小高度，讓容器看起來像一塊完整的面板 */
-            background-color: #1e1e1e; /* 容器底色（比背景稍微亮一點點） */
+            background-color: #1f1f1f; /* 容器底色（比背景稍微亮一點點） */
             border-radius: 20px; /* 【圓角設定】：數值越大角越圓 */
-            margin: 50px auto; /* 上方距離邊緣 50px，左右 auto 會讓容器「水平置中」 */
-            padding: 40px; /* 容器內部的留白，讓內容不會貼著邊界 */
+            margin: 20px auto; /* 上方距離邊緣 50px，左右 auto 會讓容器「水平置中」 */
+            padding: 20px; /* 容器內部的留白，讓內容不會貼著邊界 */
             box-sizing: border-box; /* 確保 padding 不會把固定的寬度撐大 */
             box-shadow: 0 4px 15px rgba(0,0,0,0.5); /* 加上一點陰影增加立體感 */
         }
@@ -31,7 +31,7 @@
             text-align: center; /* 讓文字在正中間 */
             margin-top: 0;
             margin-bottom: 40px; /* 與下方選項保持距離 */
-            color: #4CAF50; /* 用綠色點綴一下，你也可以改成 #ffffff (白色) */
+            color: #ffffff; /* 用綠色點綴一下，你也可以改成 #ffffff (白色) */
             font-size: 32px;
         }
 
@@ -42,7 +42,7 @@
             justify-content: center; /* 讓整排內容在畫面中間 */
             align-items: center; /* 讓文字和選單在垂直方向對齊 */
             gap: 15px; /* 元件之間的距離 */
-            background-color: #2a2a2a; /* 稍微給橫排一個底色區塊 */
+            background-color: #3f3f3f; /* 稍微給橫排一個底色區塊 */
             padding: 20px;
             border-radius: 10px;
         }
@@ -66,7 +66,7 @@
 
         /* 當點擊選單時邊框變色 */
         select:focus {
-            border-color: #4CAF50;
+            border-color: #ffffff;
         }
     </style>
 </head>
@@ -80,19 +80,25 @@
             <label>球隊: </label>
             <select id="team-select">
                 <option value="">請選擇球隊...</option>
-                <option value="LAD">洛杉磯道奇</option>
-                <option value="NYY">紐約洋基</option>
-                <option value="BOS">波士頓紅襪</option>
-                <option value="ATL">亞特蘭大勇士</option>
+                <option value="NYY">NYY</option>
+                <option value="ATH">ATH</option>
+                <option value="HOU">HOU</option>
+                <option value="WSH">WSH</option>
+                <option value="STL">STL</option>
+                <option value="LAD">LAD</option>
+                <option value="SD">SD</option>
             </select>
 
             <div style="width: 20px;"></div> 
 
             <label>類型: </label>
             <select id="type-select">
-                <option value="">請選擇類型...</option>
-                <option value="batter">打者</option>
-                <option value="pitcher">投手</option>
+                <option value="regular">一般</option>
+                <option value="vintage">經典</option>
+                <option value="prime">全盛</option>
+                <option value="signature">簽名</option>
+                <option value="legend">傳說</option>
+                <option value="supreme">史詩</option>
             </select>
         </div>
 
