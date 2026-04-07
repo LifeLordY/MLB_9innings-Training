@@ -7,7 +7,7 @@
     <style>
         /* --- 1. 網頁背景設定 --- */
         body {
-            background-color: #0f0f0f; /* 深色背景 */
+            background-color: #0f0f0f;
             color: #ffffff;
             font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
             margin: 0;
@@ -16,8 +16,8 @@
 
         /* --- 2. 固定大小、圓角的長方形主容器 --- */
         .container {
-            width: 600px; 
-            min-height: 500px; 
+            width: 600px; /* 稍微加寬一點，讓兩個表格的內容有更充裕的顯示空間 */
+            min-height: 600px; 
             background-color: #1f1f1f; 
             border-radius: 20px; 
             margin: 20px auto; 
@@ -44,7 +44,7 @@
             gap: 10px; 
             background-color: #3f3f3f; 
             padding: 10px;
-            border-radius: 10px; /* 這個是選項區塊的圓角，不影響下方的表格 */
+            border-radius: 10px;
         }
 
         /* --- 5. 文字標籤與下拉選單樣式 --- */
@@ -53,8 +53,9 @@
             font-weight: bold;
         }
 
-        select {
-            padding: 10px 10px;
+        /* 針對上方獨立選項列的選單 */
+        .row select {
+            padding: 8px 10px;
             font-size: 14px;
             border-radius: 5px;
             border: 2px solid #3f3f3f;
@@ -64,29 +65,56 @@
             outline: none;
         }
 
-        select:focus {
+        .row select:focus {
             border-color: #ffffff;
         }
 
-        /* --- 6. 數據表格樣式 (無圓角) --- */
+        /* --- 6. 數據表格樣式 --- */
         table {
-            width: 100%; /* 讓表格寬度填滿容器 */
-            margin-top: 20px; /* 與上方的選項區塊保持距離 */
-            border-collapse: collapse; /* 這是關鍵：讓表格邊框合併，呈現標準的直角表格，不會有預設的空隙 */
-            border-radius: 0; /* 確保無圓角 */
+            width: 100%; 
+            margin-top: 20px; 
+            border-collapse: collapse; 
+            border-radius: 0; 
             background-color: #1f1f1f;
         }
 
         th, td {
-            border: 1px solid #7f7f7f; /* 表格的格線顏色 */
-            padding: 10px; /* 儲存格內的留白 */
-            text-align: center; /* 文字置中 */
+            border: 1px solid #7f7f7f; 
+            padding: 10px; 
+            text-align: center; 
+            vertical-align: middle; /* 讓內容垂直置中 */
         }
 
         th {
-            background-color: #3f3f3f; /* 表頭底色 */
+            background-color: #00003f; 
             color: #ffffff;
             font-weight: bold;
+        }
+
+        /* --- 7. 表格內部專用元件樣式 (新增) --- */
+        
+        /* 讓表格內的選單和數字輸入框自動填滿，並符合深色主題 */
+        table select, table input[type="number"] {
+            width: 100%;
+            padding: 5px;
+            font-size: 14px;
+            border-radius: 3px;
+            border: 1px solid #3f3f3f;
+            background-color: #1f1f1f;
+            color: white;
+            box-sizing: border-box;
+            outline: none;
+        }
+
+        table select:focus, table input[type="number"]:focus {
+            border-color: #ffffff;
+        }
+
+        /* 稍微放大勾選框，讓游標移上去會變成手指圖案 */
+        input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            cursor: pointer;
         }
     </style>
 </head>
@@ -109,8 +137,6 @@
                 <option value="SD">SD</option>
             </select>
 
-            <div style="width: 10px;"></div> 
-
             <label>類型: </label>
             <select id="type-select">
                 <option value="regular">一般</option>
@@ -121,10 +147,9 @@
                 <option value="supreme">史詩</option>
             </select>
 
-            <div style="width: 10px;"></div> 
-
             <label>位置: </label>
-            <select id="position-select"> <option value="">請選擇位置...</option>
+            <select id="position-select"> 
+                <option value="">請選擇位置...</option>
                 <optgroup label="打者">
                     <option value="C">C</option>
                     <option value="1B">1B</option>
@@ -133,40 +158,97 @@
                     <option value="SS">SS</option>
                     <option value="OF">OF</option>
                     <option value="DH">DH</option>
-                </optgroup> <optgroup label="投手">
+                </optgroup> 
+                <optgroup label="投手">
                     <option value="SP">SP</option>
                     <option value="RP">RP</option>
                     <option value="CP">CP</option>
-                </optgroup> </select>
+                </optgroup> 
+            </select>
         </div>
 
         <table>
             <thead>
                 <tr>
-                    <th>球員名稱</th>
-                    <th>力量</th>
-                    <th>打擊</th>
-                    <th>選球</th>
-                    <th>速度</th>
-                    <th>守備</th>
+                    <th>階級</th>
+                    <th>球員</th>
+                    <th>指導球員</th>
+                    <th>黑鑽</th>
+                    <th>團隊加成</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
-                    <td>測試球員 A</td>
-                    <td>85</td>
-                    <td>90</td>
-                    <td>80</td>
-                    <td>75</td>
-                    <td>82</td>
+                    <td>
+                        <select>
+                            <option value="diamond">白金</option>
+                            <option value="blackDiamond" selected>黑鑽</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select>
+                            <option value="">請選擇球員...</option>
+                            <option value="playerA">球員A</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select>
+                            <option value="0">0</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                        </select>
+                    </td>
+                    <td>
+                        <input type="number" min="0" value="0">
+                    </td>
+                    <td>
+                        <input type="number" min="0" value="0">
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th><input type="checkbox" title="全選"></th>
+                    <th>項目</th>
+                    <th>接觸</th>
+                    <th>力量</th>
+                    <th>選球</th>
+                    <th>速度</th>
+                    <th>守備</th>
+                    <th>值</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><input type="checkbox"></td>
+                    <td>基本數值</td>
+                    <td>70</td>
+                    <td>70</td>
+                    <td>70</td>
+                    <td>70</td>
+                    <td>70</td>
+                    <td>350</td>
                 </tr>
                 <tr>
-                    <td>測試球員 B</td>
-                    <td>92</td>
-                    <td>88</td>
-                    <td>78</td>
-                    <td>60</td>
-                    <td>70</td>
+                    <td><input type="checkbox"></td>
+                    <td>強化能力</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
                 </tr>
             </tbody>
         </table>
