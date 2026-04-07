@@ -76,6 +76,7 @@
             border-collapse: collapse; 
             border-radius: 0; 
             background-color: #1f1f1f;
+            table-layout: fixed;
         }
 
         th, td {
@@ -168,6 +169,8 @@
         </div>
 
         <table>
+            <colgroup>
+                <col style="width: 15%;"> <col style="width: 25%;"> <col style="width: 20%;"> <col style="width: 20%;"> <col style="width: 20%;"> </colgroup>
             <thead>
                 <tr>
                     <th>階級</th>
@@ -217,6 +220,10 @@
         </table>
         
         <table>
+            <colgroup>
+                <col style="width: 5%;"> <col style="width: 20%;"> 
+                <col style="width: 12%;"> <col style="width: 12%;"> <col style="width: 12%;"> <col style="width: 12%;"> <col style="width: 12%;"> 
+                <col style="width: 15%;"> </colgroup>
             <thead>
                 <tr>
                     <th><input type="checkbox" title="全選"></th>
@@ -231,24 +238,23 @@
             </thead>
             <tbody>
                 <tr>
-                    <td><input type="checkbox"></td>
-                    <td>基本數值</td>
-                    <td>70</td>
-                    <td>70</td>
-                    <td>70</td>
-                    <td>70</td>
-                    <td>70</td>
-                    <td>350</td>
+                    <td colspan="2">基本能力值</td>
+                    <td><input type="number" min="0" value="0"></td>
+                    <td><input type="number" min="0" value="0"></td>
+                    <td><input type="number" min="0" value="0"></td>
+                    <td><input type="number" min="0" value="0"></td>
+                    <td><input type="number" min="0" value="0"></td>
+                    <td>0</td>
                 </tr>
                 <tr>
                     <td><input type="checkbox"></td>
-                    <td>強化能力</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
+                    <td>基本校正</td>
+                    <td><input type="number" min="-5" max="5" value="0"></td>
+                    <td><input type="number" min="-5" max="5" value="0"></td>
+                    <td><input type="number" min="-5" max="5" value="0"></td>
+                    <td><input type="number" min="-5" max="5" value="0"></td>
+                    <td><input type="number" min="-5" max="5" value="0"></td>
+                    <td><input type="number" min="-5" max="5" value="0"></td>
                 </tr>
             </tbody>
         </table>
