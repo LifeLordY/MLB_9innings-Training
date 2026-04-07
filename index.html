@@ -16,7 +16,7 @@
 
         /* --- 2. 固定大小、圓角的長方形主容器 --- */
         .container {
-            width: 600px; /* 稍微加寬一點，讓兩個表格的內容有更充裕的顯示空間 */
+            width: 600px; 
             min-height: 600px; 
             background-color: #1f1f1f; 
             border-radius: 20px; 
@@ -49,8 +49,7 @@
 
         /* --- 5. 文字標籤與下拉選單樣式 --- */
         label {
-            font-size: 16px;
-            font-weight: bold;
+            font-size: 14px;
         }
 
         /* 針對上方獨立選項列的選單 */
@@ -90,9 +89,10 @@
             background-color: #00001f; 
             color: #ffffff;
             font-weight: bold;
+            font-size: 16px;
         }
 
-        /* --- 7. 表格內部專用元件樣式 (新增) --- */
+        /* --- 7. 表格內部專用元件樣式 --- */
         
         /* 讓表格內的選單和數字輸入框自動填滿，並符合深色主題 */
         table select, table input[type="number"] {
@@ -116,6 +116,21 @@
             width: 16px;
             height: 16px;
             cursor: pointer;
+        }
+
+        /* --- 8. 客製化列樣式 (新增) --- */
+        
+        .summary-row td {
+            background-color: #00001f;
+            color: #ffffff;
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        .spacer-row td {
+            height: 10px; /* 空隙的高度 */
+            border: none; /* 移除邊框 */
+            background-color: #1f1f1f; /* 與主容器底色融合 */
         }
     </style>
 </head>
@@ -269,7 +284,7 @@
                     <td><input type="number" min="0" value="0"></td>
                     <td>0</td>
                 </tr>
-                <tr>
+                <tr class="summary-row">
                     <td colspan="2">基本+階級+強化</td>
                     <td>0</td>
                     <td>0</td>
@@ -312,7 +327,7 @@
                         </select>
                     </td>
                 </tr>
-                <tr>
+                <tr class="summary-row">
                     <td colspan="2">一般陣容能力值</td>
                     <td>0</td>
                     <td>0</td>
@@ -321,6 +336,11 @@
                     <td>0</td>
                     <td>0</td>
                 </tr>
+                
+                <tr class="spacer-row">
+                    <td colspan="8"></td>
+                </tr>
+
                 <tr>
                     <td><input type="checkbox" checked></td>
                     <td>狀態</td>
@@ -366,7 +386,7 @@
                     <td><input type="number" min="0" value="0"></td>
                     <td></td>
                 </tr>
-                <tr>
+                <tr class="summary-row">
                     <td colspan="2">最高登板能力值</td>
                     <td>0</td>
                     <td>0</td>
