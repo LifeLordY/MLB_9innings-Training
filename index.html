@@ -81,7 +81,7 @@
 
         th, td {
             border: 1px solid #7f7f7f; 
-            padding: 10px; 
+            padding: 3px; 
             text-align: center; 
             vertical-align: middle; /* 讓內容垂直置中 */
         }
@@ -97,7 +97,7 @@
         /* 讓表格內的選單和數字輸入框自動填滿，並符合深色主題 */
         table select, table input[type="number"] {
             width: 100%;
-            padding: 5px;
+            padding: 3px;
             font-size: 14px;
             border-radius: 3px;
             border: 1px solid #3f3f3f;
@@ -113,8 +113,8 @@
 
         /* 稍微放大勾選框，讓游標移上去會變成手指圖案 */
         input[type="checkbox"] {
-            width: 18px;
-            height: 18px;
+            width: 16px;
+            height: 16px;
             cursor: pointer;
         }
     </style>
@@ -170,14 +170,14 @@
 
         <table>
             <colgroup>
-                <col style="width: 15%;"> <col style="width: 25%;"> <col style="width: 20%;"> <col style="width: 20%;"> <col style="width: 20%;"> </colgroup>
+                <col style="width: 10%;"> <col style="width: 30%;"> <col style="width: 20%;"> <col style="width: 20%;"> <col style="width: 20%;"> </colgroup>
             <thead>
                 <tr>
                     <th>階級</th>
                     <th>球員</th>
-                    <th><input type="checkbox">指導球員</th>
-                    <th><input type="checkbox">黑鑽</th>
-                    <th><input type="checkbox">團隊加成</th>
+                    <th><input type="checkbox" checked>指導球員</th>
+                    <th><input type="checkbox" checked>黑鑽</th>
+                    <th><input type="checkbox" checked>團隊加成</th>
                 </tr>
             </thead>
             <tbody>
@@ -221,12 +221,12 @@
         
         <table>
             <colgroup>
-                <col style="width: 5%;"> <col style="width: 20%;"> 
+                <col style="width: 10%;"> <col style="width: 18%;"> 
                 <col style="width: 12%;"> <col style="width: 12%;"> <col style="width: 12%;"> <col style="width: 12%;"> <col style="width: 12%;"> 
-                <col style="width: 15%;"> </colgroup>
+                <col style="width: 12%;"> </colgroup>
             <thead>
                 <tr>
-                    <th><input type="checkbox" title="全選"></th>
+                    <th><input type="checkbox" title="全選" checked></th>
                     <th>項目</th>
                     <th>接觸</th>
                     <th>力量</th>
@@ -247,7 +247,7 @@
                     <td>0</td>
                 </tr>
                 <tr>
-                    <td><input type="checkbox"></td>
+                    <td><input type="checkbox" checked></td>
                     <td>基本校正</td>
                     <td><input type="number" min="-5" max="5" value="0"></td>
                     <td><input type="number" min="-5" max="5" value="0"></td>
