@@ -123,8 +123,8 @@ input[type="checkbox"] {
     height: 30px;
 }
 
-.bold-row td {
-    font-weight: bold;
+.bold-row td, .bold-row input[type="number"] {
+    font-weight: bold; /* 讓文字變粗體 */
 }
 
 .spacer-row td {
