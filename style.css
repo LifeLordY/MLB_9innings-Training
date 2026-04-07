@@ -123,6 +123,10 @@ input[type="checkbox"] {
     height: 30px;
 }
 
+.bold-row td {
+    font-weight: bold;
+}
+
 .spacer-row td {
     height: 5px; /* 空隙的高度 */
     border: none; /* 移除邊框 */
