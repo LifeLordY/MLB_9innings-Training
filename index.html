@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <title>MLB9局職棒-球員訓練</title>
+
+    <style>
+        /* --- 1. 網頁背景設定 --- */
+        body {
+            background-color: #1f1f1f; /* 深色背景 */
+            color: #ffffff;
+            font-family: "微軟正黑體", sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* --- 2. 固定大小、圓角的長方形主容器 --- */
+        .container {
+            width: 800px; /* 【固定寬度】：你可以修改這個數值來測試大小 (例如 1000px 或 600px) */
+            min-height: 500px; /* 給予最小高度，讓容器看起來像一塊完整的面板 */
+            background-color: #1e1e1e; /* 容器底色（比背景稍微亮一點點） */
+            border-radius: 20px; /* 【圓角設定】：數值越大角越圓 */
+            margin: 50px auto; /* 上方距離邊緣 50px，左右 auto 會讓容器「水平置中」 */
+            padding: 40px; /* 容器內部的留白，讓內容不會貼著邊界 */
+            box-sizing: border-box; /* 確保 padding 不會把固定的寬度撐大 */
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5); /* 加上一點陰影增加立體感 */
+        }
+
+        /* --- 3. 標題設定 --- */
+        h1 {
+            text-align: center; /* 讓文字在正中間 */
+            margin-top: 0;
+            margin-bottom: 40px; /* 與下方選項保持距離 */
+            color: #4CAF50; /* 用綠色點綴一下，你也可以改成 #ffffff (白色) */
+            font-size: 32px;
+        }
+
+        /* --- 4. 嚴格不換排的橫排設定 --- */
+        .row {
+            display: flex; /* 啟動橫向排版 */
+            flex-wrap: nowrap; /* 【強制不換行】：這是保證選項絕對不會掉到下一排的關鍵 */
+            justify-content: center; /* 讓整排內容在畫面中間 */
+            align-items: center; /* 讓文字和選單在垂直方向對齊 */
+            gap: 15px; /* 元件之間的距離 */
+            background-color: #2a2a2a; /* 稍微給橫排一個底色區塊 */
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        /* --- 5. 文字標籤與下拉選單樣式 --- */
+        label {
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        select {
+            padding: 10px 15px;
+            font-size: 18px;
+            border-radius: 6px;
+            border: 2px solid #555;
+            background-color: #333;
+            color: white;
+            cursor: pointer;
+            outline: none;
+        }
+
+        /* 當點擊選單時邊框變色 */
+        select:focus {
+            border-color: #4CAF50;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        
+        <h1>MLB9局職棒-球員訓練</h1>
+
+        <div class="row">
+            <label>球隊: </label>
+            <select id="team-select">
+                <option value="">請選擇球隊...</option>
+                <option value="LAD">洛杉磯道奇</option>
+                <option value="NYY">紐約洋基</option>
+                <option value="BOS">波士頓紅襪</option>
+                <option value="ATL">亞特蘭大勇士</option>
+            </select>
+
+            <div style="width: 20px;"></div> 
+
+            <label>類型: </label>
+            <select id="type-select">
+                <option value="">請選擇類型...</option>
+                <option value="batter">打者</option>
+                <option value="pitcher">投手</option>
+            </select>
+        </div>
+
+    </div>
+
+</body>
+</html>
