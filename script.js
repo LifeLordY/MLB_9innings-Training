@@ -1,4 +1,39 @@
 // ==========================================
+// 🧮 新增：自動連動計算邏輯
+// ==========================================
+function calculateSubtotals() {
+    // 精準抓取主畫面中的「第二個表格」(能力值表格)
+    const statsTable = document.querySelectorAll('.container > table')[1];
+    if (!statsTable) return;
+    
+    // 抓出表格裡所有的橫排
+    const rows = statsTable.querySelectorAll('tbody tr');
+    
+    // 迴圈跑 5 次，分別計算 5 個能力值：接觸(0), 力量(1), 選球(2), 速度(3), 守備(4)
+    for (let col = 0; col < 5; col++) {
+        // 從第 0(基本), 1(校正), 2(階級), 3(強化) 列抓出對應欄位的數值
+        // 使用 || 0 是為了防止使用者把格子清空時出現 NaN 錯誤，空值會當作 0 計算
+        let base = parseInt(rows[0].querySelectorAll('input[type="number"]')[col].value) || 0;
+        let correction = parseInt(rows[1].querySelectorAll('input[type="number"]')[col].value) || 0;
+        let grade = parseInt(rows[2].querySelectorAll('input[type="number"]')[col].value) || 0;
+        let upgrade = parseInt(rows[3].querySelectorAll('input[type="number"]')[col].value) || 0;
+        
+        // 依照你的公式計算總和
+        let sum = base + correction + grade + upgrade;
+        
+        // 目標寫入位置是第 4 列 (基本+階級+強化)
+        // 因為該列的第一格是合併儲存格 (colspan="2")，所以數值格子是從索引 [col + 1] 開始
+        let targetCell = rows[4].querySelectorAll('td')[col + 1];
+        
+        // 寫入計算結果
+        targetCell.innerText = sum;
+        
+        // 🌟 關鍵：寫入新數字後，立刻強制它根據「大數字(large)」規則重新上色！
+        applyColorRule(targetCell, 'large');
+    }
+}
+
+// ==========================================
 // 🎨 顏色規則定義區 (維持你的完美邏輯)
 // ==========================================
 
@@ -103,9 +138,12 @@ function applyColorRule(element, rule) {
     else if (rule === 'posneg') updateNumberColor3(element, val);
 }
 
-// 尋找表格並綁定事件
+// 尋找表格並綁定事件 (更新版)
 function initTableColors() {
     const rows = document.querySelectorAll('tr.rule-large, tr.rule-small, tr.rule-posneg');
+
+    // 🌟 啟動 1：網頁剛載入時，先執行一次全面計算，確保初始數值正確
+    calculateSubtotals();
 
     rows.forEach(row => {
         let rule = '';
@@ -121,24 +159,21 @@ function initTableColors() {
             if (el.tagName === 'TD' && el.querySelector('input, select, button')) return;
             if (el.tagName === 'TD' && el.hasAttribute('colspan')) return;
 
-            // 1. 網頁剛載入時的初始化
+            // 初始化上色
             applyColorRule(el, rule);
 
-            // 2. 綁定監聽器
+            // 綁定監聽器
             if (el.tagName === 'INPUT' || el.tagName === 'SELECT') {
                 
-                // 當數字改變時 (例如滑鼠點擊旁邊、或按 Enter 時)
                 el.addEventListener('change', () => {
-                    enforceMinMax(el);       // 🌟 步驟 A: 先檢查並強制修正數值
-                    applyColorRule(el, rule); // 🌟 步驟 B: 再根據修正後的數值上色
+                    enforceMinMax(el);       
+                    applyColorRule(el, rule); 
+                    calculateSubtotals(); // 🌟 啟動 2：數值確認改變時，觸發連動計算
                 });
 
-                // 當使用者正在打字的瞬間
                 el.addEventListener('input', () => {
-                    // 注意：打字瞬間我們只檢查顏色，不強制修正數值。
-                    // 為什麼？因為如果你限制 min="10"，使用者想打 "15"，當他剛打下 "1" 的瞬間就會被強制變成 "10"，他會氣死。
-                    // 所以防呆機制 (enforceMinMax) 我們放在 change 事件裡最完美。
                     applyColorRule(el, rule); 
+                    calculateSubtotals(); // 🌟 啟動 3：打字瞬間也即時觸發連動計算
                 });
             }
         });
