@@ -16,35 +16,35 @@
 
         /* --- 2. 固定大小、圓角的長方形主容器 --- */
         .container {
-            width: 600px; /* 【固定寬度】：你可以修改這個數值來測試大小 (例如 1000px 或 600px) */
-            min-height: 500px; /* 給予最小高度，讓容器看起來像一塊完整的面板 */
-            background-color: #1f1f1f; /* 容器底色（比背景稍微亮一點點） */
-            border-radius: 20px; /* 【圓角設定】：數值越大角越圓 */
-            margin: 20px auto; /* 上方距離邊緣 50px，左右 auto 會讓容器「水平置中」 */
-            padding: 20px; /* 容器內部的留白，讓內容不會貼著邊界 */
-            box-sizing: border-box; /* 確保 padding 不會把固定的寬度撐大 */
-            box-shadow: 0 4px 15px rgba(0,0,0,0.5); /* 加上一點陰影增加立體感 */
+            width: 600px; 
+            min-height: 500px; 
+            background-color: #1f1f1f; 
+            border-radius: 20px; 
+            margin: 20px auto; 
+            padding: 20px;
+            box-sizing: border-box; 
+            box-shadow: 0 5px 15px rgba(0,0,0,0.5); 
         }
 
         /* --- 3. 標題設定 --- */
         h1 {
-            text-align: center; /* 讓文字在正中間 */
+            text-align: center; 
             margin-top: 0;
-            margin-bottom: 20px; /* 與下方選項保持距離 */
+            margin-bottom: 20px; 
             color: #ffffff;
             font-size: 32px;
         }
 
-        /* --- 4. 嚴格不換排的橫排設定 --- */
+        /* --- 4. 嚴格不換排的橫排設定 (用於選項) --- */
         .row {
-            display: flex; /* 啟動橫向排版 */
-            flex-wrap: nowrap; /* 【強制不換行】：這是保證選項絕對不會掉到下一排的關鍵 */
-            justify-content: center; /* 讓整排內容在畫面中間 */
-            align-items: center; /* 讓文字和選單在垂直方向對齊 */
-            gap: 10px; /* 元件之間的距離 */
-            background-color: #3f3f3f; /* 稍微給橫排一個底色區塊 */
-            padding: 20px;
-            border-radius: 10px;
+            display: flex; 
+            flex-wrap: nowrap; 
+            justify-content: center; 
+            align-items: center; 
+            gap: 10px; 
+            background-color: #3f3f3f; 
+            padding: 10px;
+            border-radius: 10px; /* 這個是選項區塊的圓角，不影響下方的表格 */
         }
 
         /* --- 5. 文字標籤與下拉選單樣式 --- */
@@ -64,9 +64,29 @@
             outline: none;
         }
 
-        /* 當點擊選單時邊框變色 */
         select:focus {
             border-color: #ffffff;
+        }
+
+        /* --- 6. 數據表格樣式 (無圓角) --- */
+        table {
+            width: 100%; /* 讓表格寬度填滿容器 */
+            margin-top: 20px; /* 與上方的選項區塊保持距離 */
+            border-collapse: collapse; /* 這是關鍵：讓表格邊框合併，呈現標準的直角表格，不會有預設的空隙 */
+            border-radius: 0; /* 確保無圓角 */
+            background-color: #1f1f1f;
+        }
+
+        th, td {
+            border: 1px solid #7f7f7f; /* 表格的格線顏色 */
+            padding: 10px; /* 儲存格內的留白 */
+            text-align: center; /* 文字置中 */
+        }
+
+        th {
+            background-color: #3f3f3f; /* 表頭底色 */
+            color: #ffffff;
+            font-weight: bold;
         }
     </style>
 </head>
@@ -104,8 +124,7 @@
             <div style="width: 10px;"></div> 
 
             <label>位置: </label>
-            <select id="type-select">
-                <option value="">請選擇位置...</option>
+            <select id="position-select"> <option value="">請選擇位置...</option>
                 <optgroup label="打者">
                     <option value="C">C</option>
                     <option value="1B">1B</option>
@@ -114,12 +133,43 @@
                     <option value="SS">SS</option>
                     <option value="OF">OF</option>
                     <option value="DH">DH</option>
-                <optgroup label="投手">
+                </optgroup> <optgroup label="投手">
                     <option value="SP">SP</option>
                     <option value="RP">RP</option>
                     <option value="CP">CP</option>
-            </select>
+                </optgroup> </select>
         </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>球員名稱</th>
+                    <th>力量</th>
+                    <th>打擊</th>
+                    <th>選球</th>
+                    <th>速度</th>
+                    <th>守備</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>測試球員 A</td>
+                    <td>85</td>
+                    <td>90</td>
+                    <td>80</td>
+                    <td>75</td>
+                    <td>82</td>
+                </tr>
+                <tr>
+                    <td>測試球員 B</td>
+                    <td>92</td>
+                    <td>88</td>
+                    <td>78</td>
+                    <td>60</td>
+                    <td>70</td>
+                </tr>
+            </tbody>
+        </table>
 
     </div>
 
