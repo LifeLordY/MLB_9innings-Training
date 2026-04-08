@@ -625,10 +625,12 @@ function initTableColors() {
         const currentBgColor = window.getComputedStyle(container).backgroundColor;
         const originalMargin = container.style.margin;
         const originalTransform = container.style.transform;
+        const originalWidth = container.style.width;
     
         // 3. 截圖前將 margin 歸零，確保座標從 (0,0) 開始
         container.style.margin = '0';
         container.style.transform = 'translate(0,0)';
+        container.style.width = '600px';
     
         const scale = 2; 
         const param = {
@@ -639,6 +641,7 @@ function initTableColors() {
             style: {
                 transform: `scale(${scale})`,
                 transformOrigin: 'top left',
+                width: '600px',
                 width: `${container.offsetWidth}px`,
                 height: `${container.offsetHeight}px`,
                 margin: '0', // 強制 SVG 內部的 margin 也是 0
@@ -665,6 +668,7 @@ function initTableColors() {
             // 4. 無論成功或失敗，都恢復原始樣式，使用者完全感覺不到變化
             container.style.margin = originalMargin;
             container.style.transform = originalTransform;
+            container.style.width = originalWidth;
         }
     });
 }
