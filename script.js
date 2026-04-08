@@ -541,25 +541,37 @@ function initTableColors() {
     });
 
     // 3. 最上方的「球隊」、「類型」與「位置」選單綁定
-    const teamSelect = document.getElementById('team-select');
-    if (teamSelect) {
-        teamSelect.addEventListener('change', () => {
-            updateThemeColor(); // 🌟 當球隊改變時，觸發變色
-            // (未來這裡還可以加入切換球隊後，重新篩選球員名單的邏輯)
-        });
-    }
-    ['type-select', 'position-select'].forEach(id => {
+    ['team-select', 'type-select', 'position-select'].forEach(id => {
         const select = document.getElementById(id);
         if (select) {
             select.addEventListener('change', () => {
+                if (id === 'team-select') updateThemeColor();
+                
                 updateTopTableBonuses();  
                 updateStatLabels();       
                 updateConditionAndGear(); 
-                updateChemistry();        
-                calculateSubtotals();     
+                updateChemistry();
+                
+                // 🌟 當三個主條件改變時，重新過濾球員選單
+                filterPlayers(); 
+                
+                // 🌟 如果選單裡已經有球員，重新載入他的數據 (為了觸發 typeOverrides 切換)
+                if (document.getElementById('player-select').value) {
+                    applyPlayerSelection();
+                } else {
+                    calculateSubtotals(); // 沒球員就單純計算
+                }
             });
         }
     });
+
+    // 🌟 4. 綁定「球員」選單
+    const playerSelect = document.getElementById('player-select');
+    if (playerSelect) {
+        playerSelect.addEventListener('change', () => {
+            applyPlayerSelection(); // 選擇球員後自動填表
+        });
+    }
 
     // 4. 狀態與裝備選單綁定
     const condSelect = statsTable.querySelectorAll('tbody tr')[9].querySelector('select');
@@ -593,36 +605,43 @@ function initTableColors() {
 }
 
 // ==========================================
-// 🌐 第七區：外部資料 (JSON) 與介面連動
+// 🌐 第七區：外部資料庫 (JSON) 與選單連動
 // ==========================================
-let teamsData = {}; // 準備一個空物件來裝 teams.json 的資料
+let teamsData = {}; 
+let playersData = []; // 🌟 新增：存放所有球員資料
 
-// 1. 讀取 teams.json 並生成下拉選單
-async function loadTeams() {
+// 1. 同時載入球隊與球員資料
+async function loadAppData() {
     try {
-        // 向同一個資料夾下的 teams.json 請求資料
-        const response = await fetch('teams.json');
-        teamsData = await response.json();
+        const [teamsRes, playersRes] = await Promise.all([
+            fetch('teams.json'),
+            fetch('players.json')
+        ]);
+        teamsData = await teamsRes.json();
+        playersData = await playersRes.json();
         
-        const teamSelect = document.getElementById('team-select');
-        if (!teamSelect) return;
-
-        // 清空選單並重新填入
-        teamSelect.innerHTML = '<option value="">請選擇球隊...</option>';
-        
-        // 迴圈讀取 JSON 裡面的每一個球隊代號 (NYY, ATH...)
-        for (const teamKey in teamsData) {
-            const option = document.createElement('option');
-            option.value = teamKey;
-            option.textContent = teamKey; 
-            teamSelect.appendChild(option);
-        }
+        // 載入完成後，初始化選單
+        populateTeamDropdown();
+        filterPlayers(); 
     } catch (error) {
-        console.error("無法讀取 teams.json！請確認檔案路徑，或是否遇到 CORS 跨網域安全阻擋。", error);
+        console.error("載入 JSON 失敗！請確保使用 Live Server 開啟網頁。", error);
     }
 }
 
-// 2. 切換球隊時更新主題顏色
+// 2. 生成球隊選單
+function populateTeamDropdown() {
+    const teamSelect = document.getElementById('team-select');
+    if (!teamSelect) return;
+    teamSelect.innerHTML = '<option value="">請選擇球隊...</option>';
+    for (const teamKey in teamsData) {
+        const option = document.createElement('option');
+        option.value = teamKey;
+        option.textContent = teamKey; 
+        teamSelect.appendChild(option);
+    }
+}
+
+// 3. 切換球隊時更新主題與輔助顏色
 function updateThemeColor() {
     const teamSelect = document.getElementById('team-select');
     const container = document.querySelector('.container');
@@ -632,18 +651,11 @@ function updateThemeColor() {
     if (!teamSelect || !container || !modalContent || !topRow) return;
 
     const selectedTeam = teamSelect.value;
-    
     if (selectedTeam && teamsData[selectedTeam]) {
-        const themeColor = teamsData[selectedTeam].themeColor;
-        const secondaryColor = teamsData[selectedTeam].secondaryColor;
-        
-        // 只負責替換顏色，形狀與間距交給 CSS 處理
-        container.style.backgroundColor = themeColor;
-        modalContent.style.backgroundColor = themeColor;
-        topRow.style.backgroundColor = secondaryColor;
-        
+        container.style.backgroundColor = teamsData[selectedTeam].themeColor;
+        modalContent.style.backgroundColor = teamsData[selectedTeam].themeColor;
+        topRow.style.backgroundColor = teamsData[selectedTeam].secondaryColor;
     } else {
-        // 切換回預設狀態時，清空行內樣式，讓它恢復 CSS 的預設背景色 (#3f3f3f 等)
         container.style.backgroundColor = ''; 
         modalContent.style.backgroundColor = '';
         topRow.style.backgroundColor = '';
@@ -651,15 +663,107 @@ function updateThemeColor() {
 }
 
 // ==========================================
-// 🚀 啟動區：乾淨俐落的啟動邏輯 (已升級為非同步 async)
+// 🦸‍♂️ 核心：球員選單過濾與數據自動填入
+// ==========================================
+
+// A. 根據上方條件 (球隊/類型/位置) 過濾球員清單
+function filterPlayers() {
+    const teamSelect = document.getElementById('team-select');
+    const typeSelect = document.getElementById('type-select');
+    const posSelect = document.getElementById('position-select');
+    const playerSelect = document.getElementById('player-select');
+    if (!playerSelect) return;
+
+    const currentPlayer = playerSelect.value; // 記住目前選中的球員
+
+    // 進行多重條件篩選
+    let filtered = playersData;
+    if (teamSelect.value) filtered = filtered.filter(p => p.team === teamSelect.value);
+    if (typeSelect.value) filtered = filtered.filter(p => p.types.includes(typeSelect.value));
+    if (posSelect.value) filtered = filtered.filter(p => p.positions.includes(posSelect.value));
+
+    // 重建下拉選單
+    playerSelect.innerHTML = '<option value="">請選擇球員...</option>';
+    filtered.forEach(p => {
+        const opt = document.createElement('option');
+        opt.value = p.name;
+        opt.textContent = p.name;
+        playerSelect.appendChild(opt);
+    });
+
+    // 如果原本選中的球員還在過濾後的名單內，就維持選中；否則切回預設
+    if (filtered.some(p => p.name === currentPlayer)) {
+        playerSelect.value = currentPlayer;
+    } else {
+        playerSelect.value = '';
+    }
+}
+
+// B. 玩家選擇球員後，自動填入所有資料
+function applyPlayerSelection() {
+    const playerSelect = document.getElementById('player-select');
+    const teamSelect = document.getElementById('team-select');
+    const typeSelect = document.getElementById('type-select');
+    const posSelect = document.getElementById('position-select');
+    const statsTable = document.querySelectorAll('.container > table')[1];
+
+    if (!playerSelect || !statsTable) return;
+
+    const player = playersData.find(p => p.name === playerSelect.value);
+    if (!player) return; // 沒選球員就跳出
+
+    // 🌟 1. 反向連動：球隊
+    if (teamSelect.value !== player.team) {
+        teamSelect.value = player.team;
+        updateThemeColor(); // 換球隊要變色
+    }
+
+    // 🌟 2. 反向連動：位置 (巧妙解法：如果當前位置不是該球員的，才強制切成他的第一個位置)
+    if (!posSelect.value || !player.positions.includes(posSelect.value)) {
+        posSelect.value = player.positions[0];
+        updateStatLabels(); // 換位置要切換打者/投手表頭
+    }
+
+    // 🌟 3. 反向連動：類型 (如果當前類型該球員沒有，強制切成他的第一個類型)
+    if (!player.types.includes(typeSelect.value)) {
+        typeSelect.value = player.types[0];
+        updateTopTableBonuses();
+        updateConditionAndGear();
+    }
+
+    // 🌟 4. 讀取數據 (包含 typeOverrides 覆寫判定)
+    let currentType = typeSelect.value;
+    let stats = player.basicStats;
+    let gi = player.gradeIncrease;
+
+    // 如果該球員在這個類型下有特殊數值，就覆蓋過去
+    if (player.typeOverrides && player.typeOverrides[currentType]) {
+        if (player.typeOverrides[currentType].basicStats) stats = player.typeOverrides[currentType].basicStats;
+        if (player.typeOverrides[currentType].gradeIncrease) gi = player.typeOverrides[currentType].gradeIncrease;
+    }
+
+    // 🌟 5. 填入下方表格
+    const basicInputs = statsTable.querySelectorAll('tbody tr')[0].querySelectorAll('input[type="number"]');
+    const giInputs = statsTable.querySelectorAll('tbody tr')[2].querySelectorAll('input[type="number"]');
+
+    for (let i = 0; i < 5; i++) {
+        basicInputs[i].value = stats[i] || 0;
+        giInputs[i].value = gi[i] || 0;
+    }
+
+    // 數據填完後，強制全場重新計算
+    forceRefreshAll();
+}
+
+// ==========================================
+// 🚀 啟動區
 // ==========================================
 document.addEventListener('DOMContentLoaded', async () => {
     
-    // 🌟 先等待 JSON 資料完全讀取並生成選單後，再做後續綁定
-    await loadTeams(); 
+    await loadAppData(); // 🌟 確保球隊與球員資料完全載入
     
-    initTableColors();   // 1. 先綁定所有耳朵 (Listeners)
-    forceRefreshAll();   // 2. 第一次畫面載入的強制刷新
+    initTableColors();   
+    forceRefreshAll();   
     
     setTimeout(forceRefreshAll, 150); 
 });
