@@ -182,6 +182,12 @@ function enforceMinMax(element) {
 
 // 負責判斷並派發給對應的顏色函數
 function applyColorRule(element, rule) {
+    // 如果元素帶有 no-color 標籤，則強制維持預設不變色並跳過
+    if (element.classList && element.classList.contains('no-color')) {
+        element.style.color = ''; 
+        return;
+    }
+    
     let valueText = element.value !== undefined ? element.value : element.innerText;
     let val = parseInt(valueText, 10);
 
