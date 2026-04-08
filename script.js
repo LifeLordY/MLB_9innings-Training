@@ -377,12 +377,11 @@ function updateChemistry() {
 
     if (chemSelect && chemSelect.value === 'none') {
         chemValue = 0;
+    } else if (chemSelect && chemSelect.value === 'legend') {
+        chemValue = 8;
     } else {
         const isPitcher = ['SP', 'RP', 'CP'].includes(posSelect.value);
         chemValue = isPitcher ? 6 : 7; 
-        if (chemSelect && chemSelect.value === 'legend') {
-            chemValue += 1;
-        }
     }
 
     const chemInputs = modal.querySelectorAll('tbody tr:nth-child(1) input[type="number"]');
