@@ -618,6 +618,7 @@ function initTableColors() {
                 }
             });
         });
+    
         // 同步 checkbox 狀態
         const checkboxes = container.querySelectorAll('input[type="checkbox"]');
         checkboxes.forEach(checkbox => {
@@ -632,75 +633,51 @@ function initTableColors() {
         const currentBgColor = window.getComputedStyle(container).backgroundColor;
         const originalMargin = container.style.margin;
         const originalTransform = container.style.transform;
-        const originalPosition = container.style.position;
-        const originalLeft = container.style.left;
-        const originalTop = container.style.top;
-        const originalZIndex = container.style.zIndex;
-        const originalWidth = container.style.width;
-        const originalMinWidth = container.style.minWidth;
     
-        // 3. 取得 container 的「自然寬度」（不受視窗限制）
-        //    先讓它脫離文件流，避免被視窗寬度壓縮
-        container.style.position = 'fixed';
-        container.style.left = '-9999px';
-        container.style.top = '0';
-        container.style.zIndex = '-1';
+        // 3. 截圖前將 margin 歸零
         container.style.margin = '0';
         container.style.transform = 'translate(0,0)';
-        container.style.minWidth = 'max-content'; // ← 關鍵：防止文字換行
     
-        // 等瀏覽器重新排版
-        await new Promise(r => setTimeout(r, 50));
-    
-        const naturalWidth = container.offsetWidth;
-        const naturalHeight = container.offsetHeight;
+        // 取得目前寬高（電腦上是正確值，手機上可能被壓縮）
+        const currentWidth = container.offsetWidth;
+        const currentHeight = container.offsetHeight;
+        console.log('container 實際寬:', currentWidth, '高:', currentHeight);
     
         const scale = 2;
         const param = {
-            height: naturalHeight * scale,
-            width: naturalWidth * scale,
+            height: currentHeight * scale,
+            width: currentWidth * scale,
             bgcolor: '#1f1f1f',
             style: {
                 transform: `scale(${scale})`,
                 transformOrigin: 'top left',
-                width: `${naturalWidth}px`,
-                height: `${naturalHeight}px`,
+                width: `${currentWidth}px`,
+                height: `${currentHeight}px`,
                 margin: '0',
                 borderRadius: '20px',
-                backgroundColor: currentBgColor
+                backgroundColor: currentBgColor,
+                whiteSpace: 'nowrap'  // ← 關鍵：防止截圖內部文字換行
             }
         };
+        console.log('截圖 param:', JSON.stringify(param));
     
         try {
             const blob = await domtoimage.toBlob(container, param);
-            
-            console.log('blob:', blob);          // ← 加這行
-            console.log('blob type:', blob?.type); // ← 加這行
-            console.log('blob size:', blob?.size); // ← 加這行
-        
+            console.log('blob:', blob, 'size:', blob?.size, 'type:', blob?.type);
+    
             if (blob) {
-                await navigator.clipboard.write([
-                    new ClipboardItem({
-                        [blob.type]: Promise.resolve(blob)
-                    })
-                ]);
-        
+                const data = [new ClipboardItem({ [blob.type]: blob })];
+                await navigator.clipboard.write(data);
+    
                 btn.innerText = '✅ 畫面截取成功！';
                 setTimeout(() => btn.innerText = '擷取畫面到剪貼簿', 2000);
             }
         } catch (error) {
             console.error('截圖失敗:', error);
-            alert('錯誤：' + error.name + '\n' + error.message);
+            alert('截圖失敗，請稍後再試');
         } finally {
-            // 4. 恢復所有原始樣式
             container.style.margin = originalMargin;
             container.style.transform = originalTransform;
-            container.style.position = originalPosition;
-            container.style.left = originalLeft;
-            container.style.top = originalTop;
-            container.style.zIndex = originalZIndex;
-            container.style.width = originalWidth;
-            container.style.minWidth = originalMinWidth;
         }
     });
 }
