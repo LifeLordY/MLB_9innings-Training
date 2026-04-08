@@ -358,6 +358,95 @@ function updateConditionAndGear() {
 }
 
 // ==========================================
+// 🛠️ 技能設定 (Modal) 專屬邏輯
+// ==========================================
+function updateChemistry() {
+    const posSelect = document.getElementById('position-select');
+    const modal = document.querySelector('.modal-overlay');
+    if (!posSelect || !modal) return;
+
+    // 判斷是否為投手 (SP, RP, CP)
+    const isPitcher = ['SP', 'RP', 'CP'].includes(posSelect.value);
+    let chemValue = isPitcher ? 6 : 7; // 打者預設7，投手預設6
+
+    // 檢查是否選中傳說 (legend)
+    const chemSelect = modal.querySelector('tbody tr:nth-child(1) select');
+    if (chemSelect && chemSelect.value === 'legend') {
+        chemValue += 1;
+    }
+
+    // 將數值填入默契這排的 5 個格子
+    const chemInputs = modal.querySelectorAll('tbody tr:nth-child(1) input[type="number"]');
+    chemInputs.forEach(input => {
+        input.value = chemValue;
+    });
+}
+
+function initModal() {
+    const modal = document.querySelector('.modal-overlay');
+    const mainStatsTable = document.querySelectorAll('.container > table')[1];
+    
+    // 取得主畫面「技能」那排的設定按鈕 (第 12 列，索引 11)
+    const openBtn = mainStatsTable.querySelectorAll('tbody tr')[11].querySelector('.setting-btn');
+    const cancelBtn = modal.querySelector('.cancel-btn');
+    const submitBtn = modal.querySelector('.submit-btn');
+
+    if (!openBtn || !modal) return;
+
+    // 1. 打開視窗
+    openBtn.addEventListener('click', () => {
+        modal.style.display = 'flex';
+        updateChemistry(); // 每次打開確保默契值是最新的
+    });
+
+    // 2. 關閉視窗 (取消)
+    cancelBtn.addEventListener('click', () => {
+        modal.style.display = 'none';
+        // 取消時不做任何事，保留裡面的數字，但不送出到主畫面
+    });
+
+    // 3. 完成並寫入主畫面
+    submitBtn.addEventListener('click', () => {
+        const skillRowMain = mainStatsTable.querySelectorAll('tbody tr')[11];
+        const skillInputsMain = skillRowMain.querySelectorAll('input[type="number"]');
+        const modalRows = modal.querySelectorAll('tbody tr');
+
+        // 逐欄將 5 個排(默契、技能123、其他) 加總
+        for (let col = 0; col < 5; col++) {
+            let colSum = 0;
+            modalRows.forEach(row => {
+                let val = parseInt(row.querySelectorAll('input[type="number"]')[col].value) || 0;
+                colSum += val;
+            });
+            // 寫入主畫面的技能欄
+            skillInputsMain[col].value = colSum;
+            applyColorRule(skillInputsMain[col], 'small'); 
+        }
+
+        calculateSubtotals(); // 觸發主畫面重新計算總和
+        modal.style.display = 'none'; // 關閉視窗
+    });
+
+    // 4. 默契選單連動 (一般/傳說切換)
+    const chemSelect = modal.querySelector('tbody tr:nth-child(1) select');
+    if (chemSelect) {
+        chemSelect.addEventListener('change', updateChemistry);
+    }
+
+    // 5. 歸零按鈕邏輯
+    const resetBtns = modal.querySelectorAll('.reset-row-btn');
+    resetBtns.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            const row = e.target.closest('tr');
+            const inputs = row.querySelectorAll('input[type="number"]');
+            inputs.forEach(input => {
+                input.value = 0; // 將該排清零
+            });
+        });
+    });
+}
+
+// ==========================================
 // ⚙️ 初始化與事件綁定 (Listener 註冊)
 // ==========================================
 
@@ -442,6 +531,7 @@ function initTableColors() {
                 updateTopTableBonuses();  // 判定上方三項加成
                 updateStatLabels();       // 判定打者/投手表頭
                 updateConditionAndGear(); // 判定裝備/狀態的 supreme 倍率
+                updateChemistry();        // 更新視窗內的默契
                 calculateSubtotals();     // 執行全面計算
             });
         }
@@ -462,6 +552,9 @@ function initTableColors() {
             }
         });
     }
+
+    // 🌟 6. 新增：啟動技能彈出視窗功能
+    initModal();
 }
 
 // 確保網頁載入完成後，啟動初始化器
