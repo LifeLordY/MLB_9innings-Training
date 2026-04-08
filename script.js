@@ -76,15 +76,26 @@ function calculateSubtotals() {
     }
 
     // --- D. 計算並寫入最右側的「值」欄位 ---
-    // (利用 .lastElementChild 屬性精準抓到該排的最後一格)
     
-    // 計算平均值 (總和除以 5，並使用 .toFixed(1) 強制保留小數點一位)
-    rows[0].lastElementChild.innerText = (rowTotals.base / 5).toFixed(1);
-    rows[4].lastElementChild.innerText = (rowTotals.sum1 / 5).toFixed(1);
-    rows[7].lastElementChild.innerText = (rowTotals.sum2 / 5).toFixed(1);
-    rows[12].lastElementChild.innerText = (rowTotals.sum3 / 5).toFixed(1);
+    // 1. 抓取需要計算平均值的格子
+    let avgCell0 = rows[0].lastElementChild;
+    let avgCell4 = rows[4].lastElementChild;
+    let avgCell7 = rows[7].lastElementChild;
+    let avgCell12 = rows[12].lastElementChild;
 
-    // 計算總和 (直接寫入累加結果)
+    // 寫入平均值 (保留小數點一位)
+    avgCell0.innerText = (rowTotals.base / 5).toFixed(1);
+    avgCell4.innerText = (rowTotals.sum1 / 5).toFixed(1);
+    avgCell7.innerText = (rowTotals.sum2 / 5).toFixed(1);
+    avgCell12.innerText = (rowTotals.sum3 / 5).toFixed(1);
+
+    // 🌟 為這四個平均值套用「大數字」顏色規則
+    applyColorRule(avgCell0, 'large');
+    applyColorRule(avgCell4, 'large');
+    applyColorRule(avgCell7, 'large');
+    applyColorRule(avgCell12, 'large');
+
+    // 2. 寫入總和 (不呼叫顏色函數，維持原本的白色)
     rows[2].lastElementChild.innerText = rowTotals.grade;
     rows[3].lastElementChild.innerText = rowTotals.upgrade;
     rows[5].lastElementChild.innerText = rowTotals.coach;
