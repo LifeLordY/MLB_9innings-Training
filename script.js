@@ -604,98 +604,99 @@ function initTableColors() {
 
     // 8. 截圖按鈕
     document.getElementById('copy-btn').addEventListener('click', async () => {
-    const container = document.getElementById('capture-container');
-    const btn = document.getElementById('copy-btn');
-
-    // 1. 同步 select 狀態
-    const selects = container.querySelectorAll('select');
-    selects.forEach(select => {
-        select.querySelectorAll('option').forEach(option => {
-            if (option.value === select.value) {
-                option.setAttribute('selected', 'selected');
+        const container = document.getElementById('capture-container');
+        const btn = document.getElementById('copy-btn');
+    
+        // 1. 同步 select 狀態
+        const selects = container.querySelectorAll('select');
+        selects.forEach(select => {
+            select.querySelectorAll('option').forEach(option => {
+                if (option.value === select.value) {
+                    option.setAttribute('selected', 'selected');
+                } else {
+                    option.removeAttribute('selected');
+                }
+            });
+        });
+        // 同步 checkbox 狀態
+        const checkboxes = container.querySelectorAll('input[type="checkbox"]');
+        checkboxes.forEach(checkbox => {
+            if (checkbox.checked) {
+                checkbox.setAttribute('checked', 'checked');
             } else {
-                option.removeAttribute('selected');
+                checkbox.removeAttribute('checked');
             }
         });
-    });
-    // 同步 checkbox 狀態
-    const checkboxes = container.querySelectorAll('input[type="checkbox"]');
-    checkboxes.forEach(checkbox => {
-        if (checkbox.checked) {
-            checkbox.setAttribute('checked', 'checked');
-        } else {
-            checkbox.removeAttribute('checked');
+    
+        // 2. 備份原始樣式
+        const currentBgColor = window.getComputedStyle(container).backgroundColor;
+        const originalMargin = container.style.margin;
+        const originalTransform = container.style.transform;
+        const originalPosition = container.style.position;
+        const originalLeft = container.style.left;
+        const originalTop = container.style.top;
+        const originalZIndex = container.style.zIndex;
+        const originalWidth = container.style.width;
+        const originalMinWidth = container.style.minWidth;
+    
+        // 3. 取得 container 的「自然寬度」（不受視窗限制）
+        //    先讓它脫離文件流，避免被視窗寬度壓縮
+        container.style.position = 'fixed';
+        container.style.left = '-9999px';
+        container.style.top = '0';
+        container.style.zIndex = '-1';
+        container.style.margin = '0';
+        container.style.transform = 'translate(0,0)';
+        container.style.minWidth = 'max-content'; // ← 關鍵：防止文字換行
+    
+        // 等瀏覽器重新排版
+        await new Promise(r => setTimeout(r, 50));
+    
+        const naturalWidth = container.offsetWidth;
+        const naturalHeight = container.offsetHeight;
+    
+        const scale = 2;
+        const param = {
+            height: naturalHeight * scale,
+            width: naturalWidth * scale,
+            bgcolor: '#1f1f1f',
+            style: {
+                transform: `scale(${scale})`,
+                transformOrigin: 'top left',
+                width: `${naturalWidth}px`,
+                height: `${naturalHeight}px`,
+                margin: '0',
+                borderRadius: '20px',
+                backgroundColor: currentBgColor
+            }
+        };
+    
+        try {
+            const blob = await domtoimage.toBlob(container, param);
+    
+            if (blob) {
+                await navigator.clipboard.write([
+                    new ClipboardItem({ [blob.type]: Promise.resolve(blob) })
+                ]);
+    
+                btn.innerText = '✅ 畫面截取成功！';
+                setTimeout(() => btn.innerText = '擷取畫面到剪貼簿', 2000);
+            }
+        } catch (error) {
+            console.error('截圖失敗:', error);
+            alert('截圖失敗，請稍後再試');
+        } finally {
+            // 4. 恢復所有原始樣式
+            container.style.margin = originalMargin;
+            container.style.transform = originalTransform;
+            container.style.position = originalPosition;
+            container.style.left = originalLeft;
+            container.style.top = originalTop;
+            container.style.zIndex = originalZIndex;
+            container.style.width = originalWidth;
+            container.style.minWidth = originalMinWidth;
         }
     });
-
-    // 2. 備份原始樣式
-    const currentBgColor = window.getComputedStyle(container).backgroundColor;
-    const originalMargin = container.style.margin;
-    const originalTransform = container.style.transform;
-    const originalPosition = container.style.position;
-    const originalLeft = container.style.left;
-    const originalTop = container.style.top;
-    const originalZIndex = container.style.zIndex;
-    const originalWidth = container.style.width;
-    const originalMinWidth = container.style.minWidth;
-
-    // 3. 取得 container 的「自然寬度」（不受視窗限制）
-    //    先讓它脫離文件流，避免被視窗寬度壓縮
-    container.style.position = 'fixed';
-    container.style.left = '-9999px';
-    container.style.top = '0';
-    container.style.zIndex = '-1';
-    container.style.margin = '0';
-    container.style.transform = 'translate(0,0)';
-    container.style.minWidth = 'max-content'; // ← 關鍵：防止文字換行
-
-    // 等瀏覽器重新排版
-    await new Promise(r => setTimeout(r, 50));
-
-    const naturalWidth = container.offsetWidth;
-    const naturalHeight = container.offsetHeight;
-
-    const scale = 2;
-    const param = {
-        height: naturalHeight * scale,
-        width: naturalWidth * scale,
-        bgcolor: '#1f1f1f',
-        style: {
-            transform: `scale(${scale})`,
-            transformOrigin: 'top left',
-            width: `${naturalWidth}px`,
-            height: `${naturalHeight}px`,
-            margin: '0',
-            borderRadius: '20px',
-            backgroundColor: currentBgColor
-        }
-    };
-
-    try {
-        const blob = await domtoimage.toBlob(container, param);
-
-        if (blob) {
-            const data = [new ClipboardItem({ [blob.type]: blob })];
-            await navigator.clipboard.write(data);
-
-            btn.innerText = '✅ 畫面截取成功！';
-            setTimeout(() => btn.innerText = '擷取畫面到剪貼簿', 2000);
-        }
-    } catch (error) {
-        console.error('截圖失敗:', error);
-        alert('截圖失敗，請稍後再試');
-    } finally {
-        // 4. 恢復所有原始樣式
-        container.style.margin = originalMargin;
-        container.style.transform = originalTransform;
-        container.style.position = originalPosition;
-        container.style.left = originalLeft;
-        container.style.top = originalTop;
-        container.style.zIndex = originalZIndex;
-        container.style.width = originalWidth;
-        container.style.minWidth = originalMinWidth;
-    }
-});
 }
 
 // ==========================================
