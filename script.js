@@ -26,6 +26,27 @@ function updateStatLabels() {
 }
 
 // ==========================================
+// 🎨 新增：動態切換表頭與總結列的背景顏色
+// ==========================================
+function updateHeaderColor() {
+    const topTable = document.querySelectorAll('.container > table')[0];
+    if (!topTable) return;
+    
+    // 抓取階級選單
+    const gradeSelect = topTable.querySelectorAll('select')[0];
+    
+    // 同時抓取所有表頭 (th) 以及三個總計列 (.summary-row td)
+    const themeElements = document.querySelectorAll('.container table th, .summary-row td');
+
+    // 判斷是否為白金 (diamond)
+    if (gradeSelect.value === 'diamond') {
+        themeElements.forEach(el => el.style.backgroundColor = '#007fff'); // 變成亮藍色
+    } else {
+        themeElements.forEach(el => el.style.backgroundColor = ''); // 清除設定，恢復 CSS 預設的深藍色 (#00001f)
+    }
+}
+
+// ==========================================
 // 🧮 自動連動計算邏輯 (新增特別訓練自動分配)
 // ==========================================
 function calculateSubtotals() {
@@ -500,6 +521,7 @@ function initTableColors() {
     updateTopTableBonuses();
     updateStatLabels();       // 載入表頭
     updateConditionAndGear(); // 載入狀態與裝備
+    updateHeaderColor();      // 載入表頭顏色
     calculateSubtotals();     // 最後計算總和
 
     // 2. 綁定下方表格的顏色與計算
@@ -540,7 +562,10 @@ function initTableColors() {
     
     topTableElements.forEach(el => {
         el.addEventListener('change', () => {
-            if (el === gradeSelect) updateTopTableBonuses();
+            if (el === gradeSelect) {
+                updateTopTableBonuses();
+                updateHeaderColor();
+            }
             
             enforceMinMax(el); 
             calculateSubtotals(); 
