@@ -673,18 +673,24 @@ function initTableColors() {
     
         try {
             const blob = await domtoimage.toBlob(container, param);
-    
+            
+            console.log('blob:', blob);          // ← 加這行
+            console.log('blob type:', blob?.type); // ← 加這行
+            console.log('blob size:', blob?.size); // ← 加這行
+        
             if (blob) {
                 await navigator.clipboard.write([
-                    new ClipboardItem({ [blob.type]: Promise.resolve(blob) })
+                    new ClipboardItem({
+                        [blob.type]: Promise.resolve(blob)
+                    })
                 ]);
-    
+        
                 btn.innerText = '✅ 畫面截取成功！';
                 setTimeout(() => btn.innerText = '擷取畫面到剪貼簿', 2000);
             }
         } catch (error) {
             console.error('截圖失敗:', error);
-            alert('截圖失敗，請稍後再試');
+            alert('錯誤：' + error.name + '\n' + error.message);
         } finally {
             // 4. 恢復所有原始樣式
             container.style.margin = originalMargin;
