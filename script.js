@@ -601,6 +601,41 @@ function initTableColors() {
             cb.addEventListener('change', calculateSubtotals);
         }
     });
+
+    // 8. 截圖按鈕
+    document.getElementById('copy-btn').addEventListener('click', async () => {
+        const container = document.getElementById('capture-container');
+        const btn = document.getElementById('copy-btn');
+    
+        try {
+            // 1. 將 HTML 轉換為 Canvas
+            const canvas = await html2canvas(container);
+    
+            // 2. 將 Canvas 轉換為 Blob (圖片檔案格式)
+            canvas.toBlob(async (blob) => {
+                if (!blob) {
+                    alert('圖片產生失敗');
+                    return;
+                }
+    
+                // 3. 使用 Clipboard API 寫入剪貼簿
+                try {
+                    const data = [new ClipboardItem({ [blob.type]: blob })];
+                    await navigator.clipboard.write(data);
+                    
+                    // 成功回饋
+                    btn.innerText = '✅ 已複製到剪貼簿！';
+                    setTimeout(() => btn.innerText = '擷取畫面到剪貼簿', 2000);
+                } catch (err) {
+                    console.error('剪貼簿寫入失敗:', err);
+                    alert('無法寫入剪貼簿，請確保瀏覽器權限已開啟。');
+                }
+            }, 'image/png');
+    
+        } catch (error) {
+            console.error('截圖過程中出錯:', error);
+        }
+    });
 }
 
 // ==========================================
