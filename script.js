@@ -40,7 +40,7 @@ function updateHeaderColor() {
 
     // 判斷是否為白金 (diamond)
     if (gradeSelect.value === 'diamond') {
-        themeElements.forEach(el => el.style.backgroundColor = '#007fff'); // 變成亮藍色
+        themeElements.forEach(el => el.style.backgroundColor = '#003f7f'); // 變成亮藍色
     } else {
         themeElements.forEach(el => el.style.backgroundColor = ''); // 清除設定，恢復 CSS 預設的深藍色 (#00001f)
     }
