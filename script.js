@@ -1,5 +1,5 @@
 // ==========================================
-// 🧮 自動連動計算邏輯 (核心計算引擎)
+// 🧮 自動連動計算邏輯 (新增特別訓練自動分配)
 // ==========================================
 function calculateSubtotals() {
     const tables = document.querySelectorAll('.container > table');
@@ -11,29 +11,78 @@ function calculateSubtotals() {
     // --- A. 抓取上方表格的全域加成 ---
     const topRow = topTable.querySelector('tbody tr');
     
-    const mentor = parseInt(topRow.querySelectorAll('select')[2].value) || 0;       // 指導球員
-    const blackDiamond = parseInt(topRow.querySelectorAll('input[type="number"]')[0].value) || 0; // 黑鑽
-    const setDeck = parseInt(topRow.querySelectorAll('input[type="number"]')[1].value) || 0;      // 團隊加成
+    const mentor = parseInt(topRow.querySelectorAll('select')[2].value) || 0;       
+    const blackDiamond = parseInt(topRow.querySelectorAll('input[type="number"]')[0].value) || 0; 
+    const setDeck = parseInt(topRow.querySelectorAll('input[type="number"]')[1].value) || 0;      
     
     const globalBonus = mentor + blackDiamond + setDeck;
 
     // --- B. 準備記錄各橫排的 5 項數值總和 ---
     let rowTotals = {
-        basicStats: 0,      // 基本能力值
-        gradeIncrease: 0,   // 階級上升量
-        development: 0,     // 強化量
-        sum1: 0,            // 基本+階級+強化 (小計1)
-        trainer: 0,         // 教練
-        sum2: 0,            // 一般陣容能力值 (小計2)
-        sum3: 0             // 最高登板能力值 (總計)
+        basicStats: 0,      
+        gradeIncrease: 0,   
+        development: 0,     
+        sum1: 0,            
+        trainer: 0,         
+        sum2: 0,            
+        sum3: 0             
     };
 
-    // --- C. 抓取下方表格並逐欄計算 (接觸, 力量, 選球, 速度, 守備) ---
     const rows = statsTable.querySelectorAll('tbody tr');
+
+    // ==============================================================
+    // 🌟 新增：B.5 計算特別訓練自動分配
+    // ==============================================================
     
+    // 1. 定義特別訓練等級對應的加成陣列 [第一名, 第二名, 第三名]
+    const stBonuses = {
+        10: [12, 10, 4],  9: [12, 10, 4],
+         8: [10, 8, 2],
+         7: [8, 6, 0],    6: [8, 6, 0],
+         5: [6, 4, 0],
+         4: [6, 2, 0],
+         3: [4, 2, 0],
+         2: [4, 0, 0],
+         1: [2, 0, 0],
+         0: [0, 0, 0]
+    };
+
+    // 2. 抓取目前選定的特別訓練等級
+    let stLevel = parseInt(rows[5].querySelector('select').value) || 0;
+    let currentBonus = stBonuses[stLevel] || [0, 0, 0];
+
+    // 3. 收集五個屬性的 [索引, 強化量, 基本能力值] 來準備排名
+    let rankData = [];
+    for (let i = 0; i < 5; i++) {
+        let base = parseInt(rows[0].querySelectorAll('input[type="number"]')[i].value) || 0;
+        let dev = parseInt(rows[3].querySelectorAll('input[type="number"]')[i].value) || 0;
+        rankData.push({ index: i, base: base, dev: dev });
+    }
+
+    // 4. 排序規則：強化量 > 基本能力值 > 左側優先(index小)
+    rankData.sort((a, b) => {
+        if (b.dev !== a.dev) return b.dev - a.dev;     // 條件 1：強化量高優先
+        if (b.base !== a.base) return b.base - a.base; // 條件 2：強化量同，基本高優先
+        return a.index - b.index;                      // 條件 3：都同，左側優先
+    });
+
+    // 5. 將對應的獎勵發放到對應的索引中，並強制寫回「特別訓練」的輸入框
+    let finalStValues = [0, 0, 0, 0, 0];
+    finalStValues[rankData[0].index] = currentBonus[0]; // 第一名
+    finalStValues[rankData[1].index] = currentBonus[1]; // 第二名
+    finalStValues[rankData[2].index] = currentBonus[2]; // 第三名
+
+    let stInputs = rows[5].querySelectorAll('input[type="number"]');
+    for (let i = 0; i < 5; i++) {
+        stInputs[i].value = finalStValues[i];
+        applyColorRule(stInputs[i], 'small'); // 寫入後馬上套用小數字顏色
+    }
+    // ==============================================================
+
+    // --- C. 抓取下方表格並逐欄計算 (接觸, 力量, 選球, 速度, 守備) ---
     for (let col = 0; col < 5; col++) {
         
-        // 🌟 1. 計算 [基本+階級+強化]
+        // 1. 計算 [基本+階級+強化]
         let basicStats = parseInt(rows[0].querySelectorAll('input[type="number"]')[col].value) || 0;
         let adjustment = parseInt(rows[1].querySelectorAll('input[type="number"]')[col].value) || 0;
         let gradeIncrease = parseInt(rows[2].querySelectorAll('input[type="number"]')[col].value) || 0;
@@ -41,37 +90,33 @@ function calculateSubtotals() {
         
         let sum1 = basicStats + adjustment + gradeIncrease + development;
         
-        // 寫入第 4 列 (基本+階級+強化) 並上色
         let targetCell1 = rows[4].querySelectorAll('td')[col + 1];
         targetCell1.innerText = sum1;
         applyColorRule(targetCell1, 'large');
 
-        // 🌟 2. 計算 [一般陣容能力值]
-        // 注意：第5列為「特別訓練」，第6列為「教練」(根據最新 HTML 排版)
+        // 2. 計算 [一般陣容能力值]
+        // 這裡的 specialTraining 直接讀取我們剛剛自動分配好並寫入的數值
         let specialTraining = parseInt(rows[5].querySelectorAll('input[type="number"]')[col].value) || 0;
         let trainer = parseInt(rows[6].querySelectorAll('input[type="number"]')[col].value) || 0;
         
         let sum2 = sum1 + specialTraining + trainer + globalBonus;
         
-        // 寫入第 7 列 (一般陣容能力值) 並上色
         let targetCell2 = rows[7].querySelectorAll('td')[col + 1];
         targetCell2.innerText = sum2;
         applyColorRule(targetCell2, 'large');
 
-        // 🌟 3. 計算 [最高登板能力值]
-        // 注意：第8列為隱形空隙(spacer-row)，故從第9列開始
+        // 3. 計算 [最高登板能力值]
         let condition = parseInt(rows[9].querySelectorAll('input[type="number"]')[col].value) || 0;
         let gear = parseInt(rows[10].querySelectorAll('input[type="number"]')[col].value) || 0;
         let skill = parseInt(rows[11].querySelectorAll('input[type="number"]')[col].value) || 0;
 
         let sum3 = sum2 + condition + gear + skill;
 
-        // 寫入第 12 列 (最高登板能力值) 並上色
         let targetCell3 = rows[12].querySelectorAll('td')[col + 1];
         targetCell3.innerText = sum3;
         applyColorRule(targetCell3, 'large');
 
-        // 🌟 4. 將每一欄的數據累加到 rowTotals 記錄本中，作為最後計算最右欄使用
+        // 4. 累加到 rowTotals
         rowTotals.basicStats += basicStats;
         rowTotals.gradeIncrease += gradeIncrease;
         rowTotals.development += development;
@@ -82,28 +127,24 @@ function calculateSubtotals() {
     }
 
     // --- D. 計算並寫入最右側的「值」欄位 ---
-    
-    // 1. 計算並寫入平均值 (保留小數點一位)
-    let avgCell0 = rows[0].lastElementChild;  // 基本能力值
-    let avgCell4 = rows[4].lastElementChild;  // 基本+階級+強化
-    let avgCell7 = rows[7].lastElementChild;  // 一般陣容能力值
-    let avgCell12 = rows[12].lastElementChild; // 最高登板能力值
+    let avgCell0 = rows[0].lastElementChild;  
+    let avgCell4 = rows[4].lastElementChild;  
+    let avgCell7 = rows[7].lastElementChild;  
+    let avgCell12 = rows[12].lastElementChild; 
 
     avgCell0.innerText = (rowTotals.basicStats / 5).toFixed(1);
     avgCell4.innerText = (rowTotals.sum1 / 5).toFixed(1);
     avgCell7.innerText = (rowTotals.sum2 / 5).toFixed(1);
     avgCell12.innerText = (rowTotals.sum3 / 5).toFixed(1);
 
-    // 套用「大數字」顏色規則
     applyColorRule(avgCell0, 'large');
     applyColorRule(avgCell4, 'large');
     applyColorRule(avgCell7, 'large');
     applyColorRule(avgCell12, 'large');
 
-    // 2. 寫入總和 (不呼叫顏色函數，維持預設白色)
-    rows[2].lastElementChild.innerText = rowTotals.gradeIncrease; // 階級上升量
-    rows[3].lastElementChild.innerText = rowTotals.development;   // 強化量
-    rows[6].lastElementChild.innerText = rowTotals.trainer;       // 教練 (已修正為第 6 列)
+    rows[2].lastElementChild.innerText = rowTotals.gradeIncrease; 
+    rows[3].lastElementChild.innerText = rowTotals.development;   
+    rows[6].lastElementChild.innerText = rowTotals.trainer;       
 }
 
 // ==========================================
