@@ -1,35 +1,63 @@
 // ==========================================
-// 🧮 新增：自動連動計算邏輯
+// 🧮 自動連動計算邏輯 (最終完整版)
 // ==========================================
 function calculateSubtotals() {
-    // 精準抓取主畫面中的「第二個表格」(能力值表格)
-    const statsTable = document.querySelectorAll('.container > table')[1];
-    if (!statsTable) return;
+    const tables = document.querySelectorAll('.container > table');
+    if (tables.length < 2) return;
     
-    // 抓出表格裡所有的橫排
+    const topTable = tables[0];
+    const statsTable = tables[1];
+    
+    // --- A. 抓取上方表格的全域加成 ---
+    const topRow = topTable.querySelector('tbody tr');
+    const mentor = parseInt(topRow.querySelectorAll('select')[2].value) || 0;
+    const blackDiamond = parseInt(topRow.querySelectorAll('input[type="number"]')[0].value) || 0;
+    const teamDeck = parseInt(topRow.querySelectorAll('input[type="number"]')[1].value) || 0;
+    
+    const globalBonus = mentor + blackDiamond + teamDeck;
+
+    // --- B. 抓取下方表格並逐欄計算 ---
     const rows = statsTable.querySelectorAll('tbody tr');
     
-    // 迴圈跑 5 次，分別計算 5 個能力值：接觸(0), 力量(1), 選球(2), 速度(3), 守備(4)
     for (let col = 0; col < 5; col++) {
-        // 從第 0(基本), 1(校正), 2(階級), 3(強化) 列抓出對應欄位的數值
-        // 使用 || 0 是為了防止使用者把格子清空時出現 NaN 錯誤，空值會當作 0 計算
+        
+        // 🌟 1. 計算 [基本+階級+強化]
         let base = parseInt(rows[0].querySelectorAll('input[type="number"]')[col].value) || 0;
         let correction = parseInt(rows[1].querySelectorAll('input[type="number"]')[col].value) || 0;
         let grade = parseInt(rows[2].querySelectorAll('input[type="number"]')[col].value) || 0;
         let upgrade = parseInt(rows[3].querySelectorAll('input[type="number"]')[col].value) || 0;
         
-        // 依照你的公式計算總和
-        let sum = base + correction + grade + upgrade;
+        let sum1 = base + correction + grade + upgrade;
         
-        // 目標寫入位置是第 4 列 (基本+階級+強化)
-        // 因為該列的第一格是合併儲存格 (colspan="2")，所以數值格子是從索引 [col + 1] 開始
-        let targetCell = rows[4].querySelectorAll('td')[col + 1];
+        // 寫入第 4 列並上色
+        let targetCell1 = rows[4].querySelectorAll('td')[col + 1];
+        targetCell1.innerText = sum1;
+        applyColorRule(targetCell1, 'large');
+
+        // 🌟 2. 計算 [一般陣容能力值]
+        let coach = parseInt(rows[5].querySelectorAll('input[type="number"]')[col].value) || 0;
+        let specialTrain = parseInt(rows[6].querySelectorAll('input[type="number"]')[col].value) || 0;
         
-        // 寫入計算結果
-        targetCell.innerText = sum;
+        let sum2 = sum1 + coach + specialTrain + globalBonus;
         
-        // 🌟 關鍵：寫入新數字後，立刻強制它根據「大數字(large)」規則重新上色！
-        applyColorRule(targetCell, 'large');
+        // 寫入第 7 列並上色
+        let targetCell2 = rows[7].querySelectorAll('td')[col + 1];
+        targetCell2.innerText = sum2;
+        applyColorRule(targetCell2, 'large');
+
+        // 🌟 3. 計算 [最高登板能力值] (新增)
+        // 注意：第 8 列 (rows[8]) 是隱形的 spacer-row，所以狀態從 9 開始
+        let condition = parseInt(rows[9].querySelectorAll('input[type="number"]')[col].value) || 0;
+        let equipment = parseInt(rows[10].querySelectorAll('input[type="number"]')[col].value) || 0;
+        let skill = parseInt(rows[11].querySelectorAll('input[type="number"]')[col].value) || 0;
+
+        let sum3 = sum2 + condition + equipment + skill;
+
+        // 寫入第 12 列 (最高登板能力值) 並上色
+        // 因為開頭一樣是 <td colspan="2">，所以索引也是 col + 1
+        let targetCell3 = rows[12].querySelectorAll('td')[col + 1];
+        targetCell3.innerText = sum3;
+        applyColorRule(targetCell3, 'large');
     }
 }
 
@@ -138,12 +166,15 @@ function applyColorRule(element, rule) {
     else if (rule === 'posneg') updateNumberColor3(element, val);
 }
 
-// 尋找表格並綁定事件 (更新版)
+// ==========================================
+// 🎨 初始化與綁定事件 (更新版：將上方表格也納入監聽)
+// ==========================================
 function initTableColors() {
-    const rows = document.querySelectorAll('tr.rule-large, tr.rule-small, tr.rule-posneg');
-
-    // 🌟 啟動 1：網頁剛載入時，先執行一次全面計算，確保初始數值正確
+    // 網頁剛載入時，先執行一次全面計算
     calculateSubtotals();
+
+    // --- 綁定下方表格的顏色與計算 ---
+    const rows = document.querySelectorAll('tr.rule-large, tr.rule-small, tr.rule-posneg');
 
     rows.forEach(row => {
         let rule = '';
@@ -159,23 +190,33 @@ function initTableColors() {
             if (el.tagName === 'TD' && el.querySelector('input, select, button')) return;
             if (el.tagName === 'TD' && el.hasAttribute('colspan')) return;
 
-            // 初始化上色
             applyColorRule(el, rule);
 
-            // 綁定監聽器
             if (el.tagName === 'INPUT' || el.tagName === 'SELECT') {
-                
                 el.addEventListener('change', () => {
                     enforceMinMax(el);       
                     applyColorRule(el, rule); 
-                    calculateSubtotals(); // 🌟 啟動 2：數值確認改變時，觸發連動計算
+                    calculateSubtotals(); 
                 });
-
                 el.addEventListener('input', () => {
                     applyColorRule(el, rule); 
-                    calculateSubtotals(); // 🌟 啟動 3：打字瞬間也即時觸發連動計算
+                    calculateSubtotals(); 
                 });
             }
+        });
+    });
+
+    // --- 🌟 新增：綁定上方表格的輸入框與選單 ---
+    // 讓黑鑽、團隊加成、指導球員等選項改變時，也能瞬間觸發重新計算！
+    const topTableElements = document.querySelectorAll('.container > table:first-of-type input[type="number"], .container > table:first-of-type select');
+    
+    topTableElements.forEach(el => {
+        el.addEventListener('change', () => {
+            enforceMinMax(el); // 讓上方表格的輸入框也能防止輸入負數
+            calculateSubtotals(); // 改變數值後觸發全面計算
+        });
+        el.addEventListener('input', () => {
+            calculateSubtotals(); // 打字瞬間即時計算
         });
     });
 }
