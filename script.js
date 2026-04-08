@@ -606,104 +606,62 @@ function initTableColors() {
     document.getElementById('copy-btn').addEventListener('click', async () => {
         const container = document.getElementById('capture-container');
         const btn = document.getElementById('copy-btn');
-    
-        // --- 1. 同步與備份狀態 ---
         
-        // 同步 Select 狀態
+        // 1. 同步 select 狀態 ---
         container.querySelectorAll('select').forEach(select => {
             select.querySelectorAll('option').forEach(option => {
                 option.value === select.value ? option.setAttribute('selected', 'selected') : option.removeAttribute('selected');
             });
         });
-    
         // 同步 Checkbox 狀態
         container.querySelectorAll('input[type="checkbox"]').forEach(cb => {
             cb.checked ? cb.setAttribute('checked', 'checked') : cb.removeAttribute('checked');
         });
-    
-        // 處理多個表格：將所有表格的 col 百分比轉為實體 px
-        const allTables = container.querySelectorAll('table');
-        const tableBackup = []; // 用於備份多個表格的原始樣式
-    
-        allTables.forEach((table, tIndex) => {
-            // 備份當前表格樣式
-            tableBackup.push({
-                element: table,
-                originalLayout: table.style.tableLayout,
-                cols: []
-            });
-    
-            // 強制鎖定表格佈局
-            table.style.tableLayout = 'fixed';
-    
-            // 針對該表格內的每一列進行寬度固化
-            const cols = table.querySelectorAll('col');
-            cols.forEach((col, cIndex) => {
-                // 抓取該欄位第一列的單元格來取得真實寬度
-                const sampleCell = table.querySelector(`tr > *:nth-child(${cIndex + 1})`);
-                if (sampleCell) {
-                    const pixelWidth = sampleCell.getBoundingClientRect().width;
-                    tableBackup[tIndex].cols.push({ element: col, originalWidth: col.style.width });
-                    col.style.width = pixelWidth + 'px'; // 轉為定值
-                }
-            });
-        });
-    
-        // 備份 Container 樣式
+        
+        // 2. 備份原始樣式，防止畫面跳動
         const currentBgColor = window.getComputedStyle(container).backgroundColor;
         const originalMargin = container.style.margin;
         const originalTransform = container.style.transform;
-        const originalMinWidth = container.style.minWidth;
     
-        // --- 2. 截圖前環境設置 ---
-        
+        // 3. 截圖前將 margin 歸零，確保座標從 (0,0) 開始
         container.style.margin = '0';
         container.style.transform = 'translate(0,0)';
-        // 關鍵：鎖定最小寬度，防止手機版寬度縮水
-        container.style.minWidth = container.offsetWidth + 'px';
     
-        const scale = 2;
+        const scale = 2; 
         const param = {
+            // 使用 getBoundingClientRect 取得精確的寬高（包含小數點）
             height: container.offsetHeight * scale,
             width: container.offsetWidth * scale,
-            bgcolor: '#1f1f1f', // 這裡的 bgcolor 是底色，會被 container 的 backgroundColor 覆蓋
+            bgcolor: '#1f1f1f',
             style: {
-                transform: `scale(${scale})`,
+                transform: 'scale(${scale})',
                 transformOrigin: 'top left',
-                width: `${container.offsetWidth}px`,
-                height: `${container.offsetHeight}px`,
-                margin: '0',
+                width: '${container.offsetWidth}px',
+                height: '${container.offsetHeight}px',
+                margin: '0', // 強制 SVG 內部的 margin 也是 0
                 borderRadius: '20px',
                 backgroundColor: currentBgColor
             }
         };
     
         try {
+            // 開始截圖
             const blob = await domtoimage.toBlob(container, param);
-    
+            
             if (blob) {
                 const data = [new ClipboardItem({ [blob.type]: blob })];
                 await navigator.clipboard.write(data);
+                
                 btn.innerText = '✅ 畫面截取成功！';
                 setTimeout(() => btn.innerText = '擷取畫面到剪貼簿', 2000);
             }
         } catch (error) {
             console.error('截圖失敗:', error);
-            alert('截圖失敗，建議在更穩定的網路上嘗試');
+            alert('截圖失敗，請稍後再試');
         } finally {
-            // --- 3. 恢復所有原始狀態 ---
-            
+            // 4. 無論成功或失敗，都恢復原始樣式，使用者完全感覺不到變化
             container.style.margin = originalMargin;
             container.style.transform = originalTransform;
-            container.style.minWidth = originalMinWidth;
-    
-            // 恢復每個表格的寬度與佈局
-            tableBackup.forEach(item => {
-                item.element.style.tableLayout = item.originalLayout;
-                item.cols.forEach(colItem => {
-                    colItem.element.style.width = colItem.originalWidth;
-                });
-            });
         }
     });
 }
