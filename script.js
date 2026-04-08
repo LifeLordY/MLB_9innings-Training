@@ -277,46 +277,65 @@ function calculateSubtotals() {
     for (let col = 0; col < 5; col++) {
         const adjActive = rows[1].querySelector('input[type="checkbox"]').checked;
         const devActive = rows[3].querySelector('input[type="checkbox"]').checked;
+        const stActive = rows[5].querySelector('input[type="checkbox"]').checked; 
         const trainerActive = rows[6].querySelector('input[type="checkbox"]').checked;
         const condActive = rows[9].querySelector('input[type="checkbox"]').checked;
         const gearActive = rows[10].querySelector('input[type="checkbox"]').checked;
         const skillActive = rows[11].querySelector('input[type="checkbox"]').checked;
 
-        // 1. 計算 [基本+階級+強化]
+        // 🌟 1. 計算 [基本+階級+強化]
+        // 先抓出「原始數值 (raw)」用來計算最右邊的總和，再乘上勾選狀態用來計算下方的大總和
         let basicStats = parseInt(rows[0].querySelectorAll('input[type="number"]')[col].value) || 0;
-        let adjustment = (parseInt(rows[1].querySelectorAll('input[type="number"]')[col].value) || 0) * (adjActive ? 1 : 0);
-        let gradeIncrease = parseInt(rows[2].querySelectorAll('input[type="number"]')[col].value) || 0;
-        let development = (parseInt(rows[3].querySelectorAll('input[type="number"]')[col].value) || 0) * (devActive ? 1 : 0);
+        
+        let rawAdjustment = parseInt(rows[1].querySelectorAll('input[type="number"]')[col].value) || 0;
+        let adjustment = rawAdjustment * (adjActive ? 1 : 0);
+        
+        let rawGradeIncrease = parseInt(rows[2].querySelectorAll('input[type="number"]')[col].value) || 0;
+        let gradeIncrease = rawGradeIncrease; 
+        
+        let rawDevelopment = parseInt(rows[3].querySelectorAll('input[type="number"]')[col].value) || 0;
+        let development = rawDevelopment * (devActive ? 1 : 0);
         
         let sum1 = basicStats + adjustment + gradeIncrease + development;
         let targetCell1 = rows[4].querySelectorAll('td')[col + 1];
         targetCell1.innerText = sum1;
         applyColorRule(targetCell1, 'large');
 
-        // 2. 計算 [一般陣容能力值]
-        let specialTraining = (parseInt(rows[5].querySelectorAll('input[type="number"]')[col].value) || 0) * (trainerActive ? 1 : 0);
-        let trainer = (parseInt(rows[6].querySelectorAll('input[type="number"]')[col].value) || 0) * (trainerActive ? 1 : 0);
+        // 🌟 2. 計算 [一般陣容能力值]
+        let rawSpecialTraining = parseInt(rows[5].querySelectorAll('input[type="number"]')[col].value) || 0;
+        let specialTraining = rawSpecialTraining * (stActive ? 1 : 0);
+        
+        let rawTrainer = parseInt(rows[6].querySelectorAll('input[type="number"]')[col].value) || 0;
+        let trainer = rawTrainer * (trainerActive ? 1 : 0);
         
         let sum2 = sum1 + specialTraining + trainer + globalBonus;
         let targetCell2 = rows[7].querySelectorAll('td')[col + 1];
         targetCell2.innerText = sum2;
         applyColorRule(targetCell2, 'large');
 
-        // 3. 計算 [最高登板能力值]
-        let condition = (parseInt(rows[9].querySelectorAll('input[type="number"]')[col].value) || 0) * (condActive ? 1 : 0);
-        let gear = (parseInt(rows[10].querySelectorAll('input[type="number"]')[col].value) || 0) * (gearActive ? 1 : 0);
-        let skill = (parseInt(rows[11].querySelectorAll('input[type="number"]')[col].value) || 0) * (skillActive ? 1 : 0);
+        // 🌟 3. 計算 [最高登板能力值]
+        let rawCondition = parseInt(rows[9].querySelectorAll('input[type="number"]')[col].value) || 0;
+        let condition = rawCondition * (condActive ? 1 : 0);
+        
+        let rawGear = parseInt(rows[10].querySelectorAll('input[type="number"]')[col].value) || 0;
+        let gear = rawGear * (gearActive ? 1 : 0);
+        
+        let rawSkill = parseInt(rows[11].querySelectorAll('input[type="number"]')[col].value) || 0;
+        let skill = rawSkill * (skillActive ? 1 : 0);
 
         let sum3 = sum2 + condition + gear + skill;
         let targetCell3 = rows[12].querySelectorAll('td')[col + 1];
         targetCell3.innerText = sum3;
         applyColorRule(targetCell3, 'large');
 
+        // 🌟 4. 累加到 rowTotals (最右側的「值」)
+        // 注意：這裡我們改用 raw 開頭的原始變數！
+        // 這樣就算沒勾選(乘出來是0)，最右邊的值還是會老老實實地幫你加總原始數字。
         rowTotals.basicStats += basicStats;
-        rowTotals.gradeIncrease += gradeIncrease;
-        rowTotals.development += development;
-        rowTotals.sum1 += sum1;
-        rowTotals.trainer += trainer;
+        rowTotals.gradeIncrease += rawGradeIncrease;
+        rowTotals.development += rawDevelopment;
+        rowTotals.sum1 += sum1; 
+        rowTotals.trainer += rawTrainer;
         rowTotals.sum2 += sum2;
         rowTotals.sum3 += sum3;
     }
