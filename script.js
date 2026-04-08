@@ -609,7 +609,12 @@ function initTableColors() {
     
         try {
             // 1. 將 HTML 轉換為 Canvas
-            const canvas = await html2canvas(container);
+            const canvas = await html2canvas(container, {
+                scale: 2, 
+                useCORS: true, // 順便開啟跨域支援，減少圖片抓不到的問題
+                logging: false, // 關閉日誌以提升效能
+                backgroundColor: null // 確保背景透明度（如果容器有圓角）
+            });
     
             // 2. 將 Canvas 轉換為 Blob (圖片檔案格式)
             canvas.toBlob(async (blob) => {
