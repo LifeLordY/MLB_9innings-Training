@@ -294,7 +294,7 @@ function calculateSubtotals() {
         applyColorRule(targetCell1, 'large');
 
         // 2. 計算 [一般陣容能力值]
-        let specialTraining = parseInt(rows[5].querySelectorAll('input[type="number"]')[col].value) || 0;
+        let specialTraining = (parseInt(rows[5].querySelectorAll('input[type="number"]')[col].value) || 0) * (trainerActive ? 1 : 0);
         let trainer = (parseInt(rows[6].querySelectorAll('input[type="number"]')[col].value) || 0) * (trainerActive ? 1 : 0);
         
         let sum2 = sum1 + specialTraining + trainer + globalBonus;
