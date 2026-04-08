@@ -1,0 +1,3719 @@
+[
+  {
+    "name": "LOU GEHRIG",
+    "team": "NYY",
+    "positions": ["1B"],
+    "basicStats": [87, 84, 87, 64, 70],
+    "gradeIncrease": [19, 17, 19, 9, 11],
+    "types": ["supreme"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "MICKEY MANTLE",
+    "team": "NYY",
+    "positions": ["OF"],
+    "basicStats": [80, 89, 88, 64, 70],
+    "gradeIncrease": [16, 20, 19, 9, 11],
+    "types": ["supreme"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "BABE BUTH",
+    "team": "NYY",
+    "positions": ["OF"],
+    "basicStats": [82, 90, 88, 64, 67],
+    "gradeIncrease": [17, 20, 19, 9, 10],
+    "types": ["supreme"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "JOE DIMAGGIO",
+    "team": "NYY",
+    "positions": ["OF"],
+    "basicStats": [88, 81, 79, 65, 68],
+    "gradeIncrease": [20, 17, 17, 10, 11],
+    "types": ["supreme"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "DEREK JETER",
+    "team": "NYY",
+    "positions": ["SS"],
+    "basicStats": [84, 72, 74, 70, 75],
+    "gradeIncrease": [19, 13, 15, 12, 16],
+    "types": ["supreme"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "YOGI BERRA",
+    "team": "NYY",
+    "positions": ["C"],
+    "basicStats": [78, 77, 77, 63, 78],
+    "gradeIncrease": [17, 17, 16, 9, 16],
+    "types": ["supreme"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "L.Gehrig '36",
+    "team": "NYY",
+    "positions": ["1B"],
+    "basicStats": [84, 84, 84, 60, 68],
+    "gradeIncrease": [19, 19, 18, 8, 11],
+    "types": ["legend", "signature", "vintage"],
+    "typeOverrides": {
+      "legend": {
+        "basicStats": [80, 84, 84, 60, 73],
+        "gradeIncrease": [16, 19, 19, 8, 13]
+      }
+    }
+  },
+  {
+    "name": "D.Jeter '99",
+    "team": "NYY",
+    "positions": ["SS"],
+    "basicStats": [84, 72, 74, 69, 68],
+    "gradeIncrease": [20, 14, 16, 13, 12],
+    "types": ["legend"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "R.Henderson '85",
+    "team": "NYY",
+    "positions": ["OF"],
+    "basicStats": [80, 73, 79, 76, 68],
+    "gradeIncrease": [18, 14, 17, 15, 11],
+    "types": ["signature", "vintage"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "A.Judge '25",
+    "team": "NYY",
+    "positions": ["OF"],
+    "basicStats": [82, 87, 78, 62, 67],
+    "gradeIncrease": [18, 21, 16, 9, 11],
+    "types": ["signature", "regular"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "D.Gregorius '18",
+    "team": "NYY",
+    "positions": ["SS"],
+    "basicStats": [74, 76, 71, 71, 78],
+    "gradeIncrease": [16, 16, 13, 13, 17],
+    "types": ["signature", "regular"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "A.Judge '24",
+    "team": "NYY",
+    "positions": ["OF"],
+    "basicStats": [81, 89, 78, 60, 62],
+    "gradeIncrease": [19, 22, 17, 8, 9],
+    "types": ["signature", "regular"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "A.Judge '22",
+    "team": "NYY",
+    "positions": ["OF"],
+    "basicStats": [77, 90, 75, 62, 68],
+    "gradeIncrease": [17, 22, 15, 9, 12],
+    "types": ["signature", "regular"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "M.Mantle '56",
+    "team": "NYY",
+    "positions": ["OF"],
+    "basicStats": [80, 86, 79, 62, 67],
+    "gradeIncrease": [18, 20, 17, 9, 11],
+    "types": ["signature", "vintage"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "J.DiMaggio '39",
+    "team": "NYY",
+    "positions": ["OF"],
+    "basicStats": [88, 79, 76, 62, 68],
+    "gradeIncrease": [21, 17, 16, 9, 12],
+    "types": ["signature", "vintage"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "B.Ruth '21",
+    "team": "NYY",
+    "positions": ["OF"],
+    "basicStats": [81, 90, 85, 62, 52],
+    "gradeIncrease": [18, 23, 20, 9, 5],
+    "types": ["signature", "vintage"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "J.Soto '24",
+    "team": "NYY",
+    "positions": ["OF"],
+    "basicStats": [77, 81, 81, 65, 69],
+    "gradeIncrease": [17, 18, 18, 10, 12],
+    "types": ["signature", "prime", "regular"],
+    "typeOverrides": {
+      "prime": {
+        "gradeIncrease": [18, 19, 19, 11, 13]
+      }
+    }
+  },
+  {
+    "name": "D.Jeter '09",
+    "team": "NYY",
+    "positions": ["SS"],
+    "basicStats": [82, 69, 72, 68, 75],
+    "gradeIncrease": [19, 13, 15, 12, 16],
+    "types": ["signature", "prime", "regular"],
+    "typeOverrides": {
+      "prime": {
+        "basicStats": [84, 72, 74, 69, 68],
+        "gradeIncrease": [22, 15, 17, 13, 13]
+      }
+    }
+  },
+  {
+    "name": "P.Rizzuto '50",
+    "team": "NYY",
+    "positions": ["SS"],
+    "basicStats": [81, 65, 78, 65, 78],
+    "gradeIncrease": [19, 11, 17, 11, 17],
+    "types": ["signature", "vintage"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "C.Granderson '11",
+    "team": "NYY",
+    "positions": ["OF"],
+    "basicStats": [73, 82, 74, 68, 71],
+    "gradeIncrease": [15, 19, 16, 12, 13],
+    "types": ["signature", "prime", "regular"],
+    "typeOverrides": {
+      "prime": {
+        "gradeIncrease": [15, 21, 17, 13, 14]
+      }
+    }
+  },
+  {
+    "name": "J.Giambi '02",
+    "team": "NYY",
+    "positions": ["1B"],
+    "basicStats": [77, 81, 77, 59, 68],
+    "gradeIncrease": [18, 19, 18, 8, 12],
+    "types": ["signature", "prime", "regular"],
+    "typeOverrides": {
+      "prime": {
+        "basicStats": [79, 81, 77, 59, 61],
+        "gradeIncrease": [20, 21, 19, 9, 11]
+      }
+    }
+  },
+  {
+    "name": "T.Martinez '97",
+    "team": "NYY",
+    "positions": ["1B"],
+    "basicStats": [76, 81, 74, 60, 73],
+    "gradeIncrease": [17, 19, 15, 9, 15],
+    "types": ["signature", "vintage"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "D.Justice '00",
+    "team": "NYY",
+    "positions": ["OF"],
+    "basicStats": [75, 83, 74, 61, 67],
+    "gradeIncrease": [17, 21, 16, 9, 12],
+    "types": ["signature", "regular"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "R.White '70",
+    "team": "NYY",
+    "positions": ["OF"],
+    "basicStats": [77, 71, 78, 68, 70],
+    "gradeIncrease": [17, 15, 18, 12, 13],
+    "types": ["signature", "vintage"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "A.Judge '17",
+    "team": "NYY",
+    "positions": ["OF"],
+    "basicStats": [75, 88, 74, 59, 67],
+    "gradeIncrease": [17, 23, 15, 8, 12],
+    "types": ["signature", "prime", "regular"],
+    "typeOverrides": {
+      "prime": {
+        "gradeIncrease": [18, 24, 16, 9, 13]
+      }
+    }
+  },
+  {
+    "name": "J.Posada '03",
+    "team": "NYY",
+    "positions": ["C"],
+    "basicStats": [75, 78, 76, 59, 70],
+    "gradeIncrease": [16, 19, 17, 9, 14],
+    "types": ["signature", "prime", "regular"],
+    "typeOverrides": {
+      "prime": {
+        "gradeIncrease": [17, 20, 19, 9, 15]
+      }
+    }
+  },
+  {
+    "name": "M.Stanley '93",
+    "team": "NYY",
+    "positions": ["C"],
+    "basicStats": [78, 77, 72, 63, 66],
+    "gradeIncrease": [19, 18, 15, 11, 12],
+    "types": ["signature", "vintage"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "DJ LeMahieu '19",
+    "team": "NYY",
+    "positions": ["2B", "3B"],
+    "basicStats": [78, 73, 69, 63, 74],
+    "gradeIncrease": [19, 16, 13, 10, 17],
+    "types": ["signature", "regular"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "G.Nettles '77",
+    "team": "NYY",
+    "positions": ["3B"],
+    "basicStats": [70, 79, 73, 62, 71],
+    "gradeIncrease": [14, 19, 16, 10, 16],
+    "types": ["signature", "vintage"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "W.Boggs '94",
+    "team": "NYY",
+    "positions": ["3B"],
+    "basicStats": [83, 70, 80, 61, 61],
+    "gradeIncrease": [21, 14, 20, 10, 10],
+    "types": ["signature", "vintage"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "C.Bellinger '25",
+    "team": "NYY",
+    "positions": ["OF"],
+    "basicStats": [74, 75, 71, 65, 72],
+    "gradeIncrease": [17, 17, 14, 11, 16],
+    "types": ["signature", "regular"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "H.Matsui '04",
+    "team": "NYY",
+    "positions": ["OF"],
+    "basicStats": [77, 76, 75, 60, 68],
+    "gradeIncrease": [18, 18, 17, 9, 13],
+    "types": ["signature", "prime", "regular"],
+    "typeOverrides": {
+      "prime": {
+        "gradeIncrease": [19, 19, 18, 10, 14]
+      }
+    }
+  },
+  {
+    "name": "A.Hicks '18",
+    "team": "NYY",
+    "positions": ["OF"],
+    "basicStats": [73, 77, 76, 63, 69],
+    "gradeIncrease": [16, 18, 18, 10, 13],
+    "types": ["signature", "prime", "regular"],
+    "typeOverrides": {
+      "prime": {
+        "gradeIncrease": [17, 19, 19, 11, 14]
+      }
+    }
+  },
+  {
+    "name": "A.McCutchen '18",
+    "team": "NYY",
+    "positions": ["OF"],
+    "basicStats": [73, 71, 73, 64, 74],
+    "gradeIncrease": [16, 16, 15, 11, 17],
+    "types": ["signature", "regular"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "G.Torres '22",
+    "team": "NYY",
+    "positions": ["2B"],
+    "basicStats": [74, 74, 66, 65, 71],
+    "gradeIncrease": [18, 17, 13, 12, 15],
+    "types": ["signature", "prime", "regular"],
+    "typeOverrides": {
+      "prime": {
+        "basicStats": [71, 74, 66, 65, 67],
+        "gradeIncrease": [18, 20, 14, 13, 15]
+      }
+    }
+  },
+  {
+    "name": "DJ LeMahieu '20",
+    "team": "NYY",
+    "positions": ["2B", "3B"],
+    "basicStats": [81, 75, 71, 62, 54],
+    "gradeIncrease": [22, 19, 16, 11, 7],
+    "types": ["signature", "prime", "regular"],
+    "typeOverrides": {
+      "prime": {
+        "gradeIncrease": [23, 20, 18, 12, 7]
+      }
+    }
+  },
+  {
+    "name": "WHITEY FORD",
+    "team": "NYY",
+    "positions": ["SP"],
+    "basicStats": [79, 73, 77, 77, 74],
+    "gradeIncrease": [17, 13, 16, 15, 14],
+    "types": ["supreme"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "RICH GOSSAGE",
+    "team": "NYY",
+    "positions": ["CP"],
+    "basicStats": [77, 79, 55, 82, 73],
+    "gradeIncrease": [17, 18, 6, 19, 15],
+    "types": ["supreme"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "MARIANO RIVERA",
+    "team": "NYY",
+    "positions": ["CP"],
+    "basicStats": [80, 78, 51, 80, 75],
+    "gradeIncrease": [19, 17, 4, 19, 15],
+    "types": ["supreme"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "R.Gossage '78",
+    "team": "NYY",
+    "positions": ["CP"],
+    "basicStats": [74, 75, 54, 79, 71],
+    "gradeIncrease": [16, 18, 6, 20, 15],
+    "types": ["legend", "signature", "vintage"],
+    "typeOverrides": {
+      "legend": {
+        "basicStats": [74, 75, 54, 79, 70],
+        "gradeIncrease": [17, 18, 6, 20, 14]
+      }
+    }
+  },
+  {
+    "name": "R.Guidry '78",
+    "team": "NYY",
+    "positions": ["SP"],
+    "basicStats": [78, 75, 78, 79, 77],
+    "gradeIncrease": [16, 14, 16, 15, 14],
+    "types": ["signature", "prime", "vintage"],
+    "typeOverrides": {
+      "prime": {
+        "gradeIncrease": [17, 14, 17, 17, 15]
+      }
+    }
+  },
+  {
+    "name": "G.Cole '21",
+    "team": "NYY",
+    "positions": ["SP"],
+    "basicStats": [78, 77, 72, 72, 71],
+    "gradeIncrease": [17, 17, 14, 14, 13],
+    "types": ["signature", "regular"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "G.Cole '20",
+    "team": "NYY",
+    "positions": ["SP"],
+    "basicStats": [78, 77, 73, 72, 70],
+    "gradeIncrease": [17, 17, 14, 14, 13],
+    "types": ["signature", "regular"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "L.Severino '17",
+    "team": "NYY",
+    "positions": ["SP"],
+    "basicStats": [77, 76, 73, 71, 74],
+    "gradeIncrease": [17, 16, 15, 13, 14],
+    "types": ["signature", "prime", "regular"],
+    "typeOverrides": {
+      "prime": {
+        "gradeIncrease": [18, 17, 16, 14, 15]
+      }
+    }
+  },
+  {
+    "name": "C.Hunter '75",
+    "team": "NYY",
+    "positions": ["SP"],
+    "basicStats": [75, 69, 80, 74, 70],
+    "gradeIncrease": [16, 12, 18, 16, 13],
+    "types": ["signature", "vintage"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "C.Rodon '25",
+    "team": "NYY",
+    "positions": ["SP"],
+    "basicStats": [75, 75, 72, 73, 71],
+    "gradeIncrease": [16, 16, 15, 14, 14],
+    "types": ["signature", "regular"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "G.Cole '23",
+    "team": "NYY",
+    "positions": ["SP"],
+    "basicStats": [78, 75, 74, 70, 69],
+    "gradeIncrease": [18, 16, 15, 13, 13],
+    "types": ["signature", "prime", "regular"],
+    "typeOverrides": {
+      "prime": {
+        "gradeIncrease": [19, 17, 17, 14, 13]
+      }
+    }
+  },
+  {
+    "name": "M.Tanaka '14",
+    "team": "NYY",
+    "positions": ["SP"],
+    "basicStats": [78, 73, 75, 69, 70],
+    "gradeIncrease": [18, 16, 15, 13, 13],
+    "types": ["signature", "regular"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "N.Cortes Jr. '22",
+    "team": "NYY",
+    "positions": ["SP"],
+    "basicStats": [78, 75, 71, 74, 68],
+    "gradeIncrease": [18, 16, 14, 15, 12],
+    "types": ["signature", "regular"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "C.Wang '07",
+    "team": "NYY",
+    "positions": ["SP"],
+    "basicStats": [73, 65, 74, 74, 74],
+    "gradeIncrease": [16, 11, 16, 16, 16],
+    "types": ["signature", "regular"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "F.Peterson '68",
+    "team": "NYY",
+    "positions": ["SP"],
+    "basicStats": [77, 68, 72, 74, 72],
+    "gradeIncrease": [18, 12, 15, 16, 14],
+    "types": ["signature", "vintage"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "M.Fried '25",
+    "team": "NYY",
+    "positions": ["SP"],
+    "basicStats": [77, 72, 73, 71, 69],
+    "gradeIncrease": [18, 14, 16, 14, 13],
+    "types": ["signature", "regular"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "M.Mussina '01",
+    "team": "NYY",
+    "positions": ["SP"],
+    "basicStats": [77, 71, 74, 72, 68],
+    "gradeIncrease": [18, 15, 16, 14, 12],
+    "types": ["signature", "regular"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "O.Hernandez '98",
+    "team": "NYY",
+    "positions": ["SP"],
+    "basicStats": [74, 72, 74, 74, 68],
+    "gradeIncrease": [16, 15, 16, 16, 12],
+    "types": ["signature", "vintage"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "W.Ford '61",
+    "team": "NYY",
+    "positions": ["SP"],
+    "basicStats": [74, 69, 76, 73, 69],
+    "gradeIncrease": [16, 13, 17, 16, 13],
+    "types": ["signature", "vintage"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "J.Paxton '19",
+    "team": "NYY",
+    "positions": ["SP"],
+    "basicStats": [74, 74, 70, 68, 70],
+    "gradeIncrease": [17, 17, 14, 13, 14],
+    "types": ["signature", "regular"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "L.Gil'24",
+    "team": "NYY",
+    "positions": ["SP"],
+    "basicStats": [73, 75, 70, 70, 69],
+    "gradeIncrease": [16, 17, 15, 14, 13],
+    "types": ["signature", "regular"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "S.Gray '17",
+    "team": "NYY",
+    "positions": ["SP"],
+    "basicStats": [74, 71, 72, 68, 70],
+    "gradeIncrease": [17, 16, 15, 13, 14],
+    "types": ["signature", "regular"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "R.May '80",
+    "team": "NYY",
+    "positions": ["RP"],
+    "basicStats": [77, 71, 64, 74, 73],
+    "gradeIncrease": [18, 14, 11, 17, 15],
+    "types": ["signature", "vintage"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "D.Betances '14",
+    "team": "NYY",
+    "positions": ["RP"],
+    "basicStats": [75, 77, 54, 73, 74],
+    "gradeIncrease": [18, 19, 6, 16, 16],
+    "types": ["signature", "regular"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "D.Robertson '17",
+    "team": "NYY",
+    "positions": ["RP"],
+    "basicStats": [74, 76, 54, 72, 77],
+    "gradeIncrease": [17, 18, 6, 15, 19],
+    "types": ["signature", "regular"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "A.Miller '15",
+    "team": "NYY",
+    "positions": ["CP"],
+    "basicStats": [74, 77, 50, 71, 79],
+    "gradeIncrease": [17, 19, 4, 15, 20],
+    "types": ["signature", "prime", "regular"],
+    "typeOverrides": {
+      "prime": {
+        "gradeIncrease": [18, 20, 5, 16, 21]
+      }
+    }
+  },
+  {
+    "name": "C.Green '17",
+    "team": "NYY",
+    "positions": ["RP"],
+    "basicStats": [73, 74, 56, 74, 71],
+    "gradeIncrease": [16, 18, 8, 18, 15],
+    "types": ["signature", "regular"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "A.Chapman '18",
+    "team": "NYY",
+    "positions": ["CP"],
+    "basicStats": [71, 80, 50, 72, 72],
+    "gradeIncrease": [17, 21, 5, 16, 16],
+    "types": ["signature", "prime", "regular"],
+    "typeOverrides": {
+      "prime": {
+        "basicStats": [71, 79, 50, 72, 72],
+        "gradeIncrease": [18, 22, 5, 18, 17]
+      }
+    }
+  },
+  {
+    "name": "M.Rivera '08",
+    "team": "NYY",
+    "positions": ["CP"],
+    "basicStats": [77, 74, 51, 75, 70],
+    "gradeIncrease": [19, 18, 5, 18, 15],
+    "types": ["signature", "regular"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "R.Davis '81",
+    "team": "NYY",
+    "positions": ["CP"],
+    "basicStats": [74, 74, 53, 78, 70],
+    "gradeIncrease": [17, 17, 6, 20, 15],
+    "types": ["signature", "vintage"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "M.King '23",
+    "team": "NYY",
+    "positions": ["RP"],
+    "basicStats": [74, 73, 57, 69, 68],
+    "gradeIncrease": [19, 18, 9, 15, 14],
+    "types": ["signature", "regular"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "D.Bednar '25",
+    "team": "NYY",
+    "positions": ["CP"],
+    "basicStats": [73, 74, 50, 74, 71],
+    "gradeIncrease": [18, 18, 5, 18, 16],
+    "types": ["signature", "regular"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "L.Weaver '24",
+    "team": "NYY",
+    "positions": ["RP"],
+    "basicStats": [71, 71, 55, 71, 68],
+    "gradeIncrease": [18, 17, 8, 17, 15],
+    "types": ["signature", "regular"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "S.Lyle '77",
+    "team": "NYY",
+    "positions": ["CP"],
+    "basicStats": [75, 67, 53, 72, 71],
+    "gradeIncrease": [20, 14, 7, 18, 16],
+    "types": ["signature", "vintage"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "C.Wang '06",
+    "team": "NYY",
+    "positions": ["SP"],
+    "basicStats": [73, 62, 74, 72, 67],
+    "gradeIncrease": [18, 11, 19, 18, 14],
+    "types": ["prime"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "D.Robertson '11",
+    "team": "NYY",
+    "positions": ["RP"],
+    "basicStats": [69, 74, 53, 73, 69],
+    "gradeIncrease": [17, 20, 7, 20, 16],
+    "types": ["prime"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "RICKEY HENDERSON",
+    "team": "ATH",
+    "positions": ["OF"],
+    "basicStats": [81, 77, 81, 87, 73],
+    "gradeIncrease": [16, 13, 16, 18, 12],
+    "types": ["supreme"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "R.Henderson '90",
+    "team": "ATH",
+    "positions": ["OF"],
+    "basicStats": [81, 77, 81, 77, 71],
+    "gradeIncrease": [17, 15, 17, 14, 12],
+    "types": ["signature", "vintage"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "J.Foxx '32",
+    "team": "ATH",
+    "positions": ["1B"],
+    "basicStats": [85, 87, 79, 59, 70],
+    "gradeIncrease": [19, 20, 17, 7, 12],
+    "types": ["signature", "vintage"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "M.Semien '19",
+    "team": "ATH",
+    "positions": ["SS"],
+    "basicStats": [75, 76, 75, 66, 79],
+    "gradeIncrease": [16, 15, 15, 11, 18],
+    "types": ["signature", "prime", "regular"],
+    "typeOverrides": {
+      "prime": {
+        "basicStats": [76, 76, 76, 66, 72],
+        "gradeIncrease": [18, 18, 17, 12, 15]
+      }
+    }
+  },
+  {
+    "name": "J.Giambi '01",
+    "team": "ATH",
+    "positions": ["1B"],
+    "basicStats": [79, 81, 83, 55, 67],
+    "gradeIncrease": [18, 19, 20, 6, 12],
+    "types": ["signature", "prime", "regular"],
+    "typeOverrides": {
+      "prime": {
+        "gradeIncrease": [19, 20, 21, 7, 13]
+      }
+    }
+  },
+  {
+    "name": "J.Giambi '00",
+    "team": "ATH",
+    "positions": ["1B"],
+    "basicStats": [82, 83, 83, 57, 63],
+    "gradeIncrease": [18, 20, 20, 7, 10],
+    "types": ["signature", "regular"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "M.McGwire '96",
+    "team": "ATH",
+    "positions": ["1B"],
+    "basicStats": [78, 94, 81, 57, 59],
+    "gradeIncrease": [17, 24, 19, 7, 8],
+    "types": ["signature", "vintage"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "M.Olson '21",
+    "team": "ATH",
+    "positions": ["1B"],
+    "basicStats": [75, 81, 74, 59, 70],
+    "gradeIncrease": [17, 20, 16, 8, 14],
+    "types": ["signature", "prime", "regular"],
+    "typeOverrides": {
+      "prime": {
+        "basicStats": [74, 81, 74, 59, 66],
+        "gradeIncrease": [18, 22, 18, 9, 13]
+      }
+    }
+  },
+  {
+    "name": "M.Olson '20",
+    "team": "ATH",
+    "positions": ["SS"],
+    "basicStats": [70, 83, 69, 62, 74],
+    "gradeIncrease": [14, 21, 13, 10, 17],
+    "types": ["signature", "regular"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "J.Lowrie '18",
+    "team": "ATH",
+    "positions": ["2B", "3B"],
+    "basicStats": [74, 72, 72, 62, 75],
+    "gradeIncrease": [17, 16, 15, 10, 17],
+    "types": ["signature", "prime", "regular"],
+    "typeOverrides": {
+      "prime": {
+        "basicStats": [73, 72, 72, 62, 75],
+        "gradeIncrease": [18, 16, 16, 11, 19]
+      }
+    }
+  },
+  {
+    "name": "M.Chapman '19",
+    "team": "ATH",
+    "positions": ["3B"],
+    "basicStats": [73, 80, 70, 61, 74],
+    "gradeIncrease": [16, 19, 14, 9, 17],
+    "types": ["signature", "prime", "regular"],
+    "typeOverrides": {
+      "prime": {
+        "gradeIncrease": [16, 21, 15, 10, 18]
+      }
+    }
+  },
+  {
+    "name": "S.Brosius '96",
+    "team": "ATH",
+    "positions": ["3B"],
+    "basicStats": [77, 75, 73, 62, 72],
+    "gradeIncrease": [18, 17, 15, 10, 15],
+    "types": ["signature", "vintage"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "B.North '73",
+    "team": "ATH",
+    "positions": ["OF"],
+    "basicStats": [75, 63, 74, 71, 72],
+    "gradeIncrease": [17, 11, 17, 15, 15],
+    "types": ["signature", "vintage"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "T.Cobb '27",
+    "team": "ATH",
+    "positions": ["OF"],
+    "basicStats": [85, 66, 79, 67, 58],
+    "gradeIncrease": [22, 12, 19, 14, 8],
+    "types": ["signature", "prime", "vintage"],
+    "typeOverrides": {
+      "prime": {
+        "gradeIncrease": [24, 13, 21, 13, 9]
+      }
+    }
+  },
+  {
+    "name": "R.Grossman '20",
+    "team": "ATH",
+    "positions": ["OF"],
+    "basicStats": [72, 75, 69, 68, 71],
+    "gradeIncrease": [16, 17, 14, 13, 15],
+    "types": ["signature", "regular"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "T.Steinbach '96",
+    "team": "ATH",
+    "positions": ["SS"],
+    "basicStats": [74, 80, 68, 60, 68],
+    "gradeIncrease": [17, 20, 14, 10, 14],
+    "types": ["signature", "vintage"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "M.Page '77",
+    "team": "ATH",
+    "positions": ["OF"],
+    "basicStats": [77, 73, 76, 69, 59],
+    "gradeIncrease": [19, 16, 17, 14, 9],
+    "types": ["signature", "vintage"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "S.Marte '21",
+    "team": "ATH",
+    "positions": ["OF"],
+    "basicStats": [76, 68, 67, 74, 65],
+    "gradeIncrease": [19, 14, 13, 17, 12],
+    "types": ["signature", "regular"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "M.Stairs '99",
+    "team": "ATH",
+    "positions": ["OF"],
+    "basicStats": [73, 82, 74, 59, 66],
+    "gradeIncrease": [17, 21, 16, 9, 12],
+    "types": ["signature", "vintage"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "CATFISH HUNTER",
+    "team": "ATH",
+    "positions": ["SP"],
+    "basicStats": [79, 73, 80, 78, 74],
+    "gradeIncrease": [16, 13, 17, 16, 13],
+    "types": ["supreme"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "DENNIS ECKERSLEY",
+    "team": "ATH",
+    "positions": ["CP"],
+    "basicStats": [78, 76, 51, 78, 74],
+    "gradeIncrease": [18, 17, 5, 18, 16],
+    "types": ["supreme"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "ROLLIE FINGERS",
+    "team": "ATH",
+    "positions": ["CP"],
+    "basicStats": [77, 73, 58, 77, 74],
+    "gradeIncrease": [18, 15, 8, 18, 16],
+    "types": ["supreme"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "C.Hunter '74",
+    "team": "ATH",
+    "positions": ["SP"],
+    "basicStats": [77, 67, 78, 74, 70],
+    "gradeIncrease": [17, 12, 18, 15, 13],
+    "types": ["legend", "signature", "vintage"],
+    "typeOverrides": {
+      "legend": {
+        "basicStats": [77, 67, 78, 72, 72],
+        "gradeIncrease": [17, 12, 18, 14, 14]
+      }
+    }
+  },
+  {
+    "name": "V.Blue '71",
+    "team": "ATH",
+    "positions": ["SP"],
+    "basicStats": [77, 76, 79, 80, 73],
+    "gradeIncrease": [16, 14, 15, 17, 13],
+    "types": ["signature", "prime", "vintage"],
+    "typeOverrides": {
+      "prime": {
+        "gradeIncrease": [17, 15, 16, 18, 14]
+      }
+    }
+  },
+  {
+    "name": "M.Norris '80",
+    "team": "ATH",
+    "positions": ["SP"],
+    "basicStats": [75, 70, 80, 75, 70],
+    "gradeIncrease": [16, 13, 18, 15, 13],
+    "types": ["signature", "vintage"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "L.Grove '31",
+    "team": "ATH",
+    "positions": ["SP"],
+    "basicStats": [77, 69, 76, 74, 72],
+    "gradeIncrease": [17, 12, 17, 15, 14],
+    "types": ["signature", "vintage"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "S.Gray '15",
+    "team": "ATH",
+    "positions": ["SP"],
+    "basicStats": [76, 71, 74, 72, 73],
+    "gradeIncrease": [17, 14, 16, 14, 14],
+    "types": ["signature", "prime", "regular"],
+    "typeOverrides": {
+      "prime": {
+        "gradeIncrease": [18, 14, 17, 16, 15]
+      }
+    }
+  },
+  {
+    "name": "C.Bassitt '21",
+    "team": "ATH",
+    "positions": ["SP"],
+    "basicStats": [77, 73, 71, 71, 70],
+    "gradeIncrease": [18, 16, 14, 14, 13],
+    "types": ["signature", "prime", "regular"],
+    "typeOverrides": {
+      "prime": {
+        "gradeIncrease": [19, 17, 15, 15, 14]
+      }
+    }
+  },
+  {
+    "name": "M.Moore '89",
+    "team": "ATH",
+    "positions": ["SP"],
+    "basicStats": [74, 71, 75, 75, 68],
+    "gradeIncrease": [15, 14, 17, 17, 12],
+    "types": ["signature", "vintage"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "M.Mulder '01",
+    "team": "ATH",
+    "positions": ["SP"],
+    "basicStats": [75, 68, 74, 74, 71],
+    "gradeIncrease": [17, 12, 16, 16, 14],
+    "types": ["signature", "prime", "regular"],
+    "typeOverrides": {
+      "prime": {
+        "gradeIncrease": [18, 13, 17, 17, 15]
+      }
+    }
+  },
+  {
+    "name": "C.Bassitt '20",
+    "team": "ATH",
+    "positions": ["SP"],
+    "basicStats": [76, 71, 71, 71, 68],
+    "gradeIncrease": [18, 15, 15, 14, 13],
+    "types": ["signature", "regular"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "F.Montas '21",
+    "team": "ATH",
+    "positions": ["SP"],
+    "basicStats": [76, 73, 72, 71, 67],
+    "gradeIncrease": [17, 16, 16, 14, 12],
+    "types": ["signature", "prime", "regular"],
+    "typeOverrides": {
+      "prime": {
+        "gradeIncrease": [19, 17, 16, 15, 13]
+      }
+    }
+  },
+  {
+    "name": "J.Parker '12",
+    "team": "ATH",
+    "positions": ["SP"],
+    "basicStats": [74, 68, 73, 68, 72],
+    "gradeIncrease": [17, 13, 16, 13, 16],
+    "types": ["signature", "regular"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "S.Kazmir '14",
+    "team": "ATH",
+    "positions": ["SP"],
+    "basicStats": [75, 70, 72, 69, 69],
+    "gradeIncrease": [17, 14, 16, 14, 14],
+    "types": ["signature", "regular"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "D.Eckersley '90",
+    "team": "ATH",
+    "positions": ["CP"],
+    "basicStats": [78, 74, 51, 78, 74],
+    "gradeIncrease": [19, 16, 5, 19, 16],
+    "types": ["signature", "vintage"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "L.Hendriks '20",
+    "team": "ATH",
+    "positions": ["CP"],
+    "basicStats": [77, 76, 50, 79, 76],
+    "gradeIncrease": [18, 17, 4, 19, 17],
+    "types": ["signature", "regular"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "B.Treinen '18",
+    "team": "ATH",
+    "positions": ["CP"],
+    "basicStats": [74, 75, 51, 78, 72],
+    "gradeIncrease": [17, 17, 5, 20, 16],
+    "types": ["signature", "prime", "regular"],
+    "typeOverrides": {
+      "prime": {
+        "gradeIncrease": [19, 18, 5, 21, 17]
+      }
+    }
+  },
+  {
+    "name": "L.Hendriks '19",
+    "team": "ATH",
+    "positions": ["CP"],
+    "basicStats": [77, 77, 51, 74, 75],
+    "gradeIncrease": [19, 18, 5, 16, 17],
+    "types": ["signature", "prime", "regular"],
+    "typeOverrides": {
+      "prime": {
+        "basicStats": [76, 77, 51, 75, 74],
+        "gradeIncrease": [19, 20, 5, 19, 17]
+      }
+    }
+  },
+  {
+    "name": "M.Miller '24",
+    "team": "ATH",
+    "positions": ["CP"],
+    "basicStats": [74, 77, 51, 76, 72],
+    "gradeIncrease": [17, 19, 5, 18, 16],
+    "types": ["signature", "regular"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "R.Fingers '75",
+    "team": "ATH",
+    "positions": ["CP"],
+    "basicStats": [77, 73, 53, 77, 74],
+    "gradeIncrease": [19, 16, 6, 18, 16],
+    "types": ["signature", "vintage"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "A.Bailey '09",
+    "team": "ATH",
+    "positions": ["CP"],
+    "basicStats": [74, 74, 51, 75, 74],
+    "gradeIncrease": [18, 18, 5, 17, 17],
+    "types": ["signature", "prime", "regular"],
+    "typeOverrides": {
+      "prime": {
+        "basicStats": [73, 72, 51, 75, 74],
+        "gradeIncrease": [19, 17, 6, 20, 18]
+      }
+    }
+  },
+  {
+    "name": "K.Foulke '03",
+    "team": "ATH",
+    "positions": ["CP"],
+    "basicStats": [76, 74, 51, 73, 74],
+    "gradeIncrease": [19, 18, 5, 16, 17],
+    "types": ["signature", "regular"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "S.Doolittle '14",
+    "team": "ATH",
+    "positions": ["CP"],
+    "basicStats": [76, 74, 50, 75, 74],
+    "gradeIncrease": [19, 17, 5, 17, 17],
+    "types": ["signature", "regular"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "A.Chafin '21",
+    "team": "ATH",
+    "positions": ["RP"],
+    "basicStats": [70, 68, 53, 73, 72],
+    "gradeIncrease": [16, 15, 7, 19, 18],
+    "types": ["signature", "regular"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "H.Street '05",
+    "team": "ATH",
+    "positions": ["CP"],
+    "basicStats": [73, 71, 51, 72, 71],
+    "gradeIncrease": [18, 17, 5, 18, 17],
+    "types": ["signature", "prime", "regular"],
+    "typeOverrides": {
+      "prime": {
+        "basicStats": [71, 70, 51, 72, 71],
+        "gradeIncrease": [19, 17, 6, 19, 19]
+      }
+    }
+  },
+  {
+    "name": "JEFF BAGWELL",
+    "team": "HOU",
+    "positions": ["1B"],
+    "basicStats": [87, 86, 82, 65, 71],
+    "gradeIncrease": [19, 19, 16, 9, 12],
+    "types": ["supreme"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "CRAIG BIGGIO",
+    "team": "HOU",
+    "positions": ["2B"],
+    "basicStats": [81, 74, 76, 71, 74],
+    "gradeIncrease": [18, 14, 16, 13, 14],
+    "types": ["supreme"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "C.Biggio '97",
+    "team": "HOU",
+    "positions": ["2B"],
+    "basicStats": [78, 71, 73, 69, 74],
+    "gradeIncrease": [18, 14, 15, 13, 15],
+    "types": ["legend", "signature", "vintage"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "J.Bagwell '94",
+    "team": "HOU",
+    "positions": ["1B"],
+    "basicStats": [87, 86, 76, 63, 67],
+    "gradeIncrease": [20, 20, 15, 9, 11],
+    "types": ["legend", "signature", "prime", "vintage"],
+    "typeOverrides": {
+      "legend": {
+        "basicStats": [79, 82, 74, 63, 64],
+        "gradeIncrease": [19, 20, 15, 10, 11]
+      },
+      "prime": {
+        "gradeIncrease": [22, 20, 16, 10, 12]
+      }
+    }
+  },
+  {
+    "name": "A.Bregman '19",
+    "team": "HOU",
+    "positions": ["3B", "SS"],
+    "basicStats": [76, 82, 82, 64, 73],
+    "gradeIncrease": [16, 18, 18, 10, 13],
+    "types": ["signature", "prime", "regular"],
+    "typeOverrides": {
+      "prime": {
+        "gradeIncrease": [17, 19, 19, 10, 15]
+      }
+    }
+  },
+  {
+    "name": "J.Altuve '16",
+    "team": "HOU",
+    "positions": ["2B"],
+    "basicStats": [75, 72, 75, 68, 76],
+    "gradeIncrease": [16, 14, 16, 12, 17],
+    "types": ["signature", "regular"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "K.Tucker '23",
+    "team": "HOU",
+    "positions": ["OF"],
+    "basicStats": [75, 76, 75, 69, 70],
+    "gradeIncrease": [16, 17, 16, 13, 13],
+    "types": ["signature", "prime", "regular"],
+    "typeOverrides": {
+      "prime": {
+        "basicStats": [76, 76, 75, 69, 65],
+        "gradeIncrease": [18, 18, 18, 14, 12]
+      }
+    }
+  },
+  {
+    "name": "J.Altuve '17",
+    "team": "HOU",
+    "positions": ["2B"],
+    "basicStats": [79, 73, 71, 67, 71],
+    "gradeIncrease": [19, 16, 14, 12, 14],
+    "types": ["signature", "prime", "regular"],
+    "typeOverrides": {
+      "prime": {
+        "gradeIncrease": [20, 17, 15, 13, 15]
+      }
+    }
+  },
+  {
+    "name": "J.Altuve '15",
+    "team": "HOU",
+    "positions": ["2B"],
+    "basicStats": [74, 68, 68, 72, 78],
+    "gradeIncrease": [16, 13, 13, 15, 18],
+    "types": ["signature", "regular"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "C.Correa '21",
+    "team": "HOU",
+    "positions": ["SS"],
+    "basicStats": [75, 74, 72, 61, 78],
+    "gradeIncrease": [17, 16, 15, 9, 18],
+    "types": ["signature", "prime", "regular"],
+    "typeOverrides": {
+      "prime": {
+        "gradeIncrease": [17, 17, 16, 10, 20]
+      }
+    }
+  },
+  {
+    "name": "K.Tucker '22",
+    "team": "HOU",
+    "positions": ["OF"],
+    "basicStats": [74, 77, 72, 69, 69],
+    "gradeIncrease": [16, 18, 15, 13, 13],
+    "types": ["signature", "regular"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "K.Tucker '21",
+    "team": "HOU",
+    "positions": ["OF"],
+    "basicStats": [76, 78, 71, 68, 68],
+    "gradeIncrease": [17, 18, 14, 13, 13],
+    "types": ["signature", "regular"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "L.Berkman '01",
+    "team": "HOU",
+    "positions": ["OF"],
+    "basicStats": [82, 78, 74, 61, 64],
+    "gradeIncrease": [20, 18, 17, 9, 11],
+    "types": ["signature", "regular"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "G.Springer '20",
+    "team": "HOU",
+    "positions": ["OF"],
+    "basicStats": [74, 82, 71, 62, 67],
+    "gradeIncrease": [17, 21, 15, 10, 12],
+    "types": ["signature", "regular"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "G.Springer '19",
+    "team": "HOU",
+    "positions": ["OF"],
+    "basicStats": [75, 83, 72, 62, 64],
+    "gradeIncrease": [17, 21, 16, 10, 11],
+    "types": ["signature", "prime", "regular"],
+    "typeOverrides": {
+      "prime": {
+        "gradeIncrease": [18, 23, 16, 11, 12]
+      }
+    }
+  },
+  {
+    "name": "G.Springer '17",
+    "team": "HOU",
+    "positions": ["OF"],
+    "basicStats": [75, 78, 70, 64, 68],
+    "gradeIncrease": [17, 19, 15, 11, 13],
+    "types": ["signature", "regular"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "G.Springer '16",
+    "team": "HOU",
+    "positions": ["OF"],
+    "basicStats": [73, 74, 74, 63, 73],
+    "gradeIncrease": [16, 17, 17, 10, 15],
+    "types": ["signature", "regular"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "G.Davis '89",
+    "team": "HOU",
+    "positions": ["1B"],
+    "basicStats": [74, 77, 70, 59, 70],
+    "gradeIncrease": [17, 19, 15, 9, 15],
+    "types": ["signature", "vintage"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "M.Ensberg '05",
+    "team": "HOU",
+    "positions": ["3B"],
+    "basicStats": [75, 80, 74, 62, 60],
+    "gradeIncrease": [18, 20, 17, 11, 9],
+    "types": ["signature", "prime", "regular"],
+    "typeOverrides": {
+      "prime": {
+        "gradeIncrease": [19, 22, 18, 11, 10]
+      }
+    }
+  },
+  {
+    "name": "J.Wynn '69",
+    "team": "HOU",
+    "positions": ["OF"],
+    "basicStats": [72, 80, 82, 62, 57],
+    "gradeIncrease": [16, 20, 21, 10, 8],
+    "types": ["signature", "vintage"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "Y.Alvarez '22",
+    "team": "HOU",
+    "positions": ["DH", "OF"],
+    "basicStats": [77, 82, 75, 58, 50],
+    "gradeIncrease": [20, 23, 18, 9, 5],
+    "types": ["signature", "prime", "regular"],
+    "typeOverrides": {
+      "prime": {
+        "basicStats": [79, 83, 75, 60, 50],
+        "gradeIncrease": [22, 24, 19, 10, 5]
+      }
+    }
+  },
+  {
+    "name": "B.Ausmus '97",
+    "team": "HOU",
+    "positions": ["C"],
+    "basicStats": [72, 63, 68, 65, 71],
+    "gradeIncrease": [18, 12, 15, 13, 17],
+    "types": ["signature", "vintage"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "E.Gattis '16",
+    "team": "HOU",
+    "positions": ["DH", "C"],
+    "basicStats": [71, 80, 69, 56, 53],
+    "gradeIncrease": [19, 24, 16, 9, 7],
+    "types": ["signature", "prime", "regular"],
+    "typeOverrides": {
+      "prime": {
+        "basicStats": [69, 82, 66, 56, 58],
+        "gradeIncrease": [18, 26, 16, 9, 11]
+      }
+    }
+  },
+  {
+    "name": "BILLY WAGNER",
+    "team": "HOU",
+    "positions": ["CP"],
+    "basicStats": [76, 80, 52, 83, 73],
+    "gradeIncrease": [16, 19, 5, 20, 15],
+    "types": ["supreme"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "G.Cole '19",
+    "team": "HOU",
+    "positions": ["SP"],
+    "basicStats": [80, 81, 74, 78, 71],
+    "gradeIncrease": [17, 17, 13, 16, 12],
+    "types": ["signature", "regular"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "J.Verlander '22",
+    "team": "HOU",
+    "positions": ["SP"],
+    "basicStats": [80, 77, 73, 77, 73],
+    "gradeIncrease": [17, 16, 13, 16, 13],
+    "types": ["signature", "regular"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "J.Verlander '19",
+    "team": "HOU",
+    "positions": ["SP"],
+    "basicStats": [80, 80, 74, 72, 74],
+    "gradeIncrease": [17, 17, 14, 13, 14],
+    "types": ["signature", "regular"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "M.Scott '86",
+    "team": "HOU",
+    "positions": ["SP"],
+    "basicStats": [79, 77, 77, 78, 73],
+    "gradeIncrease": [16, 16, 15, 15, 13],
+    "types": ["signature", "vintage"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "G.Cole '18",
+    "team": "HOU",
+    "positions": ["SP"],
+    "basicStats": [78, 78, 73, 76, 70],
+    "gradeIncrease": [17, 17, 14, 15, 12],
+    "types": ["signature", "prime", "regular"],
+    "typeOverrides": {
+      "prime": {
+        "gradeIncrease": [18, 18, 15, 16, 13]
+      }
+    }
+  },
+  {
+    "name": "J.Verlander '18",
+    "team": "HOU",
+    "positions": ["SP"],
+    "basicStats": [80, 79, 73, 75, 72],
+    "gradeIncrease": [17, 17, 13, 15, 13],
+    "types": ["signature", "prime", "regular"],
+    "typeOverrides": {
+      "prime": {
+        "gradeIncrease": [18, 18, 14, 16, 14]
+      }
+    }
+  },
+  {
+    "name": "N.Ryan '81",
+    "team": "HOU",
+    "positions": ["SP"],
+    "basicStats": [75, 76, 76, 80, 71],
+    "gradeIncrease": [14, 16, 15, 17, 13],
+    "types": ["signature", "vintage"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "D.Keuchel '15",
+    "team": "HOU",
+    "positions": ["SP"],
+    "basicStats": [77, 73, 76, 71, 76],
+    "gradeIncrease": [17, 14, 16, 13, 15],
+    "types": ["signature", "prime", "regular"],
+    "typeOverrides": {
+      "prime": {
+        "gradeIncrease": [18, 15, 17, 14, 16]
+      }
+    }
+  },
+  {
+    "name": "H.Brown '25",
+    "team": "HOU",
+    "positions": ["SP"],
+    "basicStats": [77, 76, 72, 74, 71],
+    "gradeIncrease": [17, 16, 14, 15, 13],
+    "types": ["signature", "regular"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "L.Dierker '69",
+    "team": "HOU",
+    "positions": ["SP"],
+    "basicStats": [77, 71, 78, 75, 70],
+    "gradeIncrease": [17, 13, 17, 15, 13],
+    "types": ["signature", "vintage"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "C.Javier '22",
+    "team": "HOU",
+    "positions": ["SP"],
+    "basicStats": [77, 80, 69, 75, 68],
+    "gradeIncrease": [17, 18, 12, 16, 12],
+    "types": ["signature", "prime", "regular"],
+    "typeOverrides": {
+      "prime": {
+        "gradeIncrease": [18, 19, 13, 17, 13]
+      }
+    }
+  },
+  {
+    "name": "F.Valdez '24",
+    "team": "HOU",
+    "positions": ["SP"],
+    "basicStats": [76, 73, 73, 74, 70],
+    "gradeIncrease": [17, 15, 14, 16, 13],
+    "types": ["signature", "regular"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "F.Valdez '22",
+    "team": "HOU",
+    "positions": ["SP"],
+    "basicStats": [75, 73, 74, 73, 71],
+    "gradeIncrease": [16, 15, 16, 14, 14],
+    "types": ["signature", "regular"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "F.Valdez '20",
+    "team": "HOU",
+    "positions": ["SP"],
+    "basicStats": [77, 72, 74, 70, 72],
+    "gradeIncrease": [17, 15, 16, 13, 14],
+    "types": ["signature", "regular"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "S.Reynolds '96",
+    "team": "HOU",
+    "positions": ["SP"],
+    "basicStats": [77, 69, 75, 74, 70],
+    "gradeIncrease": [17, 13, 16, 16, 13],
+    "types": ["signature", "vintage"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "C.Morton '18",
+    "team": "HOU",
+    "positions": ["SP"],
+    "basicStats": [75, 75, 71, 69, 71],
+    "gradeIncrease": [17, 17, 14, 13, 14],
+    "types": ["signature", "prime", "regular"],
+    "typeOverrides": {
+      "prime": {
+        "gradeIncrease": [18, 18, 15, 14, 15]
+      }
+    }
+  },
+  {
+    "name": "B.Wagner '99",
+    "team": "HOU",
+    "positions": ["CP"],
+    "basicStats": [75, 79, 51, 74, 70],
+    "gradeIncrease": [18, 20, 5, 17, 15],
+    "types": ["signature", "vintage"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "D.Jones '92",
+    "team": "HOU",
+    "positions": ["CP"],
+    "basicStats": [76, 70, 52, 75, 74],
+    "gradeIncrease": [19, 15, 6, 18, 17],
+    "types": ["signature", "prime", "vintage"],
+    "typeOverrides": {
+      "prime": {
+        "gradeIncrease": [20, 16, 6, 20, 18]
+      }
+    }
+  },
+  {
+    "name": "B.Abreu '25",
+    "team": "HOU",
+    "positions": ["RP"],
+    "basicStats": [72, 75, 53, 71, 71],
+    "gradeIncrease": [17, 19, 6, 17, 16],
+    "types": ["signature", "regular"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "J.Hader '25",
+    "team": "HOU",
+    "positions": ["CP"],
+    "basicStats": [73, 75, 51, 71, 71],
+    "gradeIncrease": [18, 19, 5, 17, 16],
+    "types": ["signature", "regular"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "J.Hader '24",
+    "team": "HOU",
+    "positions": ["CP"],
+    "basicStats": [72, 74, 50, 71, 73],
+    "gradeIncrease": [18, 19, 5, 16, 17],
+    "types": ["signature", "regular"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "L.Andersen '89",
+    "team": "HOU",
+    "positions": ["RP"],
+    "basicStats": [71, 70, 55, 71, 71],
+    "gradeIncrease": [17, 17, 8, 17, 16],
+    "types": ["signature", "vintage"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "R.Montero '22",
+    "team": "HOU",
+    "positions": ["RP"],
+    "basicStats": [71, 71, 53, 72, 71],
+    "gradeIncrease": [17, 17, 7, 18, 16],
+    "types": ["signature", "regular"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "R.Pressly '19",
+    "team": "HOU",
+    "positions": ["RP"],
+    "basicStats": [71, 71, 53, 69, 71],
+    "gradeIncrease": [18, 17, 7, 16, 17],
+    "types": ["signature", "regular"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "S.Okert '25",
+    "team": "HOU",
+    "positions": ["RP"],
+    "basicStats": [71, 70, 53, 71, 74],
+    "gradeIncrease": [17, 16, 7, 16, 19],
+    "types": ["signature", "regular"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "J.Sambito '79",
+    "team": "HOU",
+    "positions": ["CP"],
+    "basicStats": [74, 71, 52, 73, 68],
+    "gradeIncrease": [19, 17, 6, 18, 15],
+    "types": ["signature", "vintage"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "R.Pressly '21",
+    "team": "HOU",
+    "positions": ["CP"],
+    "basicStats": [74, 72, 50, 70, 73],
+    "gradeIncrease": [19, 18, 5, 16, 17],
+    "types": ["signature", "prime", "regular"],
+    "typeOverrides": {
+      "prime": {
+        "gradeIncrease": [20, 19, 5, 17, 19]
+      }
+    }
+  },
+  {
+    "name": "B.Wagner '03",
+    "team": "HOU",
+    "positions": ["CP"],
+    "basicStats": [77, 77, 51, 76, 72],
+    "gradeIncrease": [20, 20, 5, 19, 16],
+    "types": ["prime"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "TIM RAINES",
+    "team": "WSH",
+    "positions": ["OF"],
+    "basicStats": [83, 72, 80, 84, 73],
+    "gradeIncrease": [17, 12, 16, 18, 12],
+    "types": ["supreme"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "ANDRE DAWSON",
+    "team": "WSH",
+    "positions": ["OF"],
+    "basicStats": [79, 73, 70, 73, 72],
+    "gradeIncrease": [17, 19, 12, 14, 13],
+    "types": ["supreme"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "GARY CARTER",
+    "team": "WSH",
+    "positions": ["C"],
+    "basicStats": [77, 78, 76, 64, 78],
+    "gradeIncrease": [17, 17, 15, 10, 16],
+    "types": ["supreme"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "A.Dawson '83",
+    "team": "WSH",
+    "positions": ["OF"],
+    "basicStats": [77, 76, 67, 69, 68],
+    "gradeIncrease": [18, 18, 12, 14, 13],
+    "types": ["legend", "signature", "vintage"],
+    "typeOverrides": {
+      "legend": {
+        "basicStats": [76, 76, 67, 69, 62],
+        "gradeIncrease": [19, 18, 13, 14, 11]
+      }
+    }
+  },
+  {
+    "name": "J.Soto '20",
+    "team": "WSH",
+    "positions": ["OF"],
+    "basicStats": [78, 81, 79, 65, 69],
+    "gradeIncrease": [17, 18, 18, 10, 12],
+    "types": ["signature", "regular"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "T.Raines '87",
+    "team": "WSH",
+    "positions": ["OF"],
+    "basicStats": [82, 71, 79, 72, 69],
+    "gradeIncrease": [19, 14, 17, 13, 12],
+    "types": ["signature", "prime", "vintage"],
+    "typeOverrides": {
+      "prime": {
+        "gradeIncrease": [20, 14, 19, 14, 13]
+      }
+    }
+  },
+  {
+    "name": "J.Soto '19",
+    "team": "WSH",
+    "positions": ["OF"],
+    "basicStats": [75, 79, 77, 65, 72],
+    "gradeIncrease": [15, 18, 17, 11, 14],
+    "types": ["signature", "regular"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "B.Harper '16",
+    "team": "WSH",
+    "positions": ["OF"],
+    "basicStats": [72, 75, 81, 65, 72],
+    "gradeIncrease": [15, 16, 19, 11, 14],
+    "types": ["signature", "regular"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "J.Soto '21",
+    "team": "WSH",
+    "positions": ["OF"],
+    "basicStats": [77, 76, 85, 63, 65],
+    "gradeIncrease": [17, 16, 21, 10, 11],
+    "types": ["signature", "prime", "regular"],
+    "typeOverrides": {
+      "prime": {
+        "basicStats": [80, 76, 85, 63, 67],
+        "gradeIncrease": [19, 17, 22, 10, 12]
+      }
+    }
+  },
+  {
+    "name": "A.Rendon '19",
+    "team": "WSH",
+    "positions": ["3B"],
+    "basicStats": [77, 79, 76, 62, 69],
+    "gradeIncrease": [18, 18, 16, 10, 13],
+    "types": ["signature", "prime", "regular"],
+    "typeOverrides": {
+      "prime": {
+        "gradeIncrease": [19, 20, 17, 10, 14]
+      }
+    }
+  },
+  {
+    "name": "A.Rendon '17",
+    "team": "WSH",
+    "positions": ["3B"],
+    "basicStats": [76, 75, 76, 63, 71],
+    "gradeIncrease": [17, 17, 17, 10, 14],
+    "types": ["signature", "regular"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "T.Turner '18",
+    "team": "WSH",
+    "positions": ["SS"],
+    "basicStats": [74, 69, 70, 71, 79],
+    "gradeIncrease": [16, 13, 13, 15, 18],
+    "types": ["signature", "prime", "regular"],
+    "typeOverrides": {
+      "prime": {
+        "gradeIncrease": [17, 14, 14, 15, 20]
+      }
+    }
+  },
+  {
+    "name": "B.Harper '18",
+    "team": "WSH",
+    "positions": ["OF"],
+    "basicStats": [73, 79, 77, 62, 73],
+    "gradeIncrease": [15, 18, 17, 10, 15],
+    "types": ["signature", "regular"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "B.Harper '15",
+    "team": "WSH",
+    "positions": ["OF"],
+    "basicStats": [75, 83, 80, 59, 63],
+    "gradeIncrease": [17, 21, 19, 8, 10],
+    "types": ["signature", "prime", "regular"],
+    "typeOverrides": {
+      "prime": {
+        "gradeIncrease": [17, 22, 21, 9, 11]
+      }
+    }
+  },
+  {
+    "name": "K.Singleton '73",
+    "team": "WSH",
+    "positions": ["C"],
+    "basicStats": [78, 72, 81, 61, 68],
+    "gradeIncrease": [18, 15, 20, 9, 13],
+    "types": ["signature", "vintage"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "G.Carter '82",
+    "team": "WSH",
+    "positions": ["C"],
+    "basicStats": [76, 75, 76, 60, 72],
+    "gradeIncrease": [17, 17, 17, 9, 15],
+    "types": ["signature", "vintage"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "D.Murphy '16",
+    "team": "WSH",
+    "positions": ["2B"],
+    "basicStats": [76, 75, 73, 60, 72],
+    "gradeIncrease": [18, 17, 16, 9, 15],
+    "types": ["signature", "vintage"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "M.Lansing '97",
+    "team": "WSH",
+    "positions": ["2B"],
+    "basicStats": [75, 71, 68, 67, 75],
+    "gradeIncrease": [17, 15, 14, 12, 17],
+    "types": ["signature", "vintage"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "A.Rendon '18",
+    "team": "WSH",
+    "positions": ["3B"],
+    "basicStats": [77, 74, 71, 62, 73],
+    "gradeIncrease": [18, 17, 14, 10, 16],
+    "types": ["signature", "regular"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "O.Cabrera '03",
+    "team": "WSH",
+    "positions": ["SS"],
+    "basicStats": [77, 69, 71, 65, 70],
+    "gradeIncrease": [19, 14, 16, 12, 14],
+    "types": ["signature", "prime", "regular"],
+    "typeOverrides": {
+      "prime": {
+        "gradeIncrease": [20, 15, 17, 13, 15]
+      }
+    }
+  },
+  {
+    "name": "T.Perez '77",
+    "team": "WSH",
+    "positions": ["1B"],
+    "basicStats": [74, 71, 70, 62, 68],
+    "gradeIncrease": [18, 17, 15, 11, 14],
+    "types": ["signature", "vintage"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "J.Bell '21",
+    "team": "WSH",
+    "positions": ["1B"],
+    "basicStats": [74, 76, 72, 55, 66],
+    "gradeIncrease": [18, 19, 17, 7, 14],
+    "types": ["signature", "regular"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "N.Johnson '06",
+    "team": "WSH",
+    "positions": ["3B"],
+    "basicStats": [75, 74, 79, 57, 59],
+    "gradeIncrease": [19, 18, 21, 8, 9],
+    "types": ["signature", "prime", "regular"],
+    "typeOverrides": {
+      "prime": {
+        "gradeIncrease": [20, 19, 22, 9, 10]
+      }
+    }
+  },
+  {
+    "name": "V.Guerrero '00",
+    "team": "WSH",
+    "positions": ["OF"],
+    "basicStats": [79, 82, 72, 59, 52],
+    "gradeIncrease": [21, 22, 17, 9, 6],
+    "types": ["signature", "prime", "regular"],
+    "typeOverrides": {
+      "prime": {
+        "gradeIncrease": [22, 24, 18, 10, 6]
+      }
+    }
+  },
+  {
+    "name": "P.Martinez '97",
+    "team": "WSH",
+    "positions": ["SP"],
+    "basicStats": [79, 79, 77, 76, 75],
+    "gradeIncrease": [16, 16, 15, 14, 14],
+    "types": ["signature", "vintage"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "M.Scherzer '18",
+    "team": "WSH",
+    "positions": ["SP"],
+    "basicStats": [80, 79, 74, 73, 71],
+    "gradeIncrease": [17, 17, 15, 13, 13],
+    "types": ["signature", "prime", "regular"],
+    "typeOverrides": {
+      "prime": {
+        "gradeIncrease": [19, 18, 15, 14, 14]
+      }
+    }
+  },
+  {
+    "name": "M.Scherzer '17",
+    "team": "WSH",
+    "positions": ["SP"],
+    "basicStats": [79, 80, 74, 71, 74],
+    "gradeIncrease": [17, 17, 14, 13, 14],
+    "types": ["signature", "regular"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "M.Scherzer '15",
+    "team": "WSH",
+    "positions": ["SP"],
+    "basicStats": [80, 76, 75, 75, 73],
+    "gradeIncrease": [17, 16, 15, 14, 13],
+    "types": ["signature", "regular"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "M.Scherzer '19",
+    "team": "WSH",
+    "positions": ["SP"],
+    "basicStats": [80, 77, 74, 69, 71],
+    "gradeIncrease": [18, 17, 15, 12, 13],
+    "types": ["signature", "regular"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "M.Scherzer '16",
+    "team": "WSH",
+    "positions": ["SP"],
+    "basicStats": [78, 77, 74, 75, 69],
+    "gradeIncrease": [17, 17, 14, 15, 12],
+    "types": ["signature", "regular"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "S.Strasburg '17",
+    "team": "WSH",
+    "positions": ["SP"],
+    "basicStats": [78, 76, 73, 72, 74],
+    "gradeIncrease": [17, 16, 15, 13, 14],
+    "types": ["signature", "prime", "regular"],
+    "typeOverrides": {
+      "prime": {
+        "gradeIncrease": [18, 17, 16, 14, 15]
+      }
+    }
+  },
+  {
+    "name": "D.Martinez '92",
+    "team": "WSH",
+    "positions": ["SP"],
+    "basicStats": [76, 71, 76, 72, 70],
+    "gradeIncrease": [17, 14, 17, 14, 13],
+    "types": ["signature", "prime", "vintage"],
+    "typeOverrides": {
+      "prime": {
+        "gradeIncrease": [18, 15, 18, 15, 14]
+      }
+    }
+  },
+  {
+    "name": "J.Fassero '96",
+    "team": "WSH",
+    "positions": ["SP"],
+    "basicStats": [76, 71, 75, 75, 71],
+    "gradeIncrease": [17, 13, 16, 16, 13],
+    "types": ["signature", "vintage"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "M.Langston '89",
+    "team": "WSH",
+    "positions": ["SP"],
+    "basicStats": [74, 73, 77, 75, 69],
+    "gradeIncrease": [16, 14, 17, 16, 12],
+    "types": ["signature", "vintage"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "S.Strasburg '16",
+    "team": "WSH",
+    "positions": ["SP"],
+    "basicStats": [77, 75, 73, 71, 70],
+    "gradeIncrease": [17, 16, 15, 14, 13],
+    "types": ["signature", "regular"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "S.Strasburg '15",
+    "team": "WSH",
+    "positions": ["SP"],
+    "basicStats": [78, 74, 71, 72, 71],
+    "gradeIncrease": [18, 15, 14, 14, 14],
+    "types": ["signature", "regular"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "D.Hermanson '98",
+    "team": "WSH",
+    "positions": ["SP"],
+    "basicStats": [74, 70, 72, 75, 70],
+    "gradeIncrease": [16, 14, 15, 17, 13],
+    "types": ["signature", "vintage"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "F.Youmans '86",
+    "team": "WSH",
+    "positions": ["SP"],
+    "basicStats": [71, 73, 74, 75, 68],
+    "gradeIncrease": [14, 16, 15, 17, 13],
+    "types": ["signature", "vintage"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "J.Patterson '05",
+    "team": "WSH",
+    "positions": ["SP"],
+    "basicStats": [74, 71, 74, 72, 69],
+    "gradeIncrease": [16, 14, 16, 16, 13],
+    "types": ["signature", "prime", "regular"],
+    "typeOverrides": {
+      "prime": {
+        "gradeIncrease": [18, 15, 17, 16, 14]
+      }
+    }
+  },
+  {
+    "name": "J.Zimmermann '14",
+    "team": "WSH",
+    "positions": ["SP"],
+    "basicStats": [78, 71, 73, 71, 71],
+    "gradeIncrease": [18, 14, 15, 14, 14],
+    "types": ["signature", "regular"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "P.Corbin '19",
+    "team": "WSH",
+    "positions": ["SP"],
+    "basicStats": [75, 74, 73, 69, 69],
+    "gradeIncrease": [17, 16, 16, 13, 13],
+    "types": ["signature", "prime", "regular"],
+    "typeOverrides": {
+      "prime": {
+        "gradeIncrease": [18, 18, 16, 14, 14]
+      }
+    }
+  },
+  {
+    "name": "S.Doolittle '18",
+    "team": "WSH",
+    "positions": ["CP"],
+    "basicStats": [77, 76, 50, 71, 72],
+    "gradeIncrease": [20, 19, 5, 15, 16],
+    "types": ["signature", "regular"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "S.Kelley '16",
+    "team": "WSH",
+    "positions": ["RP"],
+    "basicStats": [74, 73, 53, 75, 68],
+    "gradeIncrease": [18, 18, 6, 19, 14],
+    "types": ["signature", "prime", "regular"],
+    "typeOverrides": {
+      "prime": {
+        "gradeIncrease": [20, 18, 7, 20, 15]
+      }
+    }
+  },
+  {
+    "name": "T.Clippard '11",
+    "team": "WSH",
+    "positions": ["RP"],
+    "basicStats": [72, 73, 54, 71, 71],
+    "gradeIncrease": [18, 18, 7, 16, 16],
+    "types": ["signature", "prime", "regular"],
+    "typeOverrides": {
+      "prime": {
+        "basicStats": [73, 74, 54, 71, 71],
+        "gradeIncrease": [19, 20, 7, 17, 17]
+      }
+    }
+  },
+  {
+    "name": "T.Rainey '20",
+    "team": "WSH",
+    "positions": ["RP"],
+    "basicStats": [71, 74, 53, 74, 71],
+    "gradeIncrease": [17, 18, 6, 18, 16],
+    "types": ["signature", "regular"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "M.Melancon '16",
+    "team": "WSH",
+    "positions": ["CP"],
+    "basicStats": [74, 70, 50, 74, 72],
+    "gradeIncrease": [19, 16, 5, 18, 17],
+    "types": ["signature", "regular"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "D.Storen '14",
+    "team": "WSH",
+    "positions": ["RP"],
+    "basicStats": [73, 69, 53, 74, 67],
+    "gradeIncrease": [19, 16, 7, 19, 14],
+    "types": ["signature", "regular"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "M.Albers '17",
+    "team": "WSH",
+    "positions": ["RP"],
+    "basicStats": [71, 70, 53, 75, 68],
+    "gradeIncrease": [17, 16, 7, 20, 15],
+    "types": ["signature", "regular"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "J.Reardon '85",
+    "team": "WSH",
+    "positions": ["CP"],
+    "basicStats": [72, 68, 52, 74, 69],
+    "gradeIncrease": [18, 15, 6, 19, 17],
+    "types": ["signature", "vintage"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "H.Harvey '23",
+    "team": "WSH",
+    "positions": ["RP"],
+    "basicStats": [73, 70, 53, 68, 68],
+    "gradeIncrease": [19, 18, 7, 16, 15],
+    "types": ["signature", "prime", "regular"],
+    "typeOverrides": {
+      "prime": {
+        "gradeIncrease": [20, 19, 7, 17, 17]
+      }
+    }
+  },
+  {
+    "name": "C.Cordero '05",
+    "team": "WSH",
+    "positions": ["CP"],
+    "basicStats": [72, 68, 50, 70, 68],
+    "gradeIncrease": [19, 17, 5, 18, 16],
+    "types": ["signature", "prime", "regular"],
+    "typeOverrides": {
+      "prime": {
+        "gradeIncrease": [21, 17, 6, 19, 17]
+      }
+    }
+  },
+  {
+    "name": "ROGERS HORNSBY",
+    "team": "STL",
+    "positions": ["2B"],
+    "basicStats": [94, 82, 83, 65, 66],
+    "gradeIncrease": [22, 17, 17, 9, 10],
+    "types": ["supreme"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "STAN MUSIAL",
+    "team": "STL",
+    "positions": ["OF", "1B"],
+    "basicStats": [81, 83, 83, 65, 73],
+    "gradeIncrease": [16, 18, 18, 10, 13],
+    "types": ["supreme"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "OZZIE SMITH",
+    "team": "STL",
+    "positions": ["SS"],
+    "basicStats": [78, 64, 79, 77, 81],
+    "gradeIncrease": [15, 10, 17, 15, 18],
+    "types": ["supreme"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "SCOTT ROLEN",
+    "team": "STL",
+    "positions": ["SS"],
+    "basicStats": [79, 80, 74, 62, 75],
+    "gradeIncrease": [18, 18, 15, 9, 15],
+    "types": ["supreme"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "LOU BROCK",
+    "team": "STL",
+    "positions": ["OF"],
+    "basicStats": [77, 70, 72, 84, 63],
+    "gradeIncrease": [17, 13, 15, 20, 10],
+    "types": ["supreme"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "O.Smith '87",
+    "team": "STL",
+    "positions": ["SS"],
+    "basicStats": [78, 62, 78, 74, 79],
+    "gradeIncrease": [17, 9, 17, 14, 18],
+    "types": ["legend", "signature", "vintage"],
+    "typeOverrides": {
+      "legend": {
+        "basicStats": [76, 62, 78, 74, 79],
+        "gradeIncrease": [16, 9, 17, 15, 18]
+      }
+    }
+  },
+  {
+    "name": "R.Hornsby '25",
+    "team": "STL",
+    "positions": ["2B"],
+    "basicStats": [91, 82, 79, 61, 60],
+    "gradeIncrease": [23, 19, 16, 9, 8],
+    "types": ["legend", "signature", "prime", "vintage"],
+    "typeOverrides": {
+      "legend": {
+        "basicStats": [83, 82, 79, 61, 50],
+        "gradeIncrease": [21, 21, 19, 10, 4]
+      },
+      "prime": {
+        "gradeIncrease": [24, 20, 18, 9, 9]
+      }
+    }
+  },
+  {
+    "name": "L.Brock '74",
+    "team": "STL",
+    "positions": ["2B"],
+    "basicStats": [78, 63, 71, 84, 55],
+    "gradeIncrease": [19, 11, 16, 22, 7],
+    "types": ["legend"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "A.Pujols '08",
+    "team": "STL",
+    "positions": ["1B"],
+    "basicStats": [80, 80, 81, 59, 73],
+    "gradeIncrease": [18, 18, 17, 8, 14],
+    "types": ["signature", "regular"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "M.McGwire '98",
+    "team": "STL",
+    "positions": ["1B"],
+    "basicStats": [76, 98, 83, 57, 59],
+    "gradeIncrease": [15, 26, 19, 7, 8],
+    "types": ["signature", "vintage"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "S.Musial '48",
+    "team": "STL",
+    "positions": ["OF"],
+    "basicStats": [81, 80, 77, 65, 67],
+    "gradeIncrease": [19, 18, 16, 11, 11],
+    "types": ["signature", "vintage"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "S.Rolen '04",
+    "team": "STL",
+    "positions": ["3B"],
+    "basicStats": [79, 80, 73, 59, 75],
+    "gradeIncrease": [18, 19, 14, 8, 16],
+    "types": ["signature", "regular"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "Y.Molina '12",
+    "team": "STL",
+    "positions": ["C"],
+    "basicStats": [73, 73, 75, 65, 75],
+    "gradeIncrease": [15, 15, 17, 11, 17],
+    "types": ["signature", "regular"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "P.Goldschmidt '22",
+    "team": "STL",
+    "positions": ["1B"],
+    "basicStats": [78, 78, 72, 62, 71],
+    "gradeIncrease": [18, 18, 15, 10, 14],
+    "types": ["signature", "prime", "regular"],
+    "typeOverrides": {
+      "prime": {
+        "basicStats": [81, 78, 72, 62, 63],
+        "gradeIncrease": [22, 20, 16, 11, 11]
+      }
+    }
+  },
+  {
+    "name": "P.DeJong '19",
+    "team": "STL",
+    "positions": ["SS"],
+    "basicStats": [71, 76, 68, 68, 80],
+    "gradeIncrease": [15, 17, 12, 12, 19],
+    "types": ["signature", "prime", "regular"],
+    "typeOverrides": {
+      "prime": {
+        "basicStats": [67, 76, 68, 66, 77],
+        "gradeIncrease": [14, 19, 14, 13, 20]
+      }
+    }
+  },
+  {
+    "name": "T.Edman '22",
+    "team": "STL",
+    "positions": ["SS", "2B"],
+    "basicStats": [74, 67, 68, 74, 79],
+    "gradeIncrease": [16, 12, 12, 16, 19],
+    "types": ["signature", "regular"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "J.Edmonds '04",
+    "team": "STL",
+    "positions": ["OF"],
+    "basicStats": [76, 85, 74, 63, 66],
+    "gradeIncrease": [17, 21, 16, 10, 11],
+    "types": ["signature", "prime", "regular"],
+    "typeOverrides": {
+      "prime": {
+        "gradeIncrease": [18, 22, 17, 11, 12]
+      }
+    }
+  },
+  {
+    "name": "T.McCarver '67",
+    "team": "STL",
+    "positions": ["C"],
+    "basicStats": [76, 69, 75, 67, 70],
+    "gradeIncrease": [18, 13, 17, 12, 15],
+    "types": ["signature", "vintage"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "T.Pham '17",
+    "team": "STL",
+    "positions": ["OF"],
+    "basicStats": [75, 74, 71, 68, 68],
+    "gradeIncrease": [17, 17, 15, 13, 13],
+    "types": ["signature", "regular"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "N.Arenado '21",
+    "team": "STL",
+    "positions": ["3B"],
+    "basicStats": [73, 78, 69, 62, 70],
+    "gradeIncrease": [17, 19, 15, 10, 14],
+    "types": ["signature", "regular"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "R.Lankford '98",
+    "team": "STL",
+    "positions": ["OF"],
+    "basicStats": [76, 77, 72, 65, 64],
+    "gradeIncrease": [18, 19, 15, 12, 11],
+    "types": ["signature", "vintage"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "L.Berkman '11",
+    "team": "STL",
+    "positions": ["OF"],
+    "basicStats": [78, 78, 77, 59, 60],
+    "gradeIncrease": [19, 19, 19, 9, 9],
+    "types": ["signature", "regular"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "R.Ludwick '08",
+    "team": "STL",
+    "positions": ["OF"],
+    "basicStats": [76, 80, 68, 61, 67],
+    "gradeIncrease": [18, 20, 14, 10, 13],
+    "types": ["signature", "prime", "regular"],
+    "typeOverrides": {
+      "prime": {
+        "gradeIncrease": [19, 22, 14, 11, 14]
+      }
+    }
+  },
+  {
+    "name": "DIZZY DEAN",
+    "team": "STL",
+    "positions": ["SP"],
+    "basicStats": [78, 70, 82, 76, 73],
+    "gradeIncrease": [16, 12, 18, 16, 13],
+    "types": ["supreme"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "BRUCE SUTTER",
+    "team": "STL",
+    "positions": ["CP"],
+    "basicStats": [77, 77, 53, 80, 71],
+    "gradeIncrease": [18, 18, 6, 19, 14],
+    "types": ["supreme"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "D.Dean '34",
+    "team": "STL",
+    "positions": ["SP"],
+    "basicStats": [75, 68, 73, 74, 71],
+    "gradeIncrease": [17, 13, 16, 15, 14],
+    "types": ["legend", "signature", "vintage"],
+    "typeOverrides": {
+      "legend": {
+        "basicStats": [75, 68, 73, 74, 70],
+        "gradeIncrease": [17, 13, 16, 15, 14]
+      }
+    }
+  },
+  {
+    "name": "B.Gibson '68",
+    "team": "STL",
+    "positions": ["SP"],
+    "basicStats": [80, 76, 82, 77, 74],
+    "gradeIncrease": [16, 15, 17, 14, 13],
+    "types": ["signature", "vintage"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "A.Wainwright '14",
+    "team": "STL",
+    "positions": ["SP"],
+    "basicStats": [77, 71, 76, 71, 75],
+    "gradeIncrease": [17, 13, 16, 13, 16],
+    "types": ["signature", "regular"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "J.Flaherty '19",
+    "team": "STL",
+    "positions": ["SP"],
+    "basicStats": [77, 77, 72, 75, 71],
+    "gradeIncrease": [17, 17, 13, 15, 13],
+    "types": ["signature", "prime", "regular"],
+    "typeOverrides": {
+      "prime": {
+        "gradeIncrease": [18, 18, 14, 16, 14]
+      }
+    }
+  },
+  {
+    "name": "S.Carlton '69",
+    "team": "STL",
+    "positions": ["SP"],
+    "basicStats": [74, 73, 77, 77, 70],
+    "gradeIncrease": [14, 14, 17, 17, 13],
+    "types": ["signature", "vintage"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "J.Tudor '85",
+    "team": "STL",
+    "positions": ["SP"],
+    "basicStats": [77, 71, 77, 74, 72],
+    "gradeIncrease": [17, 13, 17, 14, 14],
+    "types": ["signature", "vintage"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "A.Benes '97",
+    "team": "STL",
+    "positions": ["SP"],
+    "basicStats": [74, 73, 76, 77, 69],
+    "gradeIncrease": [16, 14, 16, 17, 12],
+    "types": ["signature", "vintage"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "D.Hughes '67",
+    "team": "STL",
+    "positions": ["SP"],
+    "basicStats": [77, 71, 72, 75, 73],
+    "gradeIncrease": [17, 13, 15, 16, 14],
+    "types": ["signature", "vintage"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "S.Gray '24",
+    "team": "STL",
+    "positions": ["SP"],
+    "basicStats": [77, 74, 72, 71, 71],
+    "gradeIncrease": [17, 16, 14, 14, 14],
+    "types": ["signature", "regular"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "S.Miller '13",
+    "team": "STL",
+    "positions": ["SP"],
+    "basicStats": [75, 72, 71, 71, 68],
+    "gradeIncrease": [17, 16, 15, 14, 13],
+    "types": ["signature", "prime", "regular"],
+    "typeOverrides": {
+      "prime": {
+        "gradeIncrease": [18, 17, 16, 15, 14]
+      }
+    }
+  },
+  {
+    "name": "L.Lynn '14",
+    "team": "STL",
+    "positions": ["SP"],
+    "basicStats": [74, 71, 73, 70, 66],
+    "gradeIncrease": [17, 15, 17, 14, 12],
+    "types": ["signature", "prime", "regular"],
+    "typeOverrides": {
+      "prime": {
+        "gradeIncrease": [18, 16, 18, 15, 13]
+      }
+    }
+  },
+  {
+    "name": "R.Helsley '22",
+    "team": "STL",
+    "positions": ["CP"],
+    "basicStats": [74, 77, 51, 77, 74],
+    "gradeIncrease": [16, 19, 5, 19, 16],
+    "types": ["signature", "regular"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "P.Neshek '14",
+    "team": "STL",
+    "positions": ["RP"],
+    "basicStats": [74, 71, 53, 73, 74],
+    "gradeIncrease": [18, 16, 6, 18, 17],
+    "types": ["signature", "regular"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "B.Sutter '84",
+    "team": "STL",
+    "positions": ["CP"],
+    "basicStats": [77, 70, 53, 74, 71],
+    "gradeIncrease": [20, 15, 6, 18, 16],
+    "types": ["signature", "prime", "vintage"],
+    "typeOverrides": {
+      "prime": {
+        "gradeIncrease": [21, 16, 7, 19, 17]
+      }
+    }
+  },
+  {
+    "name": "G.Gallegos '19",
+    "team": "STL",
+    "positions": ["RP"],
+    "basicStats": [71, 71, 54, 72, 73],
+    "gradeIncrease": [16, 16, 7, 18, 18],
+    "types": ["signature", "regular"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "M.Svanson '25",
+    "team": "STL",
+    "positions": ["RP"],
+    "basicStats": [71, 71, 55, 72, 71],
+    "gradeIncrease": [17, 16, 8, 18, 16],
+    "types": ["signature", "regular"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "S.Oh '16",
+    "team": "STL",
+    "positions": ["CP"],
+    "basicStats": [74, 73, 50, 75, 71],
+    "gradeIncrease": [18, 17, 5, 19, 16],
+    "types": ["signature", "regular"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "A.Gomber '20",
+    "team": "STL",
+    "positions": ["RP"],
+    "basicStats": [68, 71, 57, 75, 68],
+    "gradeIncrease": [15, 17, 9, 19, 15],
+    "types": ["signature", "regular"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "J.Motte '12",
+    "team": "STL",
+    "positions": ["CP"],
+    "basicStats": [74, 72, 51, 73, 62],
+    "gradeIncrease": [20, 19, 6, 18, 12],
+    "types": ["signature", "prime", "regular"],
+    "typeOverrides": {
+      "prime": {
+        "basicStats": [73, 71, 51, 73, 62],
+        "gradeIncrease": [21, 19, 6, 21, 13]
+      }
+    }
+  },
+  {
+    "name": "JACKIE DOBINSON",
+    "team": "LAD",
+    "positions": ["2B", "3B"],
+    "basicStats": [83, 72, 83, 65, 79],
+    "gradeIncrease": [18, 13, 18, 10, 16],
+    "types": ["supreme"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "DUKE SNIDER",
+    "team": "LAD",
+    "positions": ["OF"],
+    "basicStats": [83, 84, 79, 67, 69],
+    "gradeIncrease": [18, 19, 16, 11, 11],
+    "types": ["supreme"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "ROY CAMPANELLA",
+    "team": "LAD",
+    "positions": ["C"],
+    "basicStats": [81, 82, 78, 64, 68],
+    "gradeIncrease": [18, 19, 16, 10, 12],
+    "types": ["supreme"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "D.Snider '55",
+    "team": "LAD",
+    "positions": ["OF"],
+    "basicStats": [79, 83, 79, 65, 69],
+    "gradeIncrease": [17, 19, 17, 10, 12],
+    "types": ["legend"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "J.Robinson '49",
+    "team": "LAD",
+    "positions": ["C"],
+    "basicStats": [83, 70, 79, 67, 74],
+    "gradeIncrease": [19, 13, 17, 11, 15],
+    "types": ["legend", "signature", "vintage"],
+    "typeOverrides": {
+      "legend": {
+        "basicStats": [79, 70, 79, 67, 69],
+        "gradeIncrease": [18, 14, 18, 12, 13]
+      }
+    }
+  },
+  {
+    "name": "R.Campanella '53",
+    "team": "LAD",
+    "positions": ["C"],
+    "basicStats": [79, 82, 75, 59, 68],
+    "gradeIncrease": [18, 20, 17, 8, 12],
+    "types": ["legend", "signature", "vintage"],
+    "typeOverrides": {
+      "legend": {
+        "basicStats": [77, 82, 75, 59, 66],
+        "gradeIncrease": [18, 20, 17, 8, 12]
+      }
+    }
+  },
+  {
+    "name": "A.Beltre '04",
+    "team": "LAD",
+    "positions": ["3B"],
+    "basicStats": [82, 82, 70, 60, 77],
+    "gradeIncrease": [19, 19, 13, 18, 16],
+    "types": ["signature", "regular"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "M.Machado '18",
+    "team": "LAD",
+    "positions": ["SS", "3B"],
+    "basicStats": [76, 77, 72, 68, 79],
+    "gradeIncrease": [15, 17, 13, 12, 18],
+    "types": ["signature", "regular"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "D.Snider '53",
+    "team": "LAD",
+    "positions": ["OF"],
+    "basicStats": [82, 80, 74, 66, 69],
+    "gradeIncrease": [19, 18, 15, 11, 12],
+    "types": ["signature", "vintage"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "C.Bellinger '19",
+    "team": "LAD",
+    "positions": ["OF"],
+    "basicStats": [76, 84, 77, 65, 71],
+    "gradeIncrease": [15, 20, 17, 10, 13],
+    "types": ["signature", "prime", "regular"],
+    "typeOverrides": {
+      "prime": {
+        "gradeIncrease": [16, 21, 18, 11, 14]
+      }
+    }
+  },
+  {
+    "name": "P.W.Reese '49",
+    "team": "LAD",
+    "positions": ["SS"],
+    "basicStats": [75, 68, 81, 68, 73],
+    "gradeIncrease": [16, 12, 19, 12, 16],
+    "types": ["signature", "vintage"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "S.Green '01",
+    "team": "LAD",
+    "positions": ["OF"],
+    "basicStats": [76, 83, 72, 65, 69],
+    "gradeIncrease": [17, 20, 14, 11, 13],
+    "types": ["signature", "prime", "regular"],
+    "typeOverrides": {
+      "prime": {
+        "gradeIncrease": [18, 21, 15, 12, 14]
+      }
+    }
+  },
+  {
+    "name": "C.Bellinger '17",
+    "team": "LAD",
+    "positions": ["1B", "OF"],
+    "basicStats": [74, 84, 69, 66, 70],
+    "gradeIncrease": [16, 21, 14, 11, 13],
+    "types": ["signature", "regular"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "F.Freeman '23",
+    "team": "LAD",
+    "positions": ["1B"],
+    "basicStats": [78, 74, 71, 68, 71],
+    "gradeIncrease": [18, 16, 15, 12, 14],
+    "types": ["signature", "regular"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "M.Muncy '21",
+    "team": "LAD",
+    "positions": ["1B"],
+    "basicStats": [73, 82, 74, 62, 70],
+    "gradeIncrease": [16, 20, 16, 10, 13],
+    "types": ["signature", "prime", "regular"],
+    "typeOverrides": {
+      "prime": {
+        "basicStats": [70, 83, 74, 62, 70],
+        "gradeIncrease": [15, 22, 17, 11, 15]
+      }
+    }
+  },
+  {
+    "name": "G.Sheffield '00",
+    "team": "LAD",
+    "positions": ["OF"],
+    "basicStats": [81, 84, 80, 59, 56],
+    "gradeIncrease": [20, 21, 19, 8, 7],
+    "types": ["signature", "regular"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "B.Butler '91",
+    "team": "LAD",
+    "positions": ["OF"],
+    "basicStats": [77, 61, 79, 72, 72],
+    "gradeIncrease": [18, 9, 19, 15, 14],
+    "types": ["signature", "vintage"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "J.Wynn '74",
+    "team": "LAD",
+    "positions": ["OF"],
+    "basicStats": [73, 78, 78, 62, 73],
+    "gradeIncrease": [15, 18, 17, 10, 15],
+    "types": ["signature", "vintage"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "M.Betts '23",
+    "team": "LAD",
+    "positions": ["OF", "2B"],
+    "basicStats": [77, 79, 76, 63, 69],
+    "gradeIncrease": [17, 18, 17, 10, 13],
+    "types": ["signature", "prime", "regular"],
+    "typeOverrides": {
+      "prime": {
+        "basicStats": [79, 79, 76, 63, 70],
+        "gradeIncrease": [19, 19, 17, 11, 14]
+      }
+    }
+  },
+  {
+    "name": "S.Ohtani '24",
+    "team": "LAD",
+    "positions": ["DH"],
+    "basicStats": [80, 84, 70, 76, 50],
+    "gradeIncrease": [19, 21, 14, 17, 4],
+    "types": ["signature", "regular"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "E.Karros '95",
+    "team": "LAD",
+    "positions": ["1B"],
+    "basicStats": [76, 77, 70, 62, 73],
+    "gradeIncrease": [18, 18, 14, 10, 15],
+    "types": ["signature", "vintage"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "F.Freeman '22",
+    "team": "LAD",
+    "positions": ["1B"],
+    "basicStats": [78, 71, 75, 62, 73],
+    "gradeIncrease": [18, 14, 17, 10, 16],
+    "types": ["signature", "regular"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "M.Muncy '19",
+    "team": "LAD",
+    "positions": ["2B", "1B"],
+    "basicStats": [73, 82, 74, 60, 68],
+    "gradeIncrease": [15, 21, 17, 9, 13],
+    "types": ["signature", "regular"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "R.Cey '79",
+    "team": "LAD",
+    "positions": ["3B"],
+    "basicStats": [74, 77, 77, 62, 67],
+    "gradeIncrease": [17, 18, 18, 10, 12],
+    "types": ["signature", "vintage"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "T.Turner '21",
+    "team": "LAD",
+    "positions": ["SS", "2B"],
+    "basicStats": [78, 74, 67, 70, 67],
+    "gradeIncrease": [19, 17, 12, 15, 12],
+    "types": ["signature", "prime", "regular"],
+    "typeOverrides": {
+      "prime": {
+        "basicStats": [82, 74, 67, 70, 63],
+        "gradeIncrease": [22, 18, 13, 16, 11]
+      }
+    }
+  },
+  {
+    "name": "D.Baker '80",
+    "team": "LAD",
+    "positions": ["OF"],
+    "basicStats": [76, 75, 69, 68, 70],
+    "gradeIncrease": [18, 17, 13, 13, 14],
+    "types": ["signature", "vintage"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "M.Betts '22",
+    "team": "LAD",
+    "positions": ["OF"],
+    "basicStats": [74, 79, 70, 65, 70],
+    "gradeIncrease": [17, 19, 14, 11, 14],
+    "types": ["signature", "regular"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "W.Smith '22",
+    "team": "LAD",
+    "positions": ["C"],
+    "basicStats": [74, 75, 71, 61, 73],
+    "gradeIncrease": [16, 18, 15, 10, 16],
+    "types": ["signature", "regular"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "C.Seager '17",
+    "team": "LAD",
+    "positions": ["SS"],
+    "basicStats": [76, 72, 70, 62, 73],
+    "gradeIncrease": [18, 16, 14, 10, 17],
+    "types": ["signature", "prime", "regular"],
+    "typeOverrides": {
+      "prime": {
+        "gradeIncrease": [19, 17, 15, 11, 18]
+      }
+    }
+  },
+  {
+    "name": "R.Smith '77",
+    "team": "LAD",
+    "positions": ["OF"],
+    "basicStats": [77, 79, 82, 64, 52],
+    "gradeIncrease": [19, 19, 21, 11, 5],
+    "types": ["signature", "vintage"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "S.Ohtani '25",
+    "team": "LAD",
+    "positions": ["DH"],
+    "basicStats": [75, 87, 73, 67, 50],
+    "gradeIncrease": [18, 24, 16, 13, 4],
+    "types": ["signature", "regular"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "J.Turner '17",
+    "team": "LAD",
+    "positions": ["3B"],
+    "basicStats": [76, 73, 73, 62, 63],
+    "gradeIncrease": [19, 17, 17, 11, 11],
+    "types": ["signature", "prime", "regular"],
+    "typeOverrides": {
+      "prime": {
+        "gradeIncrease": [20, 18, 18, 11, 13]
+      }
+    }
+  },
+  {
+    "name": "P.Guerrero '85",
+    "team": "LAD",
+    "positions": ["OF", "3B"],
+    "basicStats": [77, 79, 78, 62, 50],
+    "gradeIncrease": [19, 21, 19, 11, 5],
+    "types": ["signature", "vintage"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "Y.Grandal '18",
+    "team": "LAD",
+    "positions": ["C"],
+    "basicStats": [71, 76, 71, 57, 68],
+    "gradeIncrease": [17, 19, 17, 8, 14],
+    "types": ["signature", "prime", "regular"],
+    "typeOverrides": {
+      "prime": {
+        "basicStats": [69, 77, 72, 57, 72],
+        "gradeIncrease": [15, 21, 18, 9, 17]
+      }
+    }
+  },
+  {
+    "name": "DON DRYSDALE",
+    "team": "LAD",
+    "positions": ["SP"],
+    "basicStats": [79, 74, 79, 73, 76],
+    "gradeIncrease": [17, 14, 17, 13, 14],
+    "types": ["supreme"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "DON SUTTON",
+    "team": "LAD",
+    "positions": ["SP"],
+    "basicStats": [79, 75, 80, 76, 74],
+    "gradeIncrease": [16, 15, 17, 14, 13],
+    "types": ["supreme"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "C.Kershaw '16",
+    "team": "LAD",
+    "positions": ["SP"],
+    "basicStats": [83, 78, 76, 78, 77],
+    "gradeIncrease": [17, 15, 15, 14, 14],
+    "types": ["legend", "signature", "regular"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "D.Sutton '72",
+    "team": "LAD",
+    "positions": ["SP"],
+    "basicStats": [77, 73, 80, 74, 72],
+    "gradeIncrease": [16, 14, 18, 14, 13],
+    "types": ["legend", "signature", "prime", "vintage"],
+    "typeOverrides": {
+      "legend": {
+        "basicStats": [77, 73, 80, 75, 73],
+        "gradeIncrease": [16, 14, 17, 15, 13]
+      },
+      "prime": {
+        "gradeIncrease": [17, 15, 19, 15, 14]
+      }
+    }
+  },
+  {
+    "name": "D.Drysdale '62",
+    "team": "LAD",
+    "positions": ["SP"],
+    "basicStats": [76, 70, 77, 75, 71],
+    "gradeIncrease": [16, 13, 17, 16, 13],
+    "types": ["legend", "signature", "vintage"],
+    "typeOverrides": {
+      "legend": {
+        "basicStats": [76, 70, 77, 73, 71],
+        "gradeIncrease": [17, 13, 17, 15, 13]
+      }
+    }
+  },
+  {
+    "name": "C.Kershaw '15",
+    "team": "LAD",
+    "positions": ["SP"],
+    "basicStats": [80, 79, 76, 77, 77],
+    "gradeIncrease": [16, 16, 15, 14, 14],
+    "types": ["signature", "regular"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "C.Kershaw '14",
+    "team": "LAD",
+    "positions": ["SP"],
+    "basicStats": [81, 78, 77, 75, 76],
+    "gradeIncrease": [17, 16, 14, 14, 14],
+    "types": ["signature", "prime", "regular"],
+    "typeOverrides": {
+      "prime": {
+        "gradeIncrease": [18, 17, 16, 14, 15]
+      }
+    }
+  },
+  {
+    "name": "Z.Greinke '15",
+    "team": "LAD",
+    "positions": ["SP"],
+    "basicStats": [80, 75, 75, 73, 77],
+    "gradeIncrease": [17, 15, 14, 13, 16],
+    "types": ["signature", "prime", "regular"],
+    "typeOverrides": {
+      "prime": {
+        "gradeIncrease": [18, 16, 15, 14, 17]
+      }
+    }
+  },
+  {
+    "name": "B.Singer '69",
+    "team": "LAD",
+    "positions": ["SP"],
+    "basicStats": [77, 72, 77, 74, 74],
+    "gradeIncrease": [16, 13, 16, 15, 15],
+    "types": ["signature", "vintage"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "M.Scherzer '21",
+    "team": "LAD",
+    "positions": ["SP"],
+    "basicStats": [80, 79, 72, 71, 72],
+    "gradeIncrease": [18, 17, 14, 13, 13],
+    "types": ["signature", "prime", "regular"],
+    "typeOverrides": {
+      "prime": {
+        "gradeIncrease": [19, 18, 15, 14, 14]
+      }
+    }
+  },
+  {
+    "name": "Y.Yamamoto '25",
+    "team": "LAD",
+    "positions": ["SP"],
+    "basicStats": [77, 77, 71, 75, 71],
+    "gradeIncrease": [17, 17, 13, 15, 13],
+    "types": ["signature", "regular"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "A.Wood '17",
+    "team": "LAD",
+    "positions": ["SP"],
+    "basicStats": [77, 74, 71, 71, 73],
+    "gradeIncrease": [17, 16, 14, 14, 14],
+    "types": ["signature", "prime", "regular"],
+    "typeOverrides": {
+      "prime": {
+        "gradeIncrease": [18, 17, 15, 14, 16]
+      }
+    }
+  },
+  {
+    "name": "H.Ryu '19",
+    "team": "LAD",
+    "positions": ["SP"],
+    "basicStats": [79, 72, 73, 69, 74],
+    "gradeIncrease": [18, 14, 14, 13, 16],
+    "types": ["signature", "prime", "regular"],
+    "typeOverrides": {
+      "prime": {
+        "gradeIncrease": [19, 16, 15, 13, 17]
+      }
+    }
+  },
+  {
+    "name": "J.Flaherty '24",
+    "team": "LAD",
+    "positions": ["SP"],
+    "basicStats": [77, 75, 71, 71, 71],
+    "gradeIncrease": [17, 16, 14, 14, 14],
+    "types": ["signature", "regular"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "J.Reuss '80",
+    "team": "LAD",
+    "positions": ["SP"],
+    "basicStats": [77, 68, 73, 74, 74],
+    "gradeIncrease": [17, 12, 14, 16, 16],
+    "types": ["signature", "vintage"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "T.Gonsolin '20",
+    "team": "LAD",
+    "positions": ["SP"],
+    "basicStats": [80, 75, 70, 73, 70],
+    "gradeIncrease": [18, 16, 13, 15, 13],
+    "types": ["signature", "prime", "regular"],
+    "typeOverrides": {
+      "prime": {
+        "gradeIncrease": [18, 17, 16, 14, 15]
+      }
+    }
+  },
+  {
+    "name": "W.Buehler '19",
+    "team": "LAD",
+    "positions": ["SP"],
+    "basicStats": [78, 74, 73, 73, 68],
+    "gradeIncrease": [18, 16, 15, 14, 12],
+    "types": ["signature", "prime", "regular"],
+    "typeOverrides": {
+      "prime": {
+        "gradeIncrease": [19, 17, 16, 15, 13]
+      }
+    }
+  },
+  {
+    "name": "W.Buehler '18",
+    "team": "LAD",
+    "positions": ["SP"],
+    "basicStats": [78, 76, 71, 71, 72],
+    "gradeIncrease": [17, 17, 13, 13, 15],
+    "types": ["signature", "regular"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "C.Park '00",
+    "team": "LAD",
+    "positions": ["SP"],
+    "basicStats": [71, 73, 74, 77, 69],
+    "gradeIncrease": [15, 16, 16, 19, 14],
+    "types": ["prime"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "E.Gagne '03",
+    "team": "LAD",
+    "positions": ["CP"],
+    "basicStats": [77, 80, 50, 80, 77],
+    "gradeIncrease": [17, 19, 4, 19, 16],
+    "types": ["signature", "prime", "regular"],
+    "typeOverrides": {
+      "prime": {
+        "gradeIncrease": [18, 20, 4, 20, 18]
+      }
+    }
+  },
+  {
+    "name": "K.Jansen '17",
+    "team": "LAD",
+    "positions": ["CP"],
+    "basicStats": [77, 77, 50, 77, 75],
+    "gradeIncrease": [18, 18, 4, 18, 17],
+    "types": ["signature", "prime", "regular"],
+    "typeOverrides": {
+      "prime": {
+        "gradeIncrease": [19, 19, 5, 19, 18]
+      }
+    }
+  },
+  {
+    "name": "H.Kuo '10",
+    "team": "LAD",
+    "positions": ["RP"],
+    "basicStats": [74, 75, 54, 75, 73],
+    "gradeIncrease": [17, 18, 6, 18, 16],
+    "types": ["signature", "prime", "regular"],
+    "typeOverrides": {
+      "prime": {
+        "gradeIncrease": [19, 19, 7, 18, 17]
+      }
+    }
+  },
+  {
+    "name": "K.Jansen '16",
+    "team": "LAD",
+    "positions": ["CP"],
+    "basicStats": [77, 77, 50, 78, 71],
+    "gradeIncrease": [19, 19, 4, 18, 15],
+    "types": ["signature", "regular"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "K.Jansen '15",
+    "team": "LAD",
+    "positions": ["CP"],
+    "basicStats": [76, 75, 50, 75, 70],
+    "gradeIncrease": [19, 18, 5, 18, 15],
+    "types": ["signature", "regular"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "T.Niedenfuer '85",
+    "team": "LAD",
+    "positions": ["CP"],
+    "basicStats": [74, 71, 53, 75, 72],
+    "gradeIncrease": [18, 16, 6, 19, 16],
+    "types": ["signature", "vintage"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "B.Treinen '21",
+    "team": "LAD",
+    "positions": ["RP"],
+    "basicStats": [72, 72, 53, 70, 74],
+    "gradeIncrease": [18, 17, 6, 15, 19],
+    "types": ["signature", "regular"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "E.Phillips '22",
+    "team": "LAD",
+    "positions": ["RP"],
+    "basicStats": [72, 72, 53, 77, 69],
+    "gradeIncrease": [17, 17, 6, 20, 15],
+    "types": ["signature", "regular"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "J.Howell '88",
+    "team": "LAD",
+    "positions": ["CP"],
+    "basicStats": [72, 71, 51, 75, 69],
+    "gradeIncrease": [18, 17, 5, 20, 15],
+    "types": ["signature", "vintage"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "S.Miller '23",
+    "team": "LAD",
+    "positions": ["RP"],
+    "basicStats": [68, 71, 54, 69, 66],
+    "gradeIncrease": [17, 19, 8, 16, 15],
+    "types": ["signature", "prime", "regular"],
+    "typeOverrides": {
+      "prime": {
+        "basicStats": [68, 70, 54, 69, 66],
+        "gradeIncrease": [18, 19, 8, 19, 15]
+      }
+    }
+  },
+  {
+    "name": "DAVE WINFIELD",
+    "team": "SD",
+    "positions": ["OF"],
+    "basicStats": [83, 81, 76, 68, 73],
+    "gradeIncrease": [18, 17, 15, 11, 14],
+    "types": ["supreme"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "F.Tatis Jr. '20",
+    "team": "SD",
+    "positions": ["SS"],
+    "basicStats": [75, 83, 68, 73, 76],
+    "gradeIncrease": [15, 19, 12, 14, 15],
+    "types": ["signature", "regular"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "M.Machado '20",
+    "team": "SD",
+    "positions": ["3B"],
+    "basicStats": [77, 80, 71, 70, 73],
+    "gradeIncrease": [17, 18, 13, 13, 14],
+    "types": ["signature", "regular"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "G.Vaughn '98",
+    "team": "SD",
+    "positions": ["OF"],
+    "basicStats": [74, 86, 72, 64, 70],
+    "gradeIncrease": [16, 21, 15, 10, 13],
+    "types": ["signature", "vintage"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "J.Soto '23",
+    "team": "SD",
+    "positions": ["OF"],
+    "basicStats": [75, 78, 80, 64, 71],
+    "gradeIncrease": [16, 17, 18, 10, 14],
+    "types": ["signature", "prime", "regular"],
+    "typeOverrides": {
+      "prime": {
+        "basicStats": [74, 78, 80, 64, 65],
+        "gradeIncrease": [17, 19, 20, 11, 13]
+      }
+    }
+  },
+  {
+    "name": "J.Soto '22",
+    "team": "SD",
+    "positions": ["OF"],
+    "basicStats": [73, 76, 84, 62, 70],
+    "gradeIncrease": [15, 16, 21, 10, 13],
+    "types": ["signature", "regular"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "F.McGriff '92",
+    "team": "SD",
+    "positions": ["1B"],
+    "basicStats": [75, 80, 76, 62, 67],
+    "gradeIncrease": [17, 19, 17, 10, 12],
+    "types": ["signature", "vintage"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "H.Kim '23",
+    "team": "SD",
+    "positions": ["2B", "3B"],
+    "basicStats": [74, 69, 72, 72, 76],
+    "gradeIncrease": [16, 13, 15, 14, 17],
+    "types": ["signature", "prime", "regular"],
+    "typeOverrides": {
+      "prime": {
+        "basicStats": [72, 69, 72, 74, 74],
+        "gradeIncrease": [16, 14, 16, 17, 17]
+      }
+    }
+  },
+  {
+    "name": "R.Klesko '01",
+    "team": "SD",
+    "positions": ["1B"],
+    "basicStats": [75, 77, 76, 63, 66],
+    "gradeIncrease": [17, 18, 18, 10, 12],
+    "types": ["signature", "prime", "regular"],
+    "typeOverrides": {
+      "prime": {
+        "basicStats": [75, 77, 76, 63, 60],
+        "gradeIncrease": [18, 20, 20, 12, 10]
+      }
+    }
+  },
+  {
+    "name": "D.Roberts '06",
+    "team": "SD",
+    "positions": ["OF"],
+    "basicStats": [76, 63, 72, 77, 70],
+    "gradeIncrease": [18, 10, 15, 18, 14],
+    "types": ["signature", "regular"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "R.Sanders '99",
+    "team": "SD",
+    "positions": ["OF"],
+    "basicStats": [75, 76, 73, 72, 62],
+    "gradeIncrease": [17, 18, 15, 15, 10],
+    "types": ["signature", "vintage"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "D.Winfield '79",
+    "team": "SD",
+    "positions": ["OF"],
+    "basicStats": [78, 77, 76, 66, 62],
+    "gradeIncrease": [18, 18, 17, 12, 10],
+    "types": ["signature", "vintage"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "G.Sheffield '92",
+    "team": "SD",
+    "positions": ["3B"],
+    "basicStats": [82, 77, 72, 62, 57],
+    "gradeIncrease": [22, 18, 16, 11, 8],
+    "types": ["signature", "vintage"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "T.Kennedy '83",
+    "team": "SD",
+    "positions": ["C"],
+    "basicStats": [75, 69, 70, 59, 67],
+    "gradeIncrease": [19, 15, 17, 10, 14],
+    "types": ["signature", "vintage"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "TREVOR HOFFMAN",
+    "team": "SD",
+    "positions": ["CP"],
+    "basicStats": [77, 79, 54, 79, 76],
+    "gradeIncrease": [17, 18, 6, 18, 16],
+    "types": ["supreme"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "T.Hoffman '98",
+    "team": "SD",
+    "positions": ["CP"],
+    "basicStats": [74, 74, 51, 75, 69],
+    "gradeIncrease": [18, 18, 5, 19, 15],
+    "types": ["legend"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "Y.Darvish '22",
+    "team": "SD",
+    "positions": ["SP"],
+    "basicStats": [78, 74, 74, 71, 74],
+    "gradeIncrease": [17, 15, 15, 13, 15],
+    "types": ["signature", "prime", "regular"],
+    "typeOverrides": {
+      "prime": {
+        "gradeIncrease": [18, 16, 16, 14, 16]
+      }
+    }
+  },
+  {
+    "name": "B.Hurst '89",
+    "team": "SD",
+    "positions": ["SP"],
+    "basicStats": [75, 70, 77, 73, 70],
+    "gradeIncrease": [16, 13, 17, 16, 13],
+    "types": ["signature", "vintage"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "M.Latos '10",
+    "team": "SD",
+    "positions": ["SP"],
+    "basicStats": [77, 74, 72, 71, 71],
+    "gradeIncrease": [17, 16, 14, 14, 14],
+    "types": ["signature", "prime", "regular"],
+    "typeOverrides": {
+      "prime": {
+        "gradeIncrease": [18, 17, 15, 15, 15]
+      }
+    }
+  },
+  {
+    "name": "N.Pivetta '25",
+    "team": "SD",
+    "positions": ["SP"],
+    "basicStats": [77, 75, 72, 74, 70],
+    "gradeIncrease": [17, 16, 14, 15, 13],
+    "types": ["signature", "regular"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "B.Snell '23",
+    "team": "SD",
+    "positions": ["SP"],
+    "basicStats": [74, 80, 71, 71, 68],
+    "gradeIncrease": [16, 19, 14, 14, 12],
+    "types": ["signature", "prime", "regular"],
+    "typeOverrides": {
+      "prime": {
+        "gradeIncrease": [17, 20, 15, 15, 13]
+      }
+    }
+  },
+  {
+    "name": "J.Musgrove '21",
+    "team": "SD",
+    "positions": ["SP"],
+    "basicStats": [77, 74, 71, 67, 74],
+    "gradeIncrease": [18, 16, 14, 12, 15],
+    "types": ["signature", "prime", "regular"],
+    "typeOverrides": {
+      "prime": {
+        "gradeIncrease": [19, 17, 15, 13, 16]
+      }
+    }
+  },
+  {
+    "name": "M.Miller '25",
+    "team": "SD",
+    "positions": ["CP"],
+    "basicStats": [73, 78, 50, 71, 78],
+    "gradeIncrease": [16, 20, 5, 15, 19],
+    "types": ["signature", "regular"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "A.Morejon '25",
+    "team": "SD",
+    "positions": ["RP"],
+    "basicStats": [71, 69, 53, 77, 75],
+    "gradeIncrease": [16, 15, 6, 20, 18],
+    "types": ["signature", "regular"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "C.Meredith '06",
+    "team": "SD",
+    "positions": ["RP"],
+    "basicStats": [72, 68, 54, 76, 76],
+    "gradeIncrease": [16, 14, 7, 19, 19],
+    "types": ["signature", "regular"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "D.Pomeranz '20",
+    "team": "SD",
+    "positions": ["RP"],
+    "basicStats": [71, 78, 53, 77, 67],
+    "gradeIncrease": [16, 20, 6, 20, 13],
+    "types": ["signature", "regular"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "K.Yates '19",
+    "team": "SD",
+    "positions": ["CP"],
+    "basicStats": [76, 77, 50, 72, 72],
+    "gradeIncrease": [19, 19, 5, 16, 16],
+    "types": ["signature", "prime", "regular"],
+    "typeOverrides": {
+      "prime": {
+        "gradeIncrease": [20, 21, 5, 17, 17]
+      }
+    }
+  },
+  {
+    "name": "M.Davis '89",
+    "team": "SD",
+    "positions": ["CP"],
+    "basicStats": [74, 73, 52, 75, 73],
+    "gradeIncrease": [18, 17, 6, 18, 16],
+    "types": ["signature", "vintage"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "C.Kimbrel '15",
+    "team": "SD",
+    "positions": ["CP"],
+    "basicStats": [72, 74, 50, 72, 72],
+    "gradeIncrease": [17, 19, 5, 17, 17],
+    "types": ["signature", "prime", "regular"],
+    "typeOverrides": {
+      "prime": {
+        "gradeIncrease": [19, 20, 5, 18, 18]
+      }
+    }
+  },
+  {
+    "name": "H.Street '12",
+    "team": "SD",
+    "positions": ["CP"],
+    "basicStats": [73, 74, 50, 72, 75],
+    "gradeIncrease": [18, 17, 5, 16, 19],
+    "types": ["signature", "regular"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "H.Bell '10",
+    "team": "SD",
+    "positions": ["CP"],
+    "basicStats": [71, 71, 50, 71, 68],
+    "gradeIncrease": [18, 18, 5, 18, 16],
+    "types": ["signature", "prime", "regular"],
+    "typeOverrides": {
+      "prime": {
+        "gradeIncrease": [19, 19, 6, 19, 17]
+      }
+    }
+  }
+]
