@@ -1,55 +1,213 @@
 // ==========================================
-// 🏷️ 自動切換打者/投手表頭 (已修復：包含主畫面與技能設定視窗)
+// 🎨 第一區：顏色規則與通用工具
 // ==========================================
+
+// 規則 1：大數字顏色更新
+function updateNumberColor(element, value) {
+    if (isNaN(value)) { element.style.color = ''; return; }
+    if (value >= 140) element.style.color = '#ff0000';      // 紅色
+    else if (value >= 130) element.style.color = '#ff6600'; // 橘紅色
+    else if (value >= 120) element.style.color = '#ff9933'; // 橘色
+    else if (value >= 100) element.style.color = '#dda300'; // 金黃色
+    else if (value >= 80) element.style.color = '#c09300';  // 暗黃色
+    else if (value >= 65) element.style.color = '#908070';  // 灰褐色
+    else element.style.color = '#808080';                   // 灰色
+}
+
+// 規則 2：小數字顏色更新
+function updateNumberColor2(element, value) {
+    if (isNaN(value)) { element.style.color = ''; return; }
+    if (value >= 21) element.style.color = '#ff0000';       // 紅色
+    else if (value >= 11) element.style.color = '#ff9933';  // 橘色
+    else element.style.color = '#ffffff';                   // 白色
+}
+
+// 規則 3：正負數字顏色更新
+function updateNumberColor3(element, value) {
+    if (isNaN(value)) { element.style.color = ''; return; }
+    if (value > 0) element.style.color = '#00ff00';         // 綠色 (正向提升)
+    else if (value < 0) element.style.color = '#ff0000';    // 紅色 (負面扣除)
+    else element.style.color = '#ffffff';                   // 白色 (無變化)
+}
+
+// 負責判斷並派發給對應的顏色函數
+function applyColorRule(element, rule) {
+    if (element.classList && element.classList.contains('no-color')) {
+        element.style.color = ''; 
+        return;
+    }
+    let valueText = element.value !== undefined ? element.value : element.innerText;
+    let val = parseInt(valueText, 10);
+
+    if (rule === 'large') updateNumberColor(element, val);
+    else if (rule === 'small') updateNumberColor2(element, val);
+    else if (rule === 'posneg') updateNumberColor3(element, val);
+}
+
+// 防呆機制：強制限制輸入框的最大/最小值
+function enforceMinMax(element) {
+    if (element.tagName !== 'INPUT' || element.type !== 'number' || element.value === '') return;
+    let val = parseFloat(element.value);
+    
+    if (element.hasAttribute('min')) {
+        let min = parseFloat(element.min);
+        if (val < min) element.value = min; 
+    }
+    if (element.hasAttribute('max')) {
+        let max = parseFloat(element.max);
+        if (val > max) element.value = max; 
+    }
+}
+
+
+// ==========================================
+// 📊 第二區：表頭與視覺外觀更新
+// ==========================================
+
+// 切換打者/投手表頭 (包含主畫面與技能設定視窗)
 function updateStatLabels() {
     const posSelect = document.getElementById('position-select');
     const statsTable = document.querySelectorAll('.container > table')[1];
-    const modalTable = document.querySelector('.modal-overlay table'); // 🌟 新增：抓取技能設定裡的表格
+    const modalTable = document.querySelector('.modal-overlay table'); 
     
     if (!posSelect || !statsTable || !modalTable) return;
 
     const isPitcher = ['SP', 'RP', 'CP'].includes(posSelect.value);
-    
-    // 定義要顯示的文字陣列
     const labels = isPitcher 
         ? ['控球', '球威', '體力', '直球', '變化'] 
         : ['接觸', '力量', '選球', '速度', '守備'];
 
-    // 1. 更新主畫面表頭 (從 index 2 開始是屬性名稱)
+    // 1. 更新主畫面表頭
     const mainHeaders = statsTable.querySelectorAll('thead th');
     for (let i = 0; i < 5; i++) {
         if (mainHeaders[i + 2]) mainHeaders[i + 2].innerText = labels[i];
     }
 
-    // 2. 🌟 新增：更新技能設定視窗表頭 (從 index 2 開始)
+    // 2. 更新技能設定視窗表頭
     const modalHeaders = modalTable.querySelectorAll('thead th');
     for (let i = 0; i < 5; i++) {
         if (modalHeaders[i + 2]) modalHeaders[i + 2].innerText = labels[i];
     }
 }
 
-// ==========================================
-// 🎨 新增：動態切換表頭與總結列的背景顏色
-// ==========================================
+// 動態切換表頭與總結列的背景顏色 (白金狀態變色)
 function updateHeaderColor() {
     const topTable = document.querySelectorAll('.container > table')[0];
     if (!topTable) return;
     
-    // 抓取階級選單
     const gradeSelect = topTable.querySelectorAll('select')[0];
-    
-    // 同時抓取所有表頭 (th) 以及三個總計列 (.summary-row td)
     const themeElements = document.querySelectorAll('.container table th, .summary-row td, .modal-overlay th');
-    // 判斷是否為白金 (diamond)
+    
     if (gradeSelect.value === 'diamond') {
-        themeElements.forEach(el => el.style.backgroundColor = '#003f7f'); // 變成亮藍色
+        themeElements.forEach(el => el.style.backgroundColor = '#003f7f'); // 深藍色
     } else {
-        themeElements.forEach(el => el.style.backgroundColor = ''); // 清除設定，恢復 CSS 預設的深藍色 (#00001f)
+        themeElements.forEach(el => el.style.backgroundColor = ''); // 恢復預設
     }
 }
 
+
 // ==========================================
-// 🧮 自動連動計算邏輯 (新增特別訓練自動分配)
+// ⚙️ 第三區：數值自動分配與邏輯判定
+// ==========================================
+
+// 自動計算上方表格加成 (黑鑽、團隊、指導球員)
+function updateTopTableBonuses() {
+    const typeSelect = document.getElementById('type-select');
+    const posSelect = document.getElementById('position-select');
+    const topTable = document.querySelectorAll('.container > table')[0];
+    
+    if (!typeSelect || !posSelect || !topTable) return;
+
+    const pType = typeSelect.value;
+    const pPos = posSelect.value;
+    const pGrade = topTable.querySelectorAll('select')[0].value; 
+
+    const bdInput = topTable.querySelectorAll('input[type="number"]')[0];      
+    const setDeckInput = topTable.querySelectorAll('input[type="number"]')[1]; 
+    const mentorSelect = topTable.querySelectorAll('select')[2];               
+
+    // 1. 黑鑽判定
+    let bdValue = 0;
+    if (pGrade === 'blackDiamond') {
+        if (['vintage', 'signature'].includes(pType)) bdValue = 1;
+        else if (pType === 'supreme') bdValue = 2;
+        else if (pType === 'legend') bdValue = 3;
+    }
+    bdInput.value = bdValue;
+
+    // 2. 團隊加成判定
+    let setDeckValue = 10; 
+    if (pGrade === 'blackDiamond') {
+        if (['regular', 'vintage', 'legend'].includes(pType)) setDeckValue += 1;
+        else if (['prime', 'signature'].includes(pType)) setDeckValue += 2;
+    }
+    if (pType === 'signature') setDeckValue *= 2; 
+    setDeckInput.value = setDeckValue;
+
+    // 3. 指導球員判定
+    let mentorValue = 0;
+    if (['legend', 'supreme'].includes(pType)) {
+        mentorValue = 0;
+    } else if (['regular', 'vintage'].includes(pType)) {
+        mentorValue = 1;
+    } else if (pType === 'prime') {
+        mentorValue = 3;
+    } else if (pType === 'signature') {
+        const batters = ['C', '1B', '2B', '3B', 'SS', 'OF', 'DH'];
+        const pitchers = ['SP', 'RP', 'CP'];
+        if (batters.includes(pPos)) mentorValue = 3;
+        else if (pitchers.includes(pPos)) mentorValue = 2;
+    }
+    mentorSelect.value = mentorValue; 
+}
+
+// 自動分配「狀態」與「裝備」數值
+function updateConditionAndGear() {
+    const typeSelect = document.getElementById('type-select');
+    const statsTable = document.querySelectorAll('.container > table')[1];
+    if (!typeSelect || !statsTable) return;
+
+    const pType = typeSelect.value;
+    const rows = statsTable.querySelectorAll('tbody tr');
+    const conditionRow = rows[9]; 
+    const gearRow = rows[10];     
+
+    // 1. 狀態處理
+    const conditionSelect = conditionRow.querySelector('select');
+    const conditionInputs = conditionRow.querySelectorAll('input[type="number"]');
+    const option6 = conditionSelect.querySelector('option[value="6"]');
+
+    if (pType === 'supreme') {
+        option6.hidden = false;
+        option6.disabled = false;
+    } else {
+        option6.hidden = true;
+        option6.disabled = true;
+        if (conditionSelect.value === '6') conditionSelect.value = '3'; 
+    }
+
+    const condValue = parseInt(conditionSelect.value) || 0;
+    conditionInputs.forEach(input => {
+        input.value = condValue;
+        applyColorRule(input, 'posneg');
+    });
+
+    // 2. 裝備處理
+    const gearSelect = gearRow.querySelector('select');
+    const gearInputs = gearRow.querySelectorAll('input[type="number"]');
+    let gearValue = parseInt(gearSelect.value) || 0;
+
+    if (pType === 'supreme') gearValue *= 2;
+
+    for (let i = 0; i < 5; i++) {
+        gearInputs[i].value = (i < 3) ? gearValue : 0;
+        applyColorRule(gearInputs[i], 'posneg');
+    }
+}
+
+
+// ==========================================
+// 🧮 第四區：核心計算引擎
 // ==========================================
 function calculateSubtotals() {
     const tables = document.querySelectorAll('.container > table');
@@ -62,7 +220,6 @@ function calculateSubtotals() {
     const topHeadCheckboxes = topTable.querySelectorAll('thead input[type="checkbox"]');
     const topRow = topTable.querySelector('tbody tr');
     
-    // 分別讀取 勾選狀態 (checked 為 true/false，運算時會轉為 1/0)
     const mentorActive = topHeadCheckboxes[0].checked;
     const blackActive = topHeadCheckboxes[1].checked;
     const setDeckActive = topHeadCheckboxes[2].checked;
@@ -73,15 +230,10 @@ function calculateSubtotals() {
     
     const globalBonus = mentor + blackDiamond + setDeck;
 
-    // --- B. 準備記錄各橫排的 5 項數值總和 ---
+    // --- B. 準備記錄與特別訓練預計算 ---
     let rowTotals = { basicStats: 0, gradeIncrease: 0, development: 0, sum1: 0, trainer: 0, sum2: 0, sum3: 0 };
     const rows = statsTable.querySelectorAll('tbody tr');
 
-    // ==============================================================
-    // 🌟 新增：B.5 計算特別訓練自動分配
-    // ==============================================================
-    
-    // 1. 定義特別訓練等級對應的加成陣列 [第一名, 第二名, 第三名]
     const stBonuses = {
         10: [12, 10, 4],  9: [12, 10, 4],
          8: [10, 8, 2],
@@ -94,11 +246,9 @@ function calculateSubtotals() {
          0: [0, 0, 0]
     };
 
-    // 2. 抓取目前選定的特別訓練等級
     let stLevel = parseInt(rows[5].querySelector('select').value) || 0;
     let currentBonus = stBonuses[stLevel] || [0, 0, 0];
 
-    // 3. 收集五個屬性的 [索引, 強化量, 基本能力值] 來準備排名
     let rankData = [];
     for (let i = 0; i < 5; i++) {
         let base = parseInt(rows[0].querySelectorAll('input[type="number"]')[i].value) || 0;
@@ -106,29 +256,25 @@ function calculateSubtotals() {
         rankData.push({ index: i, base: base, dev: dev });
     }
 
-    // 4. 排序規則：強化量 > 基本能力值 > 左側優先(index小)
     rankData.sort((a, b) => {
-        if (b.dev !== a.dev) return b.dev - a.dev;     // 條件 1：強化量高優先
-        if (b.base !== a.base) return b.base - a.base; // 條件 2：強化量同，基本高優先
-        return a.index - b.index;                      // 條件 3：都同，左側優先
+        if (b.dev !== a.dev) return b.dev - a.dev;     
+        if (b.base !== a.base) return b.base - a.base; 
+        return a.index - b.index;                      
     });
 
-    // 5. 將對應的獎勵發放到對應的索引中，並強制寫回「特別訓練」的輸入框
     let finalStValues = [0, 0, 0, 0, 0];
-    finalStValues[rankData[0].index] = currentBonus[0]; // 第一名
-    finalStValues[rankData[1].index] = currentBonus[1]; // 第二名
-    finalStValues[rankData[2].index] = currentBonus[2]; // 第三名
+    finalStValues[rankData[0].index] = currentBonus[0]; 
+    finalStValues[rankData[1].index] = currentBonus[1]; 
+    finalStValues[rankData[2].index] = currentBonus[2]; 
 
     let stInputs = rows[5].querySelectorAll('input[type="number"]');
     for (let i = 0; i < 5; i++) {
         stInputs[i].value = finalStValues[i];
-        applyColorRule(stInputs[i], 'small'); // 寫入後馬上套用小數字顏色
+        applyColorRule(stInputs[i], 'small'); 
     }
-    // ==============================================================
 
     // --- C. 抓取下方表格並逐欄計算 ---
     for (let col = 0; col < 5; col++) {
-        // 🌟 判斷下方各排勾選狀態
         const adjActive = rows[1].querySelector('input[type="checkbox"]').checked;
         const devActive = rows[3].querySelector('input[type="checkbox"]').checked;
         const trainerActive = rows[6].querySelector('input[type="checkbox"]').checked;
@@ -166,7 +312,6 @@ function calculateSubtotals() {
         targetCell3.innerText = sum3;
         applyColorRule(targetCell3, 'large');
 
-        // 4. 累加
         rowTotals.basicStats += basicStats;
         rowTotals.gradeIncrease += gradeIncrease;
         rowTotals.development += development;
@@ -197,192 +342,12 @@ function calculateSubtotals() {
     rows[6].lastElementChild.innerText = rowTotals.trainer;       
 }
 
-// ==========================================
-// 🎨 顏色規則定義區
-// ==========================================
-
-/**
- * 規則 1：大數字顏色更新
- */
-function updateNumberColor(element, value) {
-    if (isNaN(value)) {
-        element.style.color = '';  
-        return;
-    }
-    
-    if (value >= 140) element.style.color = '#ff0000';      // 紅色
-    else if (value >= 130) element.style.color = '#ff6600'; // 橘紅色
-    else if (value >= 120) element.style.color = '#ff9933'; // 橘色
-    else if (value >= 100) element.style.color = '#dda300'; // 金黃色
-    else if (value >= 80) element.style.color = '#c09300';  // 暗黃色
-    else if (value >= 65) element.style.color = '#908070';  // 灰褐色
-    else element.style.color = '#808080';                   // 灰色
-}
-
-/**
- * 規則 2：小數字顏色更新
- */
-function updateNumberColor2(element, value) {
-    if (isNaN(value)) {
-        element.style.color = '';  
-        return;
-    }
-    
-    if (value >= 21) element.style.color = '#ff0000';       // 紅色
-    else if (value >= 11) element.style.color = '#ff9933';  // 橘色
-    else element.style.color = '#ffffff';                   // 白色
-}
-
-/**
- * 規則 3：正負數字顏色更新
- */
-function updateNumberColor3(element, value) {
-    if (isNaN(value)) {
-        element.style.color = '';  
-        return;
-    }
-    
-    if (value > 0) element.style.color = '#00ff00';         // 綠色 (正向提升)
-    else if (value < 0) element.style.color = '#ff0000';    // 紅色 (負面扣除)
-    else element.style.color = '#ffffff';                   // 白色 (無變化)
-}
 
 // ==========================================
-// 🛡️ 防呆機制：強制限制輸入框的最大/最小值
+// 🛠️ 第五區：技能設定視窗 (Modal) 專屬邏輯
 // ==========================================
-function enforceMinMax(element) {
-    if (element.tagName !== 'INPUT' || element.type !== 'number') return;
-    if (element.value === '') return; 
 
-    let val = parseFloat(element.value);
-    
-    if (element.hasAttribute('min')) {
-        let min = parseFloat(element.min);
-        if (val < min) element.value = min; 
-    }
-
-    if (element.hasAttribute('max')) {
-        let max = parseFloat(element.max);
-        if (val > max) element.value = max; 
-    }
-}
-
-// ==========================================
-// 💎 新增：自動計算上方表格加成 (黑鑽、團隊、指導球員)
-// ==========================================
-function updateTopTableBonuses() {
-    const typeSelect = document.getElementById('type-select');
-    const posSelect = document.getElementById('position-select');
-    const topTable = document.querySelectorAll('.container > table')[0];
-    
-    if (!typeSelect || !posSelect || !topTable) return;
-
-    const pType = typeSelect.value;   // 類型
-    const pPos = posSelect.value;     // 位置
-    const pGrade = topTable.querySelectorAll('select')[0].value; // 階級
-
-    const bdInput = topTable.querySelectorAll('input[type="number"]')[0];      // 黑鑽輸入框
-    const setDeckInput = topTable.querySelectorAll('input[type="number"]')[1]; // 團隊加成輸入框
-    const mentorSelect = topTable.querySelectorAll('select')[2];               // 指導球員選單
-
-    // 🌟 1. 判定【黑鑽 (blackDiamond)】
-    let bdValue = 0;
-    if (pGrade === 'blackDiamond') {
-        if (['vintage', 'signature'].includes(pType)) bdValue = 1;
-        else if (pType === 'supreme') bdValue = 2;
-        else if (pType === 'legend') bdValue = 3;
-    }
-    bdInput.value = bdValue;
-
-    // 🌟 2. 判定【團隊加成 (setDeck)】
-    let setDeckValue = 10; // 預設值為 10
-    if (pGrade === 'blackDiamond') {
-        if (['regular', 'vintage', 'legend'].includes(pType)) setDeckValue += 1;
-        else if (['prime', 'signature'].includes(pType)) setDeckValue += 2;
-    }
-    if (pType === 'signature') {
-        setDeckValue *= 2; // 若為簽名卡，最終結果 * 2
-    }
-    setDeckInput.value = setDeckValue;
-
-    // 🌟 3. 判定【指導球員 (mentor)】
-    let mentorValue = 0;
-    if (['legend', 'supreme'].includes(pType)) {
-        mentorValue = 0;
-    } else if (['regular', 'vintage'].includes(pType)) {
-        mentorValue = 1;
-    } else if (pType === 'prime') {
-        mentorValue = 3;
-    } else if (pType === 'signature') {
-        // 判斷位置是打者還是投手
-        const batters = ['C', '1B', '2B', '3B', 'SS', 'OF', 'DH'];
-        const pitchers = ['SP', 'RP', 'CP'];
-        
-        if (batters.includes(pPos)) mentorValue = 3;
-        else if (pitchers.includes(pPos)) mentorValue = 2;
-    }
-    mentorSelect.value = mentorValue; // 將數值賦予下拉選單
-}
-
-// ==========================================
-// ⚙️ 新增：自動分配「狀態」與「裝備」數值
-// ==========================================
-function updateConditionAndGear() {
-    const typeSelect = document.getElementById('type-select');
-    const statsTable = document.querySelectorAll('.container > table')[1];
-    if (!typeSelect || !statsTable) return;
-
-    const pType = typeSelect.value;
-    const rows = statsTable.querySelectorAll('tbody tr');
-    
-    const conditionRow = rows[9]; // 第 9 列：狀態
-    const gearRow = rows[10];     // 第 10 列：裝備
-
-    // --- 1. 狀態 (Condition) 處理 ---
-    const conditionSelect = conditionRow.querySelector('select');
-    const conditionInputs = conditionRow.querySelectorAll('input[type="number"]');
-    const option6 = conditionSelect.querySelector('option[value="6"]');
-
-    // 處理 "6" 選項的顯示與隱藏
-    if (pType === 'supreme') {
-        option6.hidden = false;
-        option6.disabled = false;
-    } else {
-        option6.hidden = true;
-        option6.disabled = true;
-        // 如果原本是 6 但切換成非 supreme，強制降回 3
-        if (conditionSelect.value === '6') {
-            conditionSelect.value = '3'; 
-        }
-    }
-
-    const condValue = parseInt(conditionSelect.value) || 0;
-    // 將狀態值填滿整排 5 個格子，並立刻上色
-    conditionInputs.forEach(input => {
-        input.value = condValue;
-        applyColorRule(input, 'posneg');
-    });
-
-    // --- 2. 裝備 (Gear) 處理 ---
-    const gearSelect = gearRow.querySelector('select');
-    const gearInputs = gearRow.querySelectorAll('input[type="number"]');
-    let gearValue = parseInt(gearSelect.value) || 0;
-
-    // 類型為 supreme 時，裝備效果 * 2
-    if (pType === 'supreme') {
-        gearValue *= 2;
-    }
-
-    // 裝備只影響前 3 個值，後 2 個強制歸零
-    for (let i = 0; i < 5; i++) {
-        gearInputs[i].value = (i < 3) ? gearValue : 0;
-        applyColorRule(gearInputs[i], 'posneg');
-    }
-}
-
-// ==========================================
-// 🛠️ 技能設定 (Modal) 專屬邏輯
-// ==========================================
+// 自動分配默契數值
 function updateChemistry() {
     const posSelect = document.getElementById('position-select');
     const modal = document.querySelector('.modal-overlay');
@@ -391,20 +356,16 @@ function updateChemistry() {
     const chemSelect = modal.querySelector('tbody tr:nth-child(1) select');
     let chemValue = 0;
 
-    // 🌟 新增：如果選中 "none"，直接將值設為 0
     if (chemSelect && chemSelect.value === 'none') {
         chemValue = 0;
     } else {
-        // 否則依照原本邏輯判斷打者/投手與傳說
         const isPitcher = ['SP', 'RP', 'CP'].includes(posSelect.value);
         chemValue = isPitcher ? 6 : 7; 
-
         if (chemSelect && chemSelect.value === 'legend') {
             chemValue += 1;
         }
     }
 
-    // 將數值填入默契這排的 5 個格子，並馬上套用小數字顏色
     const chemInputs = modal.querySelectorAll('tbody tr:nth-child(1) input[type="number"]');
     chemInputs.forEach(input => {
         input.value = chemValue;
@@ -412,21 +373,20 @@ function updateChemistry() {
     });
 }
 
+// 技能視窗初始化
 function initModal() {
     const modal = document.querySelector('.modal-overlay');
     const mainStatsTable = document.querySelectorAll('.container > table')[1];
     
+    if (!modal || !mainStatsTable) return;
+
     const openBtn = mainStatsTable.querySelectorAll('tbody tr')[11].querySelector('.setting-btn');
     const cancelBtn = modal.querySelector('.cancel-btn');
     const submitBtn = modal.querySelector('.submit-btn');
-
-    if (!openBtn || !modal) return;
-
     const modalRows = modal.querySelectorAll('tbody tr');
 
-    // --- 🌟 新增：設定視窗內的專屬顏色綁定 ---
+    // 綁定視窗內的即時顏色變化
     modalRows.forEach((row, index) => {
-        // 前四排(0~3)是 small，第五排(4:其他)是 posneg
         let rule = (index === 4) ? 'posneg' : 'small'; 
         const inputs = row.querySelectorAll('input[type="number"]');
 
@@ -435,92 +395,27 @@ function initModal() {
                 enforceMinMax(input);
                 applyColorRule(input, rule);
             });
-            input.addEventListener('input', () => {
-                applyColorRule(input, rule);
-            });
+            input.addEventListener('input', () => applyColorRule(input, rule));
         });
     });
-    // ----------------------------------------
 
     // 1. 打開視窗
     openBtn.addEventListener('click', () => {
         modal.style.display = 'flex';
         updateChemistry(); 
-        
-        // 🌟 打開視窗時，掃描並更新所有現有數字的顏色
         modalRows.forEach((row, index) => {
             let rule = (index === 4) ? 'posneg' : 'small';
-            row.querySelectorAll('input[type="number"]').forEach(input => {
-                applyColorRule(input, rule);
-            });
+            row.querySelectorAll('input[type="number"]').forEach(input => applyColorRule(input, rule));
         });
     });
 
     // 2. 關閉視窗 (取消)
-    cancelBtn.addEventListener('click', () => {
-        modal.style.display = 'none';
-    });
+    cancelBtn.addEventListener('click', () => modal.style.display = 'none');
 
     // 3. 完成並寫入主畫面
     submitBtn.addEventListener('click', () => {
         const skillRowMain = mainStatsTable.querySelectorAll('tbody tr')[11];
         const skillInputsMain = skillRowMain.querySelectorAll('input[type="number"]');
-
-        for (let col = 0; col < 5; col++) {
-            let colSum = 0;
-            modalRows.forEach(row => {
-                let val = parseInt(row.querySelectorAll('input[type="number"]')[col].value) || 0;
-                colSum += val;
-            });
-            skillInputsMain[col].value = colSum;
-            applyColorRule(skillInputsMain[col], 'small'); 
-        }
-
-        calculateSubtotals(); 
-        modal.style.display = 'none'; 
-    });
-
-    // 4. 默契選單連動 
-    const chemSelect = modal.querySelector('tbody tr:nth-child(1) select');
-    if (chemSelect) {
-        chemSelect.addEventListener('change', updateChemistry);
-    }
-
-    // 5. 歸零按鈕邏輯
-    const resetBtns = modal.querySelectorAll('.reset-row-btn');
-    resetBtns.forEach(btn => {
-        btn.addEventListener('click', (e) => {
-            const row = e.target.closest('tr');
-            // 找出這排的索引，來決定要套用哪個顏色規則
-            const rowIndex = Array.from(modalRows).indexOf(row);
-            let rule = (rowIndex === 4) ? 'posneg' : 'small'; 
-            
-            const inputs = row.querySelectorAll('input[type="number"]');
-            inputs.forEach(input => {
-                input.value = 0; 
-                applyColorRule(input, rule); // 🌟 歸零後立刻恢復預設顏色
-            });
-        });
-    });
-
-    const modal = document.querySelector('.modal-overlay');
-    const modalSelectAll = modal.querySelector('thead input[type="checkbox"]');
-    const modalBodyChecks = modal.querySelectorAll('tbody input[type="checkbox"]');
-
-    // 🌟 技能視窗「全選/全不選」
-    if (modalSelectAll) {
-        modalSelectAll.addEventListener('change', () => {
-            const isChecked = modalSelectAll.checked;
-            modalBodyChecks.forEach(cb => cb.checked = isChecked);
-            // 技能視窗全選不需要即時送回主畫面，玩家按「完成」才會加總
-        });
-    }
-
-    // 🌟 完成按鈕的邏輯也需更新：加總時判斷勾選
-    submitBtn.addEventListener('click', () => {
-        const skillRowMain = mainStatsTable.querySelectorAll('tbody tr')[11];
-        const skillInputsMain = skillRowMain.querySelectorAll('input[type="number"]');
-        const modalRows = modal.querySelectorAll('tbody tr');
 
         for (let col = 0; col < 5; col++) {
             let colSum = 0;
@@ -534,45 +429,53 @@ function initModal() {
             skillInputsMain[col].value = colSum;
             applyColorRule(skillInputsMain[col], 'small'); 
         }
-
         calculateSubtotals(); 
         modal.style.display = 'none'; 
     });
-}
 
-// ==========================================
-// ⚙️ 初始化與事件綁定 (Listener 註冊)
-// ==========================================
+    // 4. 默契選單與勾選箱連動 
+    const chemSelect = modal.querySelector('tbody tr:nth-child(1) select');
+    if (chemSelect) chemSelect.addEventListener('change', updateChemistry);
 
-// 負責判斷並派發給對應的顏色函數
-function applyColorRule(element, rule) {
-    // 如果元素帶有 no-color 標籤，則強制維持預設不變色並跳過
-    if (element.classList && element.classList.contains('no-color')) {
-        element.style.color = ''; 
-        return;
+    const modalSelectAll = modal.querySelector('thead input[type="checkbox"]');
+    const modalBodyChecks = modal.querySelectorAll('tbody input[type="checkbox"]');
+    if (modalSelectAll) {
+        modalSelectAll.addEventListener('change', () => {
+            modalBodyChecks.forEach(cb => cb.checked = modalSelectAll.checked);
+        });
     }
-    
-    let valueText = element.value !== undefined ? element.value : element.innerText;
-    let val = parseInt(valueText, 10);
 
-    if (rule === 'large') updateNumberColor(element, val);
-    else if (rule === 'small') updateNumberColor2(element, val);
-    else if (rule === 'posneg') updateNumberColor3(element, val);
+    // 5. 歸零按鈕邏輯
+    const resetBtns = modal.querySelectorAll('.reset-row-btn');
+    resetBtns.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            const row = e.target.closest('tr');
+            const rowIndex = Array.from(modalRows).indexOf(row);
+            let rule = (rowIndex === 4) ? 'posneg' : 'small'; 
+            
+            row.querySelectorAll('input[type="number"]').forEach(input => {
+                input.value = 0; 
+                applyColorRule(input, rule); 
+            });
+        });
+    });
 }
 
+
 // ==========================================
-// 🔄 新增：強制全場刷新函數 (只做事，不綁定)
+// 🔄 第六區：系統初始化與事件綁定
 // ==========================================
+
+// 強制全場刷新函數 (解決複製分頁問題，純做事不綁定)
 function forceRefreshAll() {
     updateTopTableBonuses();
     updateStatLabels();
     updateConditionAndGear();
     updateHeaderColor();
-    calculateSubtotals();
+    calculateSubtotals(); // 強制算一次，確保勾選箱生效
     
-    // 重新為主畫面與技能視窗內，所有有規則的格子補上顏色
+    // 重新為所有格子補上顏色
     const rows = document.querySelectorAll('tr.rule-large, tr.rule-small, tr.rule-posneg, .modal-overlay tbody tr');
-    
     rows.forEach((row, index) => {
         let rule = '';
         if (row.classList.contains('rule-large')) rule = 'large';
@@ -589,112 +492,75 @@ function forceRefreshAll() {
 }
 
 function initTableColors() {
-    const rows = document.querySelectorAll('tr.rule-large, tr.rule-small, tr.rule-posneg');
+    // 統一抓取表格，避免重複宣告
+    const topTable = document.querySelectorAll('.container > table')[0];
+    const statsTable = document.querySelectorAll('.container > table')[1];
 
+    // 1. 下方表格輸入綁定
+    const rows = statsTable.querySelectorAll('tbody tr.rule-large, tbody tr.rule-small, tbody tr.rule-posneg');
     rows.forEach(row => {
         let rule = '';
         if (row.classList.contains('rule-large')) rule = 'large';
         if (row.classList.contains('rule-small')) rule = 'small';
         if (row.classList.contains('rule-posneg')) rule = 'posneg';
 
-        const targetElements = row.querySelectorAll('input[type="number"], select, td:not(:first-child)');
-
-        targetElements.forEach(el => {
-            if (el.type === 'checkbox') return;
-            if (el.tagName === 'TD' && el.querySelector('input, select, button')) return;
-            if (el.tagName === 'TD' && el.hasAttribute('colspan')) return;
-
-            applyColorRule(el, rule);
-
-            if (el.tagName === 'INPUT' || el.tagName === 'SELECT') {
-                el.addEventListener('change', () => {
-                    enforceMinMax(el);       
-                    applyColorRule(el, rule); 
-                    calculateSubtotals(); 
-                });
-                el.addEventListener('input', () => {
-                    applyColorRule(el, rule); 
-                    calculateSubtotals(); 
-                });
-            }
+        row.querySelectorAll('input[type="number"], select, td:not(:first-child)').forEach(el => {
+            if (el.type === 'checkbox' || el.tagName === 'TD') return;
+            el.addEventListener('change', () => { enforceMinMax(el); applyColorRule(el, rule); calculateSubtotals(); });
+            el.addEventListener('input', () => { applyColorRule(el, rule); calculateSubtotals(); });
         });
     });
 
-    // 3. 綁定上方表格的輸入框與選單
-    const topTableElements = document.querySelectorAll('.container > table:first-of-type input[type="number"], .container > table:first-of-type select');
-    const gradeSelect = document.querySelectorAll('.container > table:first-of-type select')[0]; 
-    
-    topTableElements.forEach(el => {
+    // 2. 上方表格輸入綁定
+    const gradeSelect = topTable.querySelectorAll('select')[0]; 
+    topTable.querySelectorAll('input[type="number"], select').forEach(el => {
         el.addEventListener('change', () => {
-            if (el === gradeSelect) {
-                updateTopTableBonuses();
-                updateHeaderColor();
-            }
-            
-            enforceMinMax(el); 
-            calculateSubtotals(); 
+            if (el === gradeSelect) { updateTopTableBonuses(); updateHeaderColor(); }
+            enforceMinMax(el); calculateSubtotals(); 
         });
-        el.addEventListener('input', () => {
-            calculateSubtotals(); 
-        });
+        el.addEventListener('input', () => calculateSubtotals());
     });
 
-    // 🌟 4. 綁定最上方的「類型」與「位置」選單
-    const typeSelect = document.getElementById('type-select');
-    const posSelect = document.getElementById('position-select');
-    
-    [typeSelect, posSelect].forEach(select => {
+    // 3. 最上方的「類型」與「位置」選單綁定
+    ['type-select', 'position-select'].forEach(id => {
+        const select = document.getElementById(id);
         if (select) {
             select.addEventListener('change', () => {
-                updateTopTableBonuses();  // 判定上方三項加成
-                updateStatLabels();       // 判定打者/投手表頭
-                updateConditionAndGear(); // 判定裝備/狀態的 supreme 倍率
-                updateChemistry();        // 更新視窗內的默契
-                calculateSubtotals();     // 執行全面計算
+                updateTopTableBonuses();  
+                updateStatLabels();       
+                updateConditionAndGear(); 
+                updateChemistry();        
+                calculateSubtotals();     
             });
         }
     });
 
-    // 🌟 5. 新增：綁定「狀態」與「裝備」的專屬選單
-    const statsTable = document.querySelectorAll('.container > table')[1];
-    if (statsTable) {
-        const condSelect = statsTable.querySelectorAll('tbody tr')[9].querySelector('select');
-        const gearSelect = statsTable.querySelectorAll('tbody tr')[10].querySelector('select');
+    // 4. 狀態與裝備選單綁定
+    const condSelect = statsTable.querySelectorAll('tbody tr')[9].querySelector('select');
+    const gearSelect = statsTable.querySelectorAll('tbody tr')[10].querySelector('select');
+    [condSelect, gearSelect].forEach(select => {
+        if (select) select.addEventListener('change', () => { updateConditionAndGear(); calculateSubtotals(); });
+    });
 
-        [condSelect, gearSelect].forEach(select => {
-            if (select) {
-                select.addEventListener('change', () => {
-                    updateConditionAndGear(); // 觸發數值分配
-                    calculateSubtotals();     // 重新計算總和
-                });
-            }
-        });
-    }
-
-    // 🌟 6. 新增：啟動技能彈出視窗功能
+    // 5. 啟動技能彈出視窗功能
     initModal();
 
-    // 🌟 7. 主畫面「全選/全不選」邏輯
-    const statsTable = document.querySelectorAll('.container > table')[1];
-    const topTable = document.querySelectorAll('.container > table')[0];
+    // 6. 全選/全不選邏輯 (主畫面)
     const mainSelectAll = statsTable.querySelector('thead input[type="checkbox"]');
-
     if (mainSelectAll) {
         mainSelectAll.addEventListener('change', () => {
-            const isChecked = mainSelectAll.checked;
-            // 找出主畫面所有橫列的勾選箱 (排除全選按鈕本身)
             const allChecks = [
                 ...topTable.querySelectorAll('thead input[type="checkbox"]'),
                 ...statsTable.querySelectorAll('tbody input[type="checkbox"]')
             ];
-            allChecks.forEach(cb => cb.checked = isChecked);
-            calculateSubtotals(); // 改變勾選後重新計算
+            allChecks.forEach(cb => cb.checked = mainSelectAll.checked);
+            calculateSubtotals(); 
         });
     }
 
-    // 🌟 8. 為所有一般勾選箱綁定計算觸發
+    // 7. 獨立勾選箱綁定
     document.querySelectorAll('input[type="checkbox"]').forEach(cb => {
-        if (cb !== mainSelectAll) {
+        if (cb !== mainSelectAll && !cb.closest('.modal-overlay')) {
             cb.addEventListener('change', calculateSubtotals);
         }
     });
@@ -704,9 +570,9 @@ function initTableColors() {
 // 🚀 啟動區：乾淨俐落的啟動邏輯
 // ==========================================
 document.addEventListener('DOMContentLoaded', () => {
-    initTableColors();   // 1. 先綁定所有監聽器 (只做一次)
+    initTableColors();   // 1. 先綁定所有耳朵 (Listeners)
     forceRefreshAll();   // 2. 第一次畫面載入的強制刷新
     
-    // 3. 解決複製分頁的延遲刷新 (直接呼叫刷新函數，就不會重複綁定了！)
+    // 3. 解決複製分頁的延遲刷新 (防止自動填入失敗)
     setTimeout(forceRefreshAll, 150); 
 });
