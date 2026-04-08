@@ -606,22 +606,32 @@ function initTableColors() {
     document.getElementById('copy-btn').addEventListener('click', async () => {
         const container = document.getElementById('capture-container');
         const btn = document.getElementById('copy-btn');
+        
+        // 1. 備份原始樣式，防止畫面跳動
+        const originalMargin = container.style.margin;
+        const originalTransform = container.style.transform;
     
-        // 提高品質的參數：透過縮放 SVG 達成
+        // 2. 關鍵修正：截圖前將 margin 歸零，確保座標從 (0,0) 開始
+        // 這能解決「有一半在外面」的問題
+        container.style.margin = '0';
+        container.style.transform = 'translate(0,0)';
+    
         const scale = 2; 
         const param = {
+            // 使用 getBoundingClientRect 取得精確的寬高（包含小數點）
             height: container.offsetHeight * scale,
             width: container.offsetWidth * scale,
             style: {
                 transform: `scale(${scale})`,
                 transformOrigin: 'top left',
                 width: `${container.offsetWidth}px`,
-                height: `${container.offsetHeight}px`
+                height: `${container.offsetHeight}px`,
+                margin: '0' // 強制 SVG 內部的 margin 也是 0
             }
         };
     
         try {
-            // 直接將 DOM 轉為 PNG Blob
+            // 開始截圖
             const blob = await domtoimage.toBlob(container, param);
             
             if (blob) {
@@ -633,6 +643,11 @@ function initTableColors() {
             }
         } catch (error) {
             console.error('截圖失敗:', error);
+            alert('截圖失敗，請稍後再試');
+        } finally {
+            // 3. 無論成功或失敗，都恢復原始樣式，使用者完全感覺不到變化
+            container.style.margin = originalMargin;
+            container.style.transform = originalTransform;
         }
     });
 }
