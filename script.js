@@ -524,15 +524,34 @@ function applyColorRule(element, rule) {
     else if (rule === 'posneg') updateNumberColor3(element, val);
 }
 
-function initTableColors() {
-    // 🌟 1. 網頁剛載入時，依序判定所有自動化邏輯
+// ==========================================
+// 🔄 新增：強制全場刷新函數 (只做事，不綁定)
+// ==========================================
+function forceRefreshAll() {
     updateTopTableBonuses();
-    updateStatLabels();       // 載入表頭
-    updateConditionAndGear(); // 載入狀態與裝備
-    updateHeaderColor();      // 載入表頭顏色
-    calculateSubtotals();     // 最後計算總和
+    updateStatLabels();
+    updateConditionAndGear();
+    updateHeaderColor();
+    
+    // 重新為主畫面與技能視窗內，所有有規則的格子補上顏色
+    const rows = document.querySelectorAll('tr.rule-large, tr.rule-small, tr.rule-posneg, .modal-overlay tbody tr');
+    
+    rows.forEach((row, index) => {
+        let rule = '';
+        if (row.classList.contains('rule-large')) rule = 'large';
+        else if (row.classList.contains('rule-small')) rule = 'small';
+        else if (row.classList.contains('rule-posneg')) rule = 'posneg';
+        else if (row.closest('.modal-overlay')) rule = (index === 4) ? 'posneg' : 'small';
 
-    // 2. 綁定下方表格的顏色與計算
+        if (rule) {
+            row.querySelectorAll('input[type="number"], select').forEach(el => applyColorRule(el, rule));
+        }
+    });
+    
+    calculateSubtotals(); // 最終計算
+}
+
+function initTableColors() {
     const rows = document.querySelectorAll('tr.rule-large, tr.rule-small, tr.rule-posneg');
 
     rows.forEach(row => {
@@ -620,42 +639,12 @@ function initTableColors() {
 }
 
 // ==========================================
-// 🚀 啟動區：確保網頁與瀏覽器快取完全載入後執行
+// 🚀 啟動區：乾淨俐落的啟動邏輯
 // ==========================================
 document.addEventListener('DOMContentLoaded', () => {
-    // 1. 執行標準初始化與事件綁定
-    initTableColors();
-
-    // 2. 終極防禦：解決「複製分頁」時，瀏覽器自動填入數值卻沒觸發計算與上色的問題
-    // 稍微等待 150 毫秒，讓瀏覽器把複製的數值貼好，然後強制重新掃描一次全場
-    setTimeout(() => {
-        // 重新確認所有選單帶來的版面變動
-        updateTopTableBonuses();
-        updateStatLabels();
-        updateConditionAndGear();
-        updateHeaderColor();
-        
-        // 重新為主畫面與技能視窗內，所有有規則的格子補上顏色
-        const rows = document.querySelectorAll('tr.rule-large, tr.rule-small, tr.rule-posneg, .modal-overlay tbody tr');
-        
-        rows.forEach((row, index) => {
-            let rule = '';
-            if (row.classList.contains('rule-large')) rule = 'large';
-            else if (row.classList.contains('rule-small')) rule = 'small';
-            else if (row.classList.contains('rule-posneg')) rule = 'posneg';
-            // 如果是技能視窗內的排，判斷是不是最後一排(其他)
-            else if (row.closest('.modal-overlay')) {
-                rule = (index === 4) ? 'posneg' : 'small';
-            }
-
-            if (rule) {
-                row.querySelectorAll('input[type="number"], select').forEach(el => {
-                    applyColorRule(el, rule);
-                });
-            }
-        });
-        
-        // 最後強制重新計算一次總和，保證數值 100% 正確
-        calculateSubtotals();
-    }, 150); 
+    initTableColors();   // 1. 先綁定所有監聽器 (只做一次)
+    forceRefreshAll();   // 2. 第一次畫面載入的強制刷新
+    
+    // 3. 解決複製分頁的延遲刷新 (直接呼叫刷新函數，就不會重複綁定了！)
+    setTimeout(forceRefreshAll, 150); 
 });
