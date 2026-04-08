@@ -627,20 +627,26 @@ function updateThemeColor() {
     const teamSelect = document.getElementById('team-select');
     const container = document.querySelector('.container');
     const modalContent = document.querySelector('.modal-content');
+    const topRow = document.querySelector('.row'); 
     
-    if (!teamSelect || !container || !modalContent) return;
+    if (!teamSelect || !container || !modalContent || !topRow) return;
 
     const selectedTeam = teamSelect.value;
     
-    // 如果有選中球隊，且 JSON 裡面有這個球隊的資料
     if (selectedTeam && teamsData[selectedTeam]) {
         const themeColor = teamsData[selectedTeam].themeColor;
+        const secondaryColor = teamsData[selectedTeam].secondaryColor;
+        
+        // 只負責替換顏色，形狀與間距交給 CSS 處理
         container.style.backgroundColor = themeColor;
         modalContent.style.backgroundColor = themeColor;
+        topRow.style.backgroundColor = secondaryColor;
+        
     } else {
-        // 如果切換回「請選擇球隊...」，則清空 inline style，恢復 CSS 預設背景色
+        // 切換回預設狀態時，清空行內樣式，讓它恢復 CSS 的預設背景色 (#3f3f3f 等)
         container.style.backgroundColor = ''; 
         modalContent.style.backgroundColor = '';
+        topRow.style.backgroundColor = '';
     }
 }
 
