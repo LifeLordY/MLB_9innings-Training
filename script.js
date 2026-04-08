@@ -638,32 +638,27 @@ function initTableColors() {
         container.style.margin = '0';
         container.style.transform = 'translate(0,0)';
     
-        // 取得目前寬高（電腦上是正確值，手機上可能被壓縮）
-        const currentWidth = container.offsetWidth;
-        const currentHeight = container.offsetHeight;
-        console.log('container 實際寬:', currentWidth, '高:', currentHeight);
+        const designWidth = 600;                   // container 設計寬度
+        const designHeight = container.scrollHeight; // 高度動態取，避免內容被截掉
     
         const scale = 2;
         const param = {
-            height: currentHeight * scale,
-            width: currentWidth * scale,
+            height: designHeight * scale,
+            width: designWidth * scale,
             bgcolor: '#1f1f1f',
             style: {
                 transform: `scale(${scale})`,
                 transformOrigin: 'top left',
-                width: `${currentWidth}px`,
-                height: `${currentHeight}px`,
+                width: `${designWidth}px`,
+                height: `${designHeight}px`,
                 margin: '0',
                 borderRadius: '20px',
-                backgroundColor: currentBgColor,
-                whiteSpace: 'nowrap'  // ← 關鍵：防止截圖內部文字換行
+                backgroundColor: currentBgColor
             }
         };
-        console.log('截圖 param:', JSON.stringify(param));
     
         try {
             const blob = await domtoimage.toBlob(container, param);
-            console.log('blob:', blob, 'size:', blob?.size, 'type:', blob?.type);
     
             if (blob) {
                 const data = [new ClipboardItem({ [blob.type]: blob })];
