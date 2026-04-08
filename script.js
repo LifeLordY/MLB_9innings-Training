@@ -218,35 +218,60 @@ function enforceMinMax(element) {
 }
 
 // ==========================================
-// 💎 新增：自動計算黑鑽數值
+// 💎 新增：自動計算上方表格加成 (黑鑽、團隊、指導球員)
 // ==========================================
-function updateBlackDiamond() {
+function updateTopTableBonuses() {
     const typeSelect = document.getElementById('type-select');
+    const posSelect = document.getElementById('position-select');
     const topTable = document.querySelectorAll('.container > table')[0];
     
-    if (!typeSelect || !topTable) return;
+    if (!typeSelect || !posSelect || !topTable) return;
 
-    const gradeSelect = topTable.querySelectorAll('select')[0]; // 第一個表格的第1個選單：階級
-    const bdInput = topTable.querySelectorAll('input[type="number"]')[0]; // 第一個表格的第1個輸入框：黑鑽
+    const pType = typeSelect.value;   // 類型
+    const pPos = posSelect.value;     // 位置
+    const pGrade = topTable.querySelectorAll('select')[0].value; // 階級
 
+    const bdInput = topTable.querySelectorAll('input[type="number"]')[0];      // 黑鑽輸入框
+    const setDeckInput = topTable.querySelectorAll('input[type="number"]')[1]; // 團隊加成輸入框
+    const mentorSelect = topTable.querySelectorAll('select')[2];               // 指導球員選單
+
+    // 🌟 1. 判定【黑鑽 (blackDiamond)】
     let bdValue = 0;
-    
-    // 只有當階級選擇「黑鑽」(blackDiamond) 時才給予加成
-    if (gradeSelect.value === 'blackDiamond') {
-        const pType = typeSelect.value;
-        
-        if (pType === 'vintage' || pType === 'signature') {
-            bdValue = 1;
-        } else if (pType === 'supreme') {
-            bdValue = 2;
-        } else if (pType === 'legend') {
-            bdValue = 3;
-        } 
-        // regular, prime 會維持預設的 0
+    if (pGrade === 'blackDiamond') {
+        if (['vintage', 'signature'].includes(pType)) bdValue = 1;
+        else if (pType === 'supreme') bdValue = 2;
+        else if (pType === 'legend') bdValue = 3;
     }
-
-    // 寫入數值
     bdInput.value = bdValue;
+
+    // 🌟 2. 判定【團隊加成 (setDeck)】
+    let setDeckValue = 10; // 預設值為 10
+    if (pGrade === 'blackDiamond') {
+        if (['regular', 'vintage', 'legend'].includes(pType)) setDeckValue += 1;
+        else if (['prime', 'signature'].includes(pType)) setDeckValue += 2;
+    }
+    if (pType === 'signature') {
+        setDeckValue *= 2; // 若為簽名卡，最終結果 * 2
+    }
+    setDeckInput.value = setDeckValue;
+
+    // 🌟 3. 判定【指導球員 (mentor)】
+    let mentorValue = 0;
+    if (['legend', 'supreme'].includes(pType)) {
+        mentorValue = 0;
+    } else if (['regular', 'vintage'].includes(pType)) {
+        mentorValue = 1;
+    } else if (pType === 'prime') {
+        mentorValue = 3;
+    } else if (pType === 'signature') {
+        // 判斷位置是打者還是投手
+        const batters = ['C', '1B', '2B', '3B', 'SS', 'OF', 'DH'];
+        const pitchers = ['SP', 'RP', 'CP'];
+        
+        if (batters.includes(pPos)) mentorValue = 3;
+        else if (pitchers.includes(pPos)) mentorValue = 2;
+    }
+    mentorSelect.value = mentorValue; // 將數值賦予下拉選單
 }
 
 // ==========================================
@@ -270,8 +295,8 @@ function applyColorRule(element, rule) {
 }
 
 function initTableColors() {
-    // 🌟 1. 網頁剛載入時，先判定黑鑽數值，再執行全面計算
-    updateBlackDiamond();
+    // 🌟 1. 網頁剛載入時，先判定上方加成，再執行全面計算
+    updateTopTableBonuses();
     calculateSubtotals();
 
     // 2. 綁定下方表格的顏色與計算
@@ -286,7 +311,6 @@ function initTableColors() {
         const targetElements = row.querySelectorAll('input[type="number"], select, td:not(:first-child)');
 
         targetElements.forEach(el => {
-            // 安全過濾
             if (el.type === 'checkbox') return;
             if (el.tagName === 'TD' && el.querySelector('input, select, button')) return;
             if (el.tagName === 'TD' && el.hasAttribute('colspan')) return;
@@ -313,8 +337,8 @@ function initTableColors() {
     
     topTableElements.forEach(el => {
         el.addEventListener('change', () => {
-            // 🌟 如果改變的是「階級」，就重新判定黑鑽數值
-            if (el === gradeSelect) updateBlackDiamond();
+            // 🌟 改變階級時，重新判定上方加成
+            if (el === gradeSelect) updateTopTableBonuses();
             
             enforceMinMax(el); 
             calculateSubtotals(); 
@@ -324,14 +348,18 @@ function initTableColors() {
         });
     });
 
-    // 🌟 4. 新增：綁定最上方的「類型」選單
+    // 🌟 4. 綁定最上方的「類型」與「位置」選單
     const typeSelect = document.getElementById('type-select');
-    if (typeSelect) {
-        typeSelect.addEventListener('change', () => {
-            updateBlackDiamond(); // 類型改變時，重新判定黑鑽
-            calculateSubtotals(); // 接著觸發全面重新計算
-        });
-    }
+    const posSelect = document.getElementById('position-select');
+    
+    [typeSelect, posSelect].forEach(select => {
+        if (select) {
+            select.addEventListener('change', () => {
+                updateTopTableBonuses(); // 類型或位置改變時，自動判定上方三項加成
+                calculateSubtotals();    // 接著觸發全面重新計算
+            });
+        }
+    });
 }
 
 // 確保網頁載入完成後，啟動初始化器
