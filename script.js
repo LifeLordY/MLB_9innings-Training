@@ -606,41 +606,27 @@ function initTableColors() {
     document.getElementById('copy-btn').addEventListener('click', async () => {
         const container = document.getElementById('capture-container');
         const btn = document.getElementById('copy-btn');
-        const scale = 2; // 2倍解析度，足夠清晰且不至於讓瀏覽器當機
     
         try {
-            // 使用 domtoimage 生成高品質內容
-            // 這裡不直接在 style 做縮放，而是讓它生成一個較大的 Canvas
-            const canvas = await domtoimage.toCanvas(container, {
-                width: container.offsetWidth * scale,
-                height: container.offsetHeight * scale,
-                style: {
-                    transform: `scale(${scale})`,
-                    transformOrigin: 'top left',
-                    width: `${container.offsetWidth}px`,
-                    height: `${container.offsetHeight}px`
+            // 使用 modern-screenshot 的 domToBlob 功能
+            const blob = await modernScreenshot.domToBlob(container, {
+                scale: 2,           // 兩倍清晰度
+                quality: 1,         // 最高品質
+                features: {
+                    removeControlCharacters: true // 移除可能導致偏移的特殊字元
                 }
             });
     
-            // 將 Canvas 轉為 Blob 並寫入剪貼簿
-            canvas.toBlob(async (blob) => {
-                if (!blob) return;
-    
-                try {
-                    const data = [new ClipboardItem({ [blob.type]: blob })];
-                    await navigator.clipboard.write(data);
-                    
-                    btn.innerText = '✅ 畫面擷取成功！';
-                    setTimeout(() => btn.innerText = '擷取畫面到剪貼簿', 2000);
-                } catch (err) {
-                    console.error('剪貼簿寫入失敗:', err);
-                    alert('寫入剪貼簿失敗，請檢查瀏覽器權限。');
-                }
-            }, 'image/png');
-    
+            if (blob) {
+                const data = [new ClipboardItem({ [blob.type]: blob })];
+                await navigator.clipboard.write(data);
+                
+                btn.innerText = '✅ 畫面擷取成功！';
+                setTimeout(() => btn.innerText = '擷取畫面到剪貼簿', 2000);
+            }
         } catch (error) {
-            console.error('截圖出錯:', error);
-            alert('擷取失敗，請確認網頁內容是否正常顯示。');
+            console.error('截圖失敗:', error);
+            alert('擷取發生錯誤，建議檢查 Container 是否有特殊 CSS 濾鏡');
         }
     });
 }
