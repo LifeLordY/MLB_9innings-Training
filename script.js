@@ -634,10 +634,10 @@ function initTableColors() {
             width: container.offsetWidth * scale,
             bgcolor: '#1f1f1f',
             style: {
-                transform: 'scale(${scale})',
+                transform: `scale(${scale})`,
                 transformOrigin: 'top left',
-                width: '${container.offsetWidth}px',
-                height: '${container.offsetHeight}px',
+                width: `${container.offsetWidth}px`,
+                height: `${container.offsetHeight}px`,
                 margin: '0', // 強制 SVG 內部的 margin 也是 0
                 borderRadius: '20px',
                 backgroundColor: currentBgColor
