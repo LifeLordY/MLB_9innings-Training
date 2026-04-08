@@ -1,27 +1,30 @@
 // ==========================================
-// 🏷️ 新增：自動切換打者/投手表頭
+// 🏷️ 自動切換打者/投手表頭 (已修復：包含主畫面與技能設定視窗)
 // ==========================================
 function updateStatLabels() {
     const posSelect = document.getElementById('position-select');
     const statsTable = document.querySelectorAll('.container > table')[1];
-    if (!posSelect || !statsTable) return;
+    const modalTable = document.querySelector('.modal-overlay table'); // 🌟 新增：抓取技能設定裡的表格
+    
+    if (!posSelect || !statsTable || !modalTable) return;
 
     const isPitcher = ['SP', 'RP', 'CP'].includes(posSelect.value);
-    const headers = statsTable.querySelectorAll('thead th');
+    
+    // 定義要顯示的文字陣列
+    const labels = isPitcher 
+        ? ['控球', '球威', '體力', '直球', '變化'] 
+        : ['接觸', '力量', '選球', '速度', '守備'];
 
-    // 表頭從 index 2 開始是屬性名稱
-    if (isPitcher) {
-        headers[2].innerText = '控球';
-        headers[3].innerText = '球威';
-        headers[4].innerText = '體力';
-        headers[5].innerText = '直球';
-        headers[6].innerText = '變化';
-    } else {
-        headers[2].innerText = '接觸';
-        headers[3].innerText = '力量';
-        headers[4].innerText = '選球';
-        headers[5].innerText = '速度';
-        headers[6].innerText = '守備';
+    // 1. 更新主畫面表頭 (從 index 2 開始是屬性名稱)
+    const mainHeaders = statsTable.querySelectorAll('thead th');
+    for (let i = 0; i < 5; i++) {
+        if (mainHeaders[i + 2]) mainHeaders[i + 2].innerText = labels[i];
+    }
+
+    // 2. 🌟 新增：更新技能設定視窗表頭 (從 index 2 開始)
+    const modalHeaders = modalTable.querySelectorAll('thead th');
+    for (let i = 0; i < 5; i++) {
+        if (modalHeaders[i + 2]) modalHeaders[i + 2].innerText = labels[i];
     }
 }
 
