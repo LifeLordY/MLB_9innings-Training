@@ -1,4 +1,31 @@
 // ==========================================
+// 🏷️ 新增：自動切換打者/投手表頭
+// ==========================================
+function updateStatLabels() {
+    const posSelect = document.getElementById('position-select');
+    const statsTable = document.querySelectorAll('.container > table')[1];
+    if (!posSelect || !statsTable) return;
+
+    const isPitcher = ['SP', 'RP', 'CP'].includes(posSelect.value);
+    const headers = statsTable.querySelectorAll('thead th');
+
+    // 表頭從 index 2 開始是屬性名稱
+    if (isPitcher) {
+        headers[2].innerText = '控球';
+        headers[3].innerText = '球威';
+        headers[4].innerText = '體力';
+        headers[5].innerText = '直球';
+        headers[6].innerText = '變化';
+    } else {
+        headers[2].innerText = '接觸';
+        headers[3].innerText = '力量';
+        headers[4].innerText = '選球';
+        headers[5].innerText = '速度';
+        headers[6].innerText = '守備';
+    }
+}
+
+// ==========================================
 // 🧮 自動連動計算邏輯 (新增特別訓練自動分配)
 // ==========================================
 function calculateSubtotals() {
@@ -275,6 +302,62 @@ function updateTopTableBonuses() {
 }
 
 // ==========================================
+// ⚙️ 新增：自動分配「狀態」與「裝備」數值
+// ==========================================
+function updateConditionAndGear() {
+    const typeSelect = document.getElementById('type-select');
+    const statsTable = document.querySelectorAll('.container > table')[1];
+    if (!typeSelect || !statsTable) return;
+
+    const pType = typeSelect.value;
+    const rows = statsTable.querySelectorAll('tbody tr');
+    
+    const conditionRow = rows[9]; // 第 9 列：狀態
+    const gearRow = rows[10];     // 第 10 列：裝備
+
+    // --- 1. 狀態 (Condition) 處理 ---
+    const conditionSelect = conditionRow.querySelector('select');
+    const conditionInputs = conditionRow.querySelectorAll('input[type="number"]');
+    const option6 = conditionSelect.querySelector('option[value="6"]');
+
+    // 處理 "6" 選項的顯示與隱藏
+    if (pType === 'supreme') {
+        option6.hidden = false;
+        option6.disabled = false;
+    } else {
+        option6.hidden = true;
+        option6.disabled = true;
+        // 如果原本是 6 但切換成非 supreme，強制降回 3
+        if (conditionSelect.value === '6') {
+            conditionSelect.value = '3'; 
+        }
+    }
+
+    const condValue = parseInt(conditionSelect.value) || 0;
+    // 將狀態值填滿整排 5 個格子，並立刻上色
+    conditionInputs.forEach(input => {
+        input.value = condValue;
+        applyColorRule(input, 'posneg');
+    });
+
+    // --- 2. 裝備 (Gear) 處理 ---
+    const gearSelect = gearRow.querySelector('select');
+    const gearInputs = gearRow.querySelectorAll('input[type="number"]');
+    let gearValue = parseInt(gearSelect.value) || 0;
+
+    // 類型為 supreme 時，裝備效果 * 2
+    if (pType === 'supreme') {
+        gearValue *= 2;
+    }
+
+    // 裝備只影響前 3 個值，後 2 個強制歸零
+    for (let i = 0; i < 5; i++) {
+        gearInputs[i].value = (i < 3) ? gearValue : 0;
+        applyColorRule(gearInputs[i], 'posneg');
+    }
+}
+
+// ==========================================
 // ⚙️ 初始化與事件綁定 (Listener 註冊)
 // ==========================================
 
@@ -295,9 +378,11 @@ function applyColorRule(element, rule) {
 }
 
 function initTableColors() {
-    // 🌟 1. 網頁剛載入時，先判定上方加成，再執行全面計算
+    // 🌟 1. 網頁剛載入時，依序判定所有自動化邏輯
     updateTopTableBonuses();
-    calculateSubtotals();
+    updateStatLabels();       // 載入表頭
+    updateConditionAndGear(); // 載入狀態與裝備
+    calculateSubtotals();     // 最後計算總和
 
     // 2. 綁定下方表格的顏色與計算
     const rows = document.querySelectorAll('tr.rule-large, tr.rule-small, tr.rule-posneg');
@@ -333,11 +418,10 @@ function initTableColors() {
 
     // 3. 綁定上方表格的輸入框與選單
     const topTableElements = document.querySelectorAll('.container > table:first-of-type input[type="number"], .container > table:first-of-type select');
-    const gradeSelect = document.querySelectorAll('.container > table:first-of-type select')[0]; // 獨立抓出階級選單
+    const gradeSelect = document.querySelectorAll('.container > table:first-of-type select')[0]; 
     
     topTableElements.forEach(el => {
         el.addEventListener('change', () => {
-            // 🌟 改變階級時，重新判定上方加成
             if (el === gradeSelect) updateTopTableBonuses();
             
             enforceMinMax(el); 
@@ -355,11 +439,29 @@ function initTableColors() {
     [typeSelect, posSelect].forEach(select => {
         if (select) {
             select.addEventListener('change', () => {
-                updateTopTableBonuses(); // 類型或位置改變時，自動判定上方三項加成
-                calculateSubtotals();    // 接著觸發全面重新計算
+                updateTopTableBonuses();  // 判定上方三項加成
+                updateStatLabels();       // 判定打者/投手表頭
+                updateConditionAndGear(); // 判定裝備/狀態的 supreme 倍率
+                calculateSubtotals();     // 執行全面計算
             });
         }
     });
+
+    // 🌟 5. 新增：綁定「狀態」與「裝備」的專屬選單
+    const statsTable = document.querySelectorAll('.container > table')[1];
+    if (statsTable) {
+        const condSelect = statsTable.querySelectorAll('tbody tr')[9].querySelector('select');
+        const gearSelect = statsTable.querySelectorAll('tbody tr')[10].querySelector('select');
+
+        [condSelect, gearSelect].forEach(select => {
+            if (select) {
+                select.addEventListener('change', () => {
+                    updateConditionAndGear(); // 觸發數值分配
+                    calculateSubtotals();     // 重新計算總和
+                });
+            }
+        });
+    }
 }
 
 // 確保網頁載入完成後，啟動初始化器
