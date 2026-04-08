@@ -218,6 +218,38 @@ function enforceMinMax(element) {
 }
 
 // ==========================================
+// 💎 新增：自動計算黑鑽數值
+// ==========================================
+function updateBlackDiamond() {
+    const typeSelect = document.getElementById('type-select');
+    const topTable = document.querySelectorAll('.container > table')[0];
+    
+    if (!typeSelect || !topTable) return;
+
+    const gradeSelect = topTable.querySelectorAll('select')[0]; // 第一個表格的第1個選單：階級
+    const bdInput = topTable.querySelectorAll('input[type="number"]')[0]; // 第一個表格的第1個輸入框：黑鑽
+
+    let bdValue = 0;
+    
+    // 只有當階級選擇「黑鑽」(blackDiamond) 時才給予加成
+    if (gradeSelect.value === 'blackDiamond') {
+        const pType = typeSelect.value;
+        
+        if (pType === 'vintage' || pType === 'signature') {
+            bdValue = 1;
+        } else if (pType === 'supreme') {
+            bdValue = 2;
+        } else if (pType === 'legend') {
+            bdValue = 3;
+        } 
+        // regular, prime 會維持預設的 0
+    }
+
+    // 寫入數值
+    bdInput.value = bdValue;
+}
+
+// ==========================================
 // ⚙️ 初始化與事件綁定 (Listener 註冊)
 // ==========================================
 
@@ -238,7 +270,8 @@ function applyColorRule(element, rule) {
 }
 
 function initTableColors() {
-    // 1. 網頁剛載入時，先執行一次全面計算
+    // 🌟 1. 網頁剛載入時，先判定黑鑽數值，再執行全面計算
+    updateBlackDiamond();
     calculateSubtotals();
 
     // 2. 綁定下方表格的顏色與計算
@@ -253,7 +286,7 @@ function initTableColors() {
         const targetElements = row.querySelectorAll('input[type="number"], select, td:not(:first-child)');
 
         targetElements.forEach(el => {
-            // 安全過濾 (略過 checkbox、名稱欄、以及含有 input 的父層 td)
+            // 安全過濾
             if (el.type === 'checkbox') return;
             if (el.tagName === 'TD' && el.querySelector('input, select, button')) return;
             if (el.tagName === 'TD' && el.hasAttribute('colspan')) return;
@@ -276,9 +309,13 @@ function initTableColors() {
 
     // 3. 綁定上方表格的輸入框與選單
     const topTableElements = document.querySelectorAll('.container > table:first-of-type input[type="number"], .container > table:first-of-type select');
+    const gradeSelect = document.querySelectorAll('.container > table:first-of-type select')[0]; // 獨立抓出階級選單
     
     topTableElements.forEach(el => {
         el.addEventListener('change', () => {
+            // 🌟 如果改變的是「階級」，就重新判定黑鑽數值
+            if (el === gradeSelect) updateBlackDiamond();
+            
             enforceMinMax(el); 
             calculateSubtotals(); 
         });
@@ -286,6 +323,15 @@ function initTableColors() {
             calculateSubtotals(); 
         });
     });
+
+    // 🌟 4. 新增：綁定最上方的「類型」選單
+    const typeSelect = document.getElementById('type-select');
+    if (typeSelect) {
+        typeSelect.addEventListener('change', () => {
+            updateBlackDiamond(); // 類型改變時，重新判定黑鑽
+            calculateSubtotals(); // 接著觸發全面重新計算
+        });
+    }
 }
 
 // 確保網頁載入完成後，啟動初始化器
