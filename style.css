@@ -17,6 +17,7 @@ body {
     padding: 20px;
     box-sizing: border-box; 
     box-shadow: 0 5px 15px rgba(0,0,0,0.5); 
+    transition: background-color 0.3s ease; 
 }
 
 /* --- 3. 標題設定 --- */
@@ -36,8 +37,10 @@ h1 {
     align-items: center; 
     gap: 10px; 
     background-color: #3f3f3f; 
-    padding: 5px;
-    border-radius: 10px;
+    padding: 10px 15px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    transition: background-color 0.3s ease; 
 }
 
 /* --- 5. 文字標籤與下拉選單樣式 --- */
@@ -177,6 +180,7 @@ input[type="checkbox"] {
     box-sizing: border-box; 
     box-shadow: 0 5px 15px rgba(0,0,0,0.5);
     border: 1px solid #3f3f3f;
+    transition: background-color 0.3s ease; 
 }
 
 .modal-content h2 {
