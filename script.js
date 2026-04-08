@@ -686,7 +686,7 @@ function filterPlayers() {
     filtered.forEach(p => {
         const opt = document.createElement('option');
         opt.value = p.name;
-        opt.textContent = p.name;
+        opt.textContent = `${p.name} (${p.team})`;
         playerSelect.appendChild(opt);
     });
 
