@@ -58,26 +58,23 @@ function calculateSubtotals() {
     const topTable = tables[0];
     const statsTable = tables[1];
     
-    // --- A. 抓取上方表格的全域加成 ---
+    // --- A. 抓取上方表格的全域加成 (需判斷勾選) ---
+    const topHeadCheckboxes = topTable.querySelectorAll('thead input[type="checkbox"]');
     const topRow = topTable.querySelector('tbody tr');
     
-    const mentor = parseInt(topRow.querySelectorAll('select')[2].value) || 0;       
-    const blackDiamond = parseInt(topRow.querySelectorAll('input[type="number"]')[0].value) || 0; 
-    const setDeck = parseInt(topRow.querySelectorAll('input[type="number"]')[1].value) || 0;      
+    // 分別讀取 勾選狀態 (checked 為 true/false，運算時會轉為 1/0)
+    const mentorActive = topHeadCheckboxes[0].checked;
+    const blackActive = topHeadCheckboxes[1].checked;
+    const setDeckActive = topHeadCheckboxes[2].checked;
+
+    const mentor = (parseInt(topRow.querySelectorAll('select')[2].value) || 0) * (mentorActive ? 1 : 0);
+    const blackDiamond = (parseInt(topRow.querySelectorAll('input[type="number"]')[0].value) || 0) * (blackActive ? 1 : 0);
+    const setDeck = (parseInt(topRow.querySelectorAll('input[type="number"]')[1].value) || 0) * (setDeckActive ? 1 : 0);
     
     const globalBonus = mentor + blackDiamond + setDeck;
 
     // --- B. 準備記錄各橫排的 5 項數值總和 ---
-    let rowTotals = {
-        basicStats: 0,      
-        gradeIncrease: 0,   
-        development: 0,     
-        sum1: 0,            
-        trainer: 0,         
-        sum2: 0,            
-        sum3: 0             
-    };
-
+    let rowTotals = { basicStats: 0, gradeIncrease: 0, development: 0, sum1: 0, trainer: 0, sum2: 0, sum3: 0 };
     const rows = statsTable.querySelectorAll('tbody tr');
 
     // ==============================================================
@@ -129,44 +126,47 @@ function calculateSubtotals() {
     }
     // ==============================================================
 
-    // --- C. 抓取下方表格並逐欄計算 (接觸, 力量, 選球, 速度, 守備) ---
+    // --- C. 抓取下方表格並逐欄計算 ---
     for (let col = 0; col < 5; col++) {
-        
+        // 🌟 判斷下方各排勾選狀態
+        const adjActive = rows[1].querySelector('input[type="checkbox"]').checked;
+        const devActive = rows[3].querySelector('input[type="checkbox"]').checked;
+        const trainerActive = rows[6].querySelector('input[type="checkbox"]').checked;
+        const condActive = rows[9].querySelector('input[type="checkbox"]').checked;
+        const gearActive = rows[10].querySelector('input[type="checkbox"]').checked;
+        const skillActive = rows[11].querySelector('input[type="checkbox"]').checked;
+
         // 1. 計算 [基本+階級+強化]
         let basicStats = parseInt(rows[0].querySelectorAll('input[type="number"]')[col].value) || 0;
-        let adjustment = parseInt(rows[1].querySelectorAll('input[type="number"]')[col].value) || 0;
+        let adjustment = (parseInt(rows[1].querySelectorAll('input[type="number"]')[col].value) || 0) * (adjActive ? 1 : 0);
         let gradeIncrease = parseInt(rows[2].querySelectorAll('input[type="number"]')[col].value) || 0;
-        let development = parseInt(rows[3].querySelectorAll('input[type="number"]')[col].value) || 0;
+        let development = (parseInt(rows[3].querySelectorAll('input[type="number"]')[col].value) || 0) * (devActive ? 1 : 0);
         
         let sum1 = basicStats + adjustment + gradeIncrease + development;
-        
         let targetCell1 = rows[4].querySelectorAll('td')[col + 1];
         targetCell1.innerText = sum1;
         applyColorRule(targetCell1, 'large');
 
         // 2. 計算 [一般陣容能力值]
-        // 這裡的 specialTraining 直接讀取我們剛剛自動分配好並寫入的數值
         let specialTraining = parseInt(rows[5].querySelectorAll('input[type="number"]')[col].value) || 0;
-        let trainer = parseInt(rows[6].querySelectorAll('input[type="number"]')[col].value) || 0;
+        let trainer = (parseInt(rows[6].querySelectorAll('input[type="number"]')[col].value) || 0) * (trainerActive ? 1 : 0);
         
         let sum2 = sum1 + specialTraining + trainer + globalBonus;
-        
         let targetCell2 = rows[7].querySelectorAll('td')[col + 1];
         targetCell2.innerText = sum2;
         applyColorRule(targetCell2, 'large');
 
         // 3. 計算 [最高登板能力值]
-        let condition = parseInt(rows[9].querySelectorAll('input[type="number"]')[col].value) || 0;
-        let gear = parseInt(rows[10].querySelectorAll('input[type="number"]')[col].value) || 0;
-        let skill = parseInt(rows[11].querySelectorAll('input[type="number"]')[col].value) || 0;
+        let condition = (parseInt(rows[9].querySelectorAll('input[type="number"]')[col].value) || 0) * (condActive ? 1 : 0);
+        let gear = (parseInt(rows[10].querySelectorAll('input[type="number"]')[col].value) || 0) * (gearActive ? 1 : 0);
+        let skill = (parseInt(rows[11].querySelectorAll('input[type="number"]')[col].value) || 0) * (skillActive ? 1 : 0);
 
         let sum3 = sum2 + condition + gear + skill;
-
         let targetCell3 = rows[12].querySelectorAll('td')[col + 1];
         targetCell3.innerText = sum3;
         applyColorRule(targetCell3, 'large');
 
-        // 4. 累加到 rowTotals
+        // 4. 累加
         rowTotals.basicStats += basicStats;
         rowTotals.gradeIncrease += gradeIncrease;
         rowTotals.development += development;
@@ -502,6 +502,42 @@ function initModal() {
             });
         });
     });
+
+    const modal = document.querySelector('.modal-overlay');
+    const modalSelectAll = modal.querySelector('thead input[type="checkbox"]');
+    const modalBodyChecks = modal.querySelectorAll('tbody input[type="checkbox"]');
+
+    // 🌟 技能視窗「全選/全不選」
+    if (modalSelectAll) {
+        modalSelectAll.addEventListener('change', () => {
+            const isChecked = modalSelectAll.checked;
+            modalBodyChecks.forEach(cb => cb.checked = isChecked);
+            // 技能視窗全選不需要即時送回主畫面，玩家按「完成」才會加總
+        });
+    }
+
+    // 🌟 完成按鈕的邏輯也需更新：加總時判斷勾選
+    submitBtn.addEventListener('click', () => {
+        const skillRowMain = mainStatsTable.querySelectorAll('tbody tr')[11];
+        const skillInputsMain = skillRowMain.querySelectorAll('input[type="number"]');
+        const modalRows = modal.querySelectorAll('tbody tr');
+
+        for (let col = 0; col < 5; col++) {
+            let colSum = 0;
+            modalRows.forEach(row => {
+                const isChecked = row.querySelector('input[type="checkbox"]').checked;
+                if (isChecked) {
+                    let val = parseInt(row.querySelectorAll('input[type="number"]')[col].value) || 0;
+                    colSum += val;
+                }
+            });
+            skillInputsMain[col].value = colSum;
+            applyColorRule(skillInputsMain[col], 'small'); 
+        }
+
+        calculateSubtotals(); 
+        modal.style.display = 'none'; 
+    });
 }
 
 // ==========================================
@@ -532,6 +568,7 @@ function forceRefreshAll() {
     updateStatLabels();
     updateConditionAndGear();
     updateHeaderColor();
+    calculateSubtotals();
     
     // 重新為主畫面與技能視窗內，所有有規則的格子補上顏色
     const rows = document.querySelectorAll('tr.rule-large, tr.rule-small, tr.rule-posneg, .modal-overlay tbody tr');
@@ -636,6 +673,31 @@ function initTableColors() {
 
     // 🌟 6. 新增：啟動技能彈出視窗功能
     initModal();
+
+    // 🌟 7. 主畫面「全選/全不選」邏輯
+    const statsTable = document.querySelectorAll('.container > table')[1];
+    const topTable = document.querySelectorAll('.container > table')[0];
+    const mainSelectAll = statsTable.querySelector('thead input[type="checkbox"]');
+
+    if (mainSelectAll) {
+        mainSelectAll.addEventListener('change', () => {
+            const isChecked = mainSelectAll.checked;
+            // 找出主畫面所有橫列的勾選箱 (排除全選按鈕本身)
+            const allChecks = [
+                ...topTable.querySelectorAll('thead input[type="checkbox"]'),
+                ...statsTable.querySelectorAll('tbody input[type="checkbox"]')
+            ];
+            allChecks.forEach(cb => cb.checked = isChecked);
+            calculateSubtotals(); // 改變勾選後重新計算
+        });
+    }
+
+    // 🌟 8. 為所有一般勾選箱綁定計算觸發
+    document.querySelectorAll('input[type="checkbox"]').forEach(cb => {
+        if (cb !== mainSelectAll) {
+            cb.addEventListener('change', calculateSubtotals);
+        }
+    });
 }
 
 // ==========================================
