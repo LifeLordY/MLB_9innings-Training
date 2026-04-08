@@ -540,7 +540,14 @@ function initTableColors() {
         el.addEventListener('input', () => calculateSubtotals());
     });
 
-    // 3. 最上方的「類型」與「位置」選單綁定
+    // 3. 最上方的「球隊」、「類型」與「位置」選單綁定
+    const teamSelect = document.getElementById('team-select');
+    if (teamSelect) {
+        teamSelect.addEventListener('change', () => {
+            updateThemeColor(); // 🌟 當球隊改變時，觸發變色
+            // (未來這裡還可以加入切換球隊後，重新篩選球員名單的邏輯)
+        });
+    }
     ['type-select', 'position-select'].forEach(id => {
         const select = document.getElementById(id);
         if (select) {
@@ -586,12 +593,67 @@ function initTableColors() {
 }
 
 // ==========================================
-// 🚀 啟動區：乾淨俐落的啟動邏輯
+// 🌐 第七區：外部資料 (JSON) 與介面連動
 // ==========================================
-document.addEventListener('DOMContentLoaded', () => {
+let teamsData = {}; // 準備一個空物件來裝 teams.json 的資料
+
+// 1. 讀取 teams.json 並生成下拉選單
+async function loadTeams() {
+    try {
+        // 向同一個資料夾下的 teams.json 請求資料
+        const response = await fetch('teams.json');
+        teamsData = await response.json();
+        
+        const teamSelect = document.getElementById('team-select');
+        if (!teamSelect) return;
+
+        // 清空選單並重新填入
+        teamSelect.innerHTML = '<option value="">請選擇球隊...</option>';
+        
+        // 迴圈讀取 JSON 裡面的每一個球隊代號 (NYY, ATH...)
+        for (const teamKey in teamsData) {
+            const option = document.createElement('option');
+            option.value = teamKey;
+            option.textContent = teamKey; 
+            teamSelect.appendChild(option);
+        }
+    } catch (error) {
+        console.error("無法讀取 teams.json！請確認檔案路徑，或是否遇到 CORS 跨網域安全阻擋。", error);
+    }
+}
+
+// 2. 切換球隊時更新主題顏色
+function updateThemeColor() {
+    const teamSelect = document.getElementById('team-select');
+    const container = document.querySelector('.container');
+    const modalContent = document.querySelector('.modal-content');
+    
+    if (!teamSelect || !container || !modalContent) return;
+
+    const selectedTeam = teamSelect.value;
+    
+    // 如果有選中球隊，且 JSON 裡面有這個球隊的資料
+    if (selectedTeam && teamsData[selectedTeam]) {
+        const themeColor = teamsData[selectedTeam].themeColor;
+        container.style.backgroundColor = themeColor;
+        modalContent.style.backgroundColor = themeColor;
+    } else {
+        // 如果切換回「請選擇球隊...」，則清空 inline style，恢復 CSS 預設背景色
+        container.style.backgroundColor = ''; 
+        modalContent.style.backgroundColor = '';
+    }
+}
+
+// ==========================================
+// 🚀 啟動區：乾淨俐落的啟動邏輯 (已升級為非同步 async)
+// ==========================================
+document.addEventListener('DOMContentLoaded', async () => {
+    
+    // 🌟 先等待 JSON 資料完全讀取並生成選單後，再做後續綁定
+    await loadTeams(); 
+    
     initTableColors();   // 1. 先綁定所有耳朵 (Listeners)
     forceRefreshAll();   // 2. 第一次畫面載入的強制刷新
     
-    // 3. 解決複製分頁的延遲刷新 (防止自動填入失敗)
     setTimeout(forceRefreshAll, 150); 
 });
