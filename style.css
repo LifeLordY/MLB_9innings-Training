@@ -203,6 +203,20 @@ input[type="checkbox"] {
     border: none;
 }
 
+.reset-row-btn {
+    background-color: #bf0000;
+    color: white;
+    border: none;
+    padding: 3px 15px;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.reset-row-btn:hover {
+    background-color: #bf3f3f;
+}
+
 .cancel-btn {
     background-color: #3f3f3f;
     color: white;
