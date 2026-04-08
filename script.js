@@ -606,13 +606,26 @@ function initTableColors() {
     document.getElementById('copy-btn').addEventListener('click', async () => {
         const container = document.getElementById('capture-container');
         const btn = document.getElementById('copy-btn');
+
+        // 1. 同步 select 狀態 ---
+        const selects = container.querySelectorAll('select');
+        selects.forEach(select => {
+            const options = select.querySelectorAll('option');
+            options.forEach(option => {
+                // 如果這個選項是目前選中的，就手動加上 selected 屬性
+                if (option.value === select.value) {
+                    option.setAttribute('selected', 'selected');
+                } else {
+                    option.removeAttribute('selected');
+                }
+            });
+        });
         
-        // 1. 備份原始樣式，防止畫面跳動
+        // 2. 備份原始樣式，防止畫面跳動
         const originalMargin = container.style.margin;
         const originalTransform = container.style.transform;
     
-        // 2. 關鍵修正：截圖前將 margin 歸零，確保座標從 (0,0) 開始
-        // 這能解決「有一半在外面」的問題
+        // 3. 截圖前將 margin 歸零，確保座標從 (0,0) 開始
         container.style.margin = '0';
         container.style.transform = 'translate(0,0)';
     
@@ -646,7 +659,7 @@ function initTableColors() {
             console.error('截圖失敗:', error);
             alert('截圖失敗，請稍後再試');
         } finally {
-            // 3. 無論成功或失敗，都恢復原始樣式，使用者完全感覺不到變化
+            // 4. 無論成功或失敗，都恢復原始樣式，使用者完全感覺不到變化
             container.style.margin = originalMargin;
             container.style.transform = originalTransform;
         }
