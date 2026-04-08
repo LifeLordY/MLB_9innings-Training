@@ -622,6 +622,7 @@ function initTableColors() {
         });
         
         // 2. 備份原始樣式，防止畫面跳動
+        const currentBgColor = window.getComputedStyle(container).backgroundColor;
         const originalMargin = container.style.margin;
         const originalTransform = container.style.transform;
     
@@ -634,6 +635,7 @@ function initTableColors() {
             // 使用 getBoundingClientRect 取得精確的寬高（包含小數點）
             height: container.offsetHeight * scale,
             width: container.offsetWidth * scale,
+            bgcolor: '#1f1f1f',
             style: {
                 transform: `scale(${scale})`,
                 transformOrigin: 'top left',
@@ -641,7 +643,7 @@ function initTableColors() {
                 height: `${container.offsetHeight}px`,
                 margin: '0', // 強制 SVG 內部的 margin 也是 0
                 borderRadius: '20px',
-                backgroundColor: '#1f1f1f'
+                backgroundColor: currentBgColor
             }
         };
     
