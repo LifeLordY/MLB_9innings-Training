@@ -621,7 +621,6 @@ function initTableColors() {
             // 使用 getBoundingClientRect 取得精確的寬高（包含小數點）
             height: container.offsetHeight * scale,
             width: container.offsetWidth * scale,
-            bgcolor: 'rgba(0,0,0,0)',
             style: {
                 transform: `scale(${scale})`,
                 transformOrigin: 'top left',
