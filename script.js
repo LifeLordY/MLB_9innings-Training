@@ -607,26 +607,32 @@ function initTableColors() {
         const container = document.getElementById('capture-container');
         const btn = document.getElementById('copy-btn');
     
-        try {
-            // 使用 modern-screenshot 的 domToBlob 功能
-            const blob = await modernScreenshot.domToBlob(container, {
-                scale: 2,           // 兩倍清晰度
-                quality: 1,         // 最高品質
-                features: {
-                    removeControlCharacters: true // 移除可能導致偏移的特殊字元
-                }
-            });
+        // 提高品質的參數：透過縮放 SVG 達成
+        const scale = 2; 
+        const param = {
+            height: container.offsetHeight * scale,
+            width: container.offsetWidth * scale,
+            style: {
+                transform: `scale(${scale})`,
+                transformOrigin: 'top left',
+                width: `${container.offsetWidth}px`,
+                height: `${container.offsetHeight}px`
+            }
+        };
     
+        try {
+            // 直接將 DOM 轉為 PNG Blob
+            const blob = await domtoimage.toBlob(container, param);
+            
             if (blob) {
                 const data = [new ClipboardItem({ [blob.type]: blob })];
                 await navigator.clipboard.write(data);
                 
-                btn.innerText = '✅ 畫面擷取成功！';
+                btn.innerText = '✅ 畫面截取成功！';
                 setTimeout(() => btn.innerText = '擷取畫面到剪貼簿', 2000);
             }
         } catch (error) {
             console.error('截圖失敗:', error);
-            alert('擷取發生錯誤，建議檢查 Container 是否有特殊 CSS 濾鏡');
         }
     });
 }
