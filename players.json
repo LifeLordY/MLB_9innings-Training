@@ -2762,7 +2762,7 @@
   {
     "name": "J.Robinson '49",
     "team": "LAD",
-    "positions": ["C"],
+    "positions": ["2B"],
     "basicStats": [83, 70, 79, 67, 74],
     "gradeIncrease": [19, 13, 17, 11, 15],
     "types": ["legend", "signature", "vintage"],
