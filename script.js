@@ -379,24 +379,30 @@ function updateConditionAndGear() {
 }
 
 // ==========================================
-// 🛠️ 技能設定 (Modal) 專屬邏輯 (新增即時顏色判定)
+// 🛠️ 技能設定 (Modal) 專屬邏輯
 // ==========================================
 function updateChemistry() {
     const posSelect = document.getElementById('position-select');
     const modal = document.querySelector('.modal-overlay');
     if (!posSelect || !modal) return;
 
-    // 判斷是否為投手
-    const isPitcher = ['SP', 'RP', 'CP'].includes(posSelect.value);
-    let chemValue = isPitcher ? 6 : 7; 
-
-    // 檢查是否選中傳說
     const chemSelect = modal.querySelector('tbody tr:nth-child(1) select');
-    if (chemSelect && chemSelect.value === 'legend') {
-        chemValue += 1;
+    let chemValue = 0;
+
+    // 🌟 新增：如果選中 "none"，直接將值設為 0
+    if (chemSelect && chemSelect.value === 'none') {
+        chemValue = 0;
+    } else {
+        // 否則依照原本邏輯判斷打者/投手與傳說
+        const isPitcher = ['SP', 'RP', 'CP'].includes(posSelect.value);
+        chemValue = isPitcher ? 6 : 7; 
+
+        if (chemSelect && chemSelect.value === 'legend') {
+            chemValue += 1;
+        }
     }
 
-    // 將數值填入默契這排的 5 個格子，並🌟馬上套用小數字顏色
+    // 將數值填入默契這排的 5 個格子，並馬上套用小數字顏色
     const chemInputs = modal.querySelectorAll('tbody tr:nth-child(1) input[type="number"]');
     chemInputs.forEach(input => {
         input.value = chemValue;
