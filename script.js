@@ -607,38 +607,32 @@ function initTableColors() {
         const container = document.getElementById('capture-container');
         const btn = document.getElementById('copy-btn');
     
+        // 提高品質的參數：透過縮放 SVG 達成
+        const scale = 2; 
+        const param = {
+            height: container.offsetHeight * scale,
+            width: container.offsetWidth * scale,
+            style: {
+                transform: `scale(${scale})`,
+                transformOrigin: 'top left',
+                width: `${container.offsetWidth}px`,
+                height: `${container.offsetHeight}px`
+            }
+        };
+    
         try {
-            // 1. 將 HTML 轉換為 Canvas
-            const canvas = await html2canvas(container, {
-                scale: 2, 
-                useCORS: true, // 順便開啟跨域支援，減少圖片抓不到的問題
-                logging: false, // 關閉日誌以提升效能
-                backgroundColor: null // 確保背景透明度（如果容器有圓角）
-            });
-    
-            // 2. 將 Canvas 轉換為 Blob (圖片檔案格式)
-            canvas.toBlob(async (blob) => {
-                if (!blob) {
-                    alert('圖片產生失敗');
-                    return;
-                }
-    
-                // 3. 使用 Clipboard API 寫入剪貼簿
-                try {
-                    const data = [new ClipboardItem({ [blob.type]: blob })];
-                    await navigator.clipboard.write(data);
-                    
-                    // 成功回饋
-                    btn.innerText = '✅ 已複製到剪貼簿！';
-                    setTimeout(() => btn.innerText = '擷取畫面到剪貼簿', 2000);
-                } catch (err) {
-                    console.error('剪貼簿寫入失敗:', err);
-                    alert('無法寫入剪貼簿，請確保瀏覽器權限已開啟。');
-                }
-            }, 'image/png');
-    
+            // 直接將 DOM 轉為 PNG Blob
+            const blob = await domtoimage.toBlob(container, param);
+            
+            if (blob) {
+                const data = [new ClipboardItem({ [blob.type]: blob })];
+                await navigator.clipboard.write(data);
+                
+                btn.innerText = '✅ 高品質複製成功！';
+                setTimeout(() => btn.innerText = '擷取畫面到剪貼簿', 2000);
+            }
         } catch (error) {
-            console.error('截圖過程中出錯:', error);
+            console.error('截圖失敗:', error);
         }
     });
 }
