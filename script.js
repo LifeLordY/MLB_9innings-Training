@@ -1,5 +1,5 @@
 // ==========================================
-// 🧮 自動連動計算邏輯 (最終完整版)
+// 🧮 自動連動計算邏輯 (加入最右側「值」的平均與總和)
 // ==========================================
 function calculateSubtotals() {
     const tables = document.querySelectorAll('.container > table');
@@ -16,7 +16,18 @@ function calculateSubtotals() {
     
     const globalBonus = mentor + blackDiamond + teamDeck;
 
-    // --- B. 抓取下方表格並逐欄計算 ---
+    // --- B. 準備記錄各橫排的 5 項數值總和 ---
+    let rowTotals = {
+        base: 0,       // 基本能力值
+        grade: 0,      // 階級上升量
+        upgrade: 0,    // 強化量
+        sum1: 0,       // 基本+階級+強化
+        coach: 0,      // 教練
+        sum2: 0,       // 一般陣容能力值
+        sum3: 0        // 最高登板能力值
+    };
+
+    // --- C. 抓取下方表格並逐欄計算 ---
     const rows = statsTable.querySelectorAll('tbody tr');
     
     for (let col = 0; col < 5; col++) {
@@ -29,7 +40,6 @@ function calculateSubtotals() {
         
         let sum1 = base + correction + grade + upgrade;
         
-        // 寫入第 4 列並上色
         let targetCell1 = rows[4].querySelectorAll('td')[col + 1];
         targetCell1.innerText = sum1;
         applyColorRule(targetCell1, 'large');
@@ -40,25 +50,44 @@ function calculateSubtotals() {
         
         let sum2 = sum1 + coach + specialTrain + globalBonus;
         
-        // 寫入第 7 列並上色
         let targetCell2 = rows[7].querySelectorAll('td')[col + 1];
         targetCell2.innerText = sum2;
         applyColorRule(targetCell2, 'large');
 
-        // 🌟 3. 計算 [最高登板能力值] (新增)
-        // 注意：第 8 列 (rows[8]) 是隱形的 spacer-row，所以狀態從 9 開始
+        // 🌟 3. 計算 [最高登板能力值]
         let condition = parseInt(rows[9].querySelectorAll('input[type="number"]')[col].value) || 0;
         let equipment = parseInt(rows[10].querySelectorAll('input[type="number"]')[col].value) || 0;
         let skill = parseInt(rows[11].querySelectorAll('input[type="number"]')[col].value) || 0;
 
         let sum3 = sum2 + condition + equipment + skill;
 
-        // 寫入第 12 列 (最高登板能力值) 並上色
-        // 因為開頭一樣是 <td colspan="2">，所以索引也是 col + 1
         let targetCell3 = rows[12].querySelectorAll('td')[col + 1];
         targetCell3.innerText = sum3;
         applyColorRule(targetCell3, 'large');
+
+        // 🌟 4. 將每一欄的數據累加到 rowTotals 記錄本中
+        rowTotals.base += base;
+        rowTotals.grade += grade;
+        rowTotals.upgrade += upgrade;
+        rowTotals.sum1 += sum1;
+        rowTotals.coach += coach;
+        rowTotals.sum2 += sum2;
+        rowTotals.sum3 += sum3;
     }
+
+    // --- D. 計算並寫入最右側的「值」欄位 ---
+    // (利用 .lastElementChild 屬性精準抓到該排的最後一格)
+    
+    // 計算平均值 (總和除以 5，並使用 .toFixed(1) 強制保留小數點一位)
+    rows[0].lastElementChild.innerText = (rowTotals.base / 5).toFixed(1);
+    rows[4].lastElementChild.innerText = (rowTotals.sum1 / 5).toFixed(1);
+    rows[7].lastElementChild.innerText = (rowTotals.sum2 / 5).toFixed(1);
+    rows[12].lastElementChild.innerText = (rowTotals.sum3 / 5).toFixed(1);
+
+    // 計算總和 (直接寫入累加結果)
+    rows[2].lastElementChild.innerText = rowTotals.grade;
+    rows[3].lastElementChild.innerText = rowTotals.upgrade;
+    rows[5].lastElementChild.innerText = rowTotals.coach;
 }
 
 // ==========================================
