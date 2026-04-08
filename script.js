@@ -36,8 +36,7 @@ function updateHeaderColor() {
     const gradeSelect = topTable.querySelectorAll('select')[0];
     
     // 同時抓取所有表頭 (th) 以及三個總計列 (.summary-row td)
-    const themeElements = document.querySelectorAll('.container table th, .summary-row td');
-
+    const themeElements = document.querySelectorAll('.container table th, .summary-row td, .modal-overlay th');
     // 判斷是否為白金 (diamond)
     if (gradeSelect.value === 'diamond') {
         themeElements.forEach(el => el.style.backgroundColor = '#003f7f'); // 變成亮藍色
