@@ -1,59 +1,5 @@
 [
   {
-    "name": "LOU GEHRIG",
-    "team": "NYY",
-    "positions": ["1B"],
-    "basicStats": [87, 84, 87, 64, 70],
-    "gradeIncrease": [19, 17, 19, 9, 11],
-    "types": ["supreme"],
-    "typeOverrides": {}
-  },
-  {
-    "name": "MICKEY MANTLE",
-    "team": "NYY",
-    "positions": ["OF"],
-    "basicStats": [80, 89, 88, 64, 70],
-    "gradeIncrease": [16, 20, 19, 9, 11],
-    "types": ["supreme"],
-    "typeOverrides": {}
-  },
-  {
-    "name": "BABE BUTH",
-    "team": "NYY",
-    "positions": ["OF"],
-    "basicStats": [82, 90, 88, 64, 67],
-    "gradeIncrease": [17, 20, 19, 9, 10],
-    "types": ["supreme"],
-    "typeOverrides": {}
-  },
-  {
-    "name": "JOE DIMAGGIO",
-    "team": "NYY",
-    "positions": ["OF"],
-    "basicStats": [88, 81, 79, 65, 68],
-    "gradeIncrease": [20, 17, 17, 10, 11],
-    "types": ["supreme"],
-    "typeOverrides": {}
-  },
-  {
-    "name": "DEREK JETER",
-    "team": "NYY",
-    "positions": ["SS"],
-    "basicStats": [84, 72, 74, 70, 75],
-    "gradeIncrease": [19, 13, 15, 12, 16],
-    "types": ["supreme"],
-    "typeOverrides": {}
-  },
-  {
-    "name": "YOGI BERRA",
-    "team": "NYY",
-    "positions": ["C"],
-    "basicStats": [78, 77, 77, 63, 78],
-    "gradeIncrease": [17, 17, 16, 9, 16],
-    "types": ["supreme"],
-    "typeOverrides": {}
-  },
-  {
     "name": "L.Gehrig '36",
     "team": "NYY",
     "positions": ["1B"],
@@ -370,33 +316,6 @@
         "gradeIncrease": [23, 20, 18, 12, 7]
       }
     }
-  },
-  {
-    "name": "WHITEY FORD",
-    "team": "NYY",
-    "positions": ["SP"],
-    "basicStats": [79, 73, 77, 77, 74],
-    "gradeIncrease": [17, 13, 16, 15, 14],
-    "types": ["supreme"],
-    "typeOverrides": {}
-  },
-  {
-    "name": "RICH GOSSAGE",
-    "team": "NYY",
-    "positions": ["CP"],
-    "basicStats": [77, 79, 55, 82, 73],
-    "gradeIncrease": [17, 18, 6, 19, 15],
-    "types": ["supreme"],
-    "typeOverrides": {}
-  },
-  {
-    "name": "MARIANO RIVERA",
-    "team": "NYY",
-    "positions": ["CP"],
-    "basicStats": [80, 78, 51, 80, 75],
-    "gradeIncrease": [19, 17, 4, 19, 15],
-    "types": ["supreme"],
-    "typeOverrides": {}
   },
   {
     "name": "R.Gossage '78",
@@ -722,15 +641,6 @@
     "typeOverrides": {}
   },
   {
-    "name": "RICKEY HENDERSON",
-    "team": "ATH",
-    "positions": ["OF"],
-    "basicStats": [81, 77, 81, 87, 73],
-    "gradeIncrease": [16, 13, 16, 18, 12],
-    "types": ["supreme"],
-    "typeOverrides": {}
-  },
-  {
     "name": "R.Henderson '90",
     "team": "ATH",
     "positions": ["OF"],
@@ -917,33 +827,6 @@
     "basicStats": [73, 82, 74, 59, 66],
     "gradeIncrease": [17, 21, 16, 9, 12],
     "types": ["signature", "vintage"],
-    "typeOverrides": {}
-  },
-  {
-    "name": "CATFISH HUNTER",
-    "team": "ATH",
-    "positions": ["SP"],
-    "basicStats": [79, 73, 80, 78, 74],
-    "gradeIncrease": [16, 13, 17, 16, 13],
-    "types": ["supreme"],
-    "typeOverrides": {}
-  },
-  {
-    "name": "DENNIS ECKERSLEY",
-    "team": "ATH",
-    "positions": ["CP"],
-    "basicStats": [78, 76, 51, 78, 74],
-    "gradeIncrease": [18, 17, 5, 18, 16],
-    "types": ["supreme"],
-    "typeOverrides": {}
-  },
-  {
-    "name": "ROLLIE FINGERS",
-    "team": "ATH",
-    "positions": ["CP"],
-    "basicStats": [77, 73, 58, 77, 74],
-    "gradeIncrease": [18, 15, 8, 18, 16],
-    "types": ["supreme"],
     "typeOverrides": {}
   },
   {
@@ -1198,24 +1081,6 @@
     }
   },
   {
-    "name": "JEFF BAGWELL",
-    "team": "HOU",
-    "positions": ["1B"],
-    "basicStats": [87, 86, 82, 65, 71],
-    "gradeIncrease": [19, 19, 16, 9, 12],
-    "types": ["supreme"],
-    "typeOverrides": {}
-  },
-  {
-    "name": "CRAIG BIGGIO",
-    "team": "HOU",
-    "positions": ["2B"],
-    "basicStats": [81, 74, 76, 71, 74],
-    "gradeIncrease": [18, 14, 16, 13, 14],
-    "types": ["supreme"],
-    "typeOverrides": {}
-  },
-  {
     "name": "C.Biggio '97",
     "team": "HOU",
     "positions": ["2B"],
@@ -1446,15 +1311,6 @@
         "gradeIncrease": [18, 26, 16, 9, 11]
       }
     }
-  },
-  {
-    "name": "BILLY WAGNER",
-    "team": "HOU",
-    "positions": ["CP"],
-    "basicStats": [76, 80, 52, 83, 73],
-    "gradeIncrease": [16, 19, 5, 20, 15],
-    "types": ["supreme"],
-    "typeOverrides": {}
   },
   {
     "name": "G.Cole '19",
@@ -1734,33 +1590,6 @@
     "basicStats": [77, 77, 51, 76, 72],
     "gradeIncrease": [20, 20, 5, 19, 16],
     "types": ["prime"],
-    "typeOverrides": {}
-  },
-  {
-    "name": "TIM RAINES",
-    "team": "WSH",
-    "positions": ["OF"],
-    "basicStats": [83, 72, 80, 84, 73],
-    "gradeIncrease": [17, 12, 16, 18, 12],
-    "types": ["supreme"],
-    "typeOverrides": {}
-  },
-  {
-    "name": "ANDRE DAWSON",
-    "team": "WSH",
-    "positions": ["OF"],
-    "basicStats": [79, 73, 70, 73, 72],
-    "gradeIncrease": [17, 19, 12, 14, 13],
-    "types": ["supreme"],
-    "typeOverrides": {}
-  },
-  {
-    "name": "GARY CARTER",
-    "team": "WSH",
-    "positions": ["C"],
-    "basicStats": [77, 78, 76, 64, 78],
-    "gradeIncrease": [17, 17, 15, 10, 16],
-    "types": ["supreme"],
     "typeOverrides": {}
   },
   {
@@ -2271,51 +2100,6 @@
     }
   },
   {
-    "name": "ROGERS HORNSBY",
-    "team": "STL",
-    "positions": ["2B"],
-    "basicStats": [94, 82, 83, 65, 66],
-    "gradeIncrease": [22, 17, 17, 9, 10],
-    "types": ["supreme"],
-    "typeOverrides": {}
-  },
-  {
-    "name": "STAN MUSIAL",
-    "team": "STL",
-    "positions": ["OF", "1B"],
-    "basicStats": [81, 83, 83, 65, 73],
-    "gradeIncrease": [16, 18, 18, 10, 13],
-    "types": ["supreme"],
-    "typeOverrides": {}
-  },
-  {
-    "name": "OZZIE SMITH",
-    "team": "STL",
-    "positions": ["SS"],
-    "basicStats": [78, 64, 79, 77, 81],
-    "gradeIncrease": [15, 10, 17, 15, 18],
-    "types": ["supreme"],
-    "typeOverrides": {}
-  },
-  {
-    "name": "SCOTT ROLEN",
-    "team": "STL",
-    "positions": ["SS"],
-    "basicStats": [79, 80, 74, 62, 75],
-    "gradeIncrease": [18, 18, 15, 9, 15],
-    "types": ["supreme"],
-    "typeOverrides": {}
-  },
-  {
-    "name": "LOU BROCK",
-    "team": "STL",
-    "positions": ["OF"],
-    "basicStats": [77, 70, 72, 84, 63],
-    "gradeIncrease": [17, 13, 15, 20, 10],
-    "types": ["supreme"],
-    "typeOverrides": {}
-  },
-  {
     "name": "O.Smith '87",
     "team": "STL",
     "positions": ["SS"],
@@ -2507,24 +2291,6 @@
         "gradeIncrease": [19, 22, 14, 11, 14]
       }
     }
-  },
-  {
-    "name": "DIZZY DEAN",
-    "team": "STL",
-    "positions": ["SP"],
-    "basicStats": [78, 70, 82, 76, 73],
-    "gradeIncrease": [16, 12, 18, 16, 13],
-    "types": ["supreme"],
-    "typeOverrides": {}
-  },
-  {
-    "name": "BRUCE SUTTER",
-    "team": "STL",
-    "positions": ["CP"],
-    "basicStats": [77, 77, 53, 80, 71],
-    "gradeIncrease": [18, 18, 6, 19, 14],
-    "types": ["supreme"],
-    "typeOverrides": {}
   },
   {
     "name": "D.Dean '34",
@@ -2722,33 +2488,6 @@
         "gradeIncrease": [21, 19, 6, 21, 13]
       }
     }
-  },
-  {
-    "name": "JACKIE DOBINSON",
-    "team": "LAD",
-    "positions": ["2B", "3B"],
-    "basicStats": [83, 72, 83, 65, 79],
-    "gradeIncrease": [18, 13, 18, 10, 16],
-    "types": ["supreme"],
-    "typeOverrides": {}
-  },
-  {
-    "name": "DUKE SNIDER",
-    "team": "LAD",
-    "positions": ["OF"],
-    "basicStats": [83, 84, 79, 67, 69],
-    "gradeIncrease": [18, 19, 16, 11, 11],
-    "types": ["supreme"],
-    "typeOverrides": {}
-  },
-  {
-    "name": "ROY CAMPANELLA",
-    "team": "LAD",
-    "positions": ["C"],
-    "basicStats": [81, 82, 78, 64, 68],
-    "gradeIncrease": [18, 19, 16, 10, 12],
-    "types": ["supreme"],
-    "typeOverrides": {}
   },
   {
     "name": "D.Snider '55",
@@ -3076,24 +2815,6 @@
     }
   },
   {
-    "name": "DON DRYSDALE",
-    "team": "LAD",
-    "positions": ["SP"],
-    "basicStats": [79, 74, 79, 73, 76],
-    "gradeIncrease": [17, 14, 17, 13, 14],
-    "types": ["supreme"],
-    "typeOverrides": {}
-  },
-  {
-    "name": "DON SUTTON",
-    "team": "LAD",
-    "positions": ["SP"],
-    "basicStats": [79, 75, 80, 76, 74],
-    "gradeIncrease": [16, 15, 17, 14, 13],
-    "types": ["supreme"],
-    "typeOverrides": {}
-  },
-  {
     "name": "C.Kershaw '16",
     "team": "LAD",
     "positions": ["SP"],
@@ -3395,15 +3116,6 @@
     }
   },
   {
-    "name": "DAVE WINFIELD",
-    "team": "SD",
-    "positions": ["OF"],
-    "basicStats": [83, 81, 76, 68, 73],
-    "gradeIncrease": [18, 17, 15, 11, 14],
-    "types": ["supreme"],
-    "typeOverrides": {}
-  },
-  {
     "name": "F.Tatis Jr. '20",
     "team": "SD",
     "positions": ["SS"],
@@ -3578,15 +3290,6 @@
     "basicStats": [75, 69, 70, 59, 67],
     "gradeIncrease": [19, 15, 17, 10, 14],
     "types": ["signature", "vintage"],
-    "typeOverrides": {}
-  },
-  {
-    "name": "TREVOR HOFFMAN",
-    "team": "SD",
-    "positions": ["CP"],
-    "basicStats": [77, 79, 54, 79, 76],
-    "gradeIncrease": [17, 18, 6, 18, 16],
-    "types": ["supreme"],
     "typeOverrides": {}
   },
   {
@@ -3769,5 +3472,968 @@
         "gradeIncrease": [19, 19, 6, 19, 17]
       }
     }
+  },
+  {
+    "name": "RICKEY HENDERSON",
+    "team": "ATH",
+    "positions": ["OF"],
+    "basicStats": [81, 77, 81, 87, 73],
+    "gradeIncrease": [16, 13, 16, 18, 12],
+    "types": ["supreme"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "JEFF BAGWELL",
+    "team": "HOU",
+    "positions": ["1B"],
+    "basicStats": [87, 86, 82, 65, 71],
+    "gradeIncrease": [19, 19, 16, 9, 12],
+    "types": ["supreme"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "JIMMIE FOXX",
+    "team": "BOS",
+    "positions": ["1B"],
+    "basicStats": [85, 87, 82, 64, 72],
+    "gradeIncrease": [18, 19, 17, 9, 12],
+    "types": ["supreme"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "LOU GEHRIG",
+    "team": "NYY",
+    "positions": ["1B"],
+    "basicStats": [87, 84, 87, 64, 70],
+    "gradeIncrease": [19, 17, 19, 9, 11],
+    "types": ["supreme"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "ROGERS HORNSBY",
+    "team": "STL",
+    "positions": ["2B"],
+    "basicStats": [94, 82, 83, 65, 66],
+    "gradeIncrease": [22, 17, 17, 9, 10],
+    "types": ["supreme"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "BARRY LARKIN",
+    "team": "CIN",
+    "positions": ["SS"],
+    "basicStats": [80, 79, 80, 75, 76],
+    "gradeIncrease": [16, 16, 16, 13, 14],
+    "types": ["supreme"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "TIM RAINES",
+    "team": "WSH",
+    "positions": ["OF"],
+    "basicStats": [83, 72, 80, 84, 73],
+    "gradeIncrease": [17, 12, 16, 18, 12],
+    "types": ["supreme"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "KEN GRIFFEY JR.",
+    "team": "SEA",
+    "positions": ["OF"],
+    "basicStats": [82, 86, 77, 68, 81],
+    "gradeIncrease": [17, 18, 14, 10, 16],
+    "types": ["supreme"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "MICKEY MANTLE",
+    "team": "NYY",
+    "positions": ["OF"],
+    "basicStats": [80, 89, 88, 64, 70],
+    "gradeIncrease": [16, 20, 19, 9, 11],
+    "types": ["supreme"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "TY COBB",
+    "team": "DET",
+    "positions": ["OF"],
+    "basicStats": [93, 71, 83, 77, 66],
+    "gradeIncrease": [21, 12, 17, 15, 10],
+    "types": ["supreme"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "AL KALINE",
+    "team": "DET",
+    "positions": ["OF"],
+    "basicStats": [83, 81, 80, 67, 81],
+    "gradeIncrease": [17, 17, 15, 10, 16],
+    "types": ["supreme"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "BABE BUTH",
+    "team": "NYY",
+    "positions": ["OF"],
+    "basicStats": [82, 90, 88, 64, 67],
+    "gradeIncrease": [17, 20, 19, 9, 10],
+    "types": ["supreme"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "JOE MORGAN",
+    "team": "CIN",
+    "positions": ["2B"],
+    "basicStats": [82, 71, 87, 73, 76],
+    "gradeIncrease": [17, 12, 19, 13, 14],
+    "types": ["supreme"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "ROD CAREW",
+    "team": "MIN",
+    "positions": ["2B", "1B"],
+    "basicStats": [90, 70, 79, 72, 74],
+    "gradeIncrease": [21, 12, 16, 12, 14],
+    "types": ["supreme"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "RYNE SANDBERG",
+    "team": "CHC",
+    "positions": ["2B"],
+    "basicStats": [79, 79, 75, 76, 78],
+    "gradeIncrease": [16, 16, 14, 14, 15],
+    "types": ["supreme"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "STAN MUSIAL",
+    "team": "STL",
+    "positions": ["OF", "1B"],
+    "basicStats": [81, 83, 83, 65, 73],
+    "gradeIncrease": [16, 18, 18, 10, 13],
+    "types": ["supreme"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "WILLIE MAYS",
+    "team": "SF",
+    "positions": ["OF"],
+    "basicStats": [80, 88, 76, 72, 72],
+    "gradeIncrease": [16, 20, 15, 12, 12],
+    "types": ["supreme"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "GARY SHEFFIELD",
+    "team": "MIA",
+    "positions": ["OF"],
+    "basicStats": [82, 85, 86, 67, 68],
+    "gradeIncrease": [17, 18, 19, 10, 11],
+    "types": ["supreme"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "LARRY WALKER",
+    "team": "COL",
+    "positions": ["OF"],
+    "basicStats": [80, 84, 78, 71, 72],
+    "gradeIncrease": [17, 18, 16, 12, 12],
+    "types": ["supreme"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "SAMMY SOSA",
+    "team": "CHC",
+    "positions": ["OF"],
+    "basicStats": [81, 91, 76, 69, 69],
+    "gradeIncrease": [17, 21, 15, 11, 11],
+    "types": ["supreme"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "JACKIE DOBINSON",
+    "team": "LAD",
+    "positions": ["2B", "3B"],
+    "basicStats": [83, 72, 83, 65, 79],
+    "gradeIncrease": [18, 13, 18, 10, 16],
+    "types": ["supreme"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "CHIPPER JONES",
+    "team": "ATL",
+    "positions": ["3B"],
+    "basicStats": [86, 83, 81, 66, 67],
+    "gradeIncrease": [19, 18, 17, 10, 11],
+    "types": ["supreme"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "GEORGE BRETT",
+    "team": "KC",
+    "positions": ["3B"],
+    "basicStats": [90, 77, 81, 71, 64],
+    "gradeIncrease": [21, 16, 17, 12, 9],
+    "types": ["supreme"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "MIKE SCHMIDT",
+    "team": "PHI",
+    "positions": ["3B"],
+    "basicStats": [76, 86, 79, 68, 74],
+    "gradeIncrease": [15, 19, 16, 11, 14],
+    "types": ["supreme"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "ALAN TRAMMELL",
+    "team": "DET",
+    "positions": ["SS"],
+    "basicStats": [84, 74, 75, 71, 76],
+    "gradeIncrease": [19, 14, 14, 12, 16],
+    "types": ["supreme"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "CAL RIPKEN JR.",
+    "team": "BAL",
+    "positions": ["SS"],
+    "basicStats": [78, 76, 79, 66, 81],
+    "gradeIncrease": [15, 15, 17, 10, 18],
+    "types": ["supreme"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "LOU BOUDREAU",
+    "team": "CLE",
+    "positions": ["SS"],
+    "basicStats": [85, 71, 82, 64, 79],
+    "gradeIncrease": [19, 12, 18, 9, 17],
+    "types": ["supreme"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "RALPH KINER",
+    "team": "PIT",
+    "positions": ["OF"],
+    "basicStats": [79, 87, 86, 62, 68],
+    "gradeIncrease": [16, 20, 19, 9, 11],
+    "types": ["supreme"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "DUKE SNIDER",
+    "team": "LAD",
+    "positions": ["OF"],
+    "basicStats": [83, 84, 79, 67, 69],
+    "gradeIncrease": [18, 19, 16, 11, 11],
+    "types": ["supreme"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "JOE DIMAGGIO",
+    "team": "NYY",
+    "positions": ["OF"],
+    "basicStats": [88, 81, 79, 65, 68],
+    "gradeIncrease": [20, 17, 17, 10, 11],
+    "types": ["supreme"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "TRIS SPEAKER",
+    "team": "CLE",
+    "positions": ["OF"],
+    "basicStats": [90, 72, 82, 72, 66],
+    "gradeIncrease": [21, 13, 18, 13, 10],
+    "types": ["supreme"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "DAVE WINFIELD",
+    "team": "SD",
+    "positions": ["OF"],
+    "basicStats": [83, 81, 76, 68, 73],
+    "gradeIncrease": [18, 17, 15, 11, 14],
+    "types": ["supreme"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "MEL OTT",
+    "team": "SF",
+    "positions": ["OF"],
+    "basicStats": [83, 82, 85, 62, 71],
+    "gradeIncrease": [18, 17, 19, 9, 12],
+    "types": ["supreme"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "VLADIMIR GUERRERO",
+    "team": "LAA",
+    "positions": ["OF"],
+    "basicStats": [84, 82, 77, 68, 69],
+    "gradeIncrease": [19, 18, 15, 11, 12],
+    "types": ["supreme"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "IVAN RODRIGUEZ",
+    "team": "TEX",
+    "positions": ["C"],
+    "basicStats": [82, 77, 71, 66, 79],
+    "gradeIncrease": [19, 15, 13, 11, 17],
+    "types": ["supreme"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "JOHNNY BENCH",
+    "team": "CIN",
+    "positions": ["C"],
+    "basicStats": [77, 82, 78, 67, 71],
+    "gradeIncrease": [15, 19, 17, 11, 13],
+    "types": ["supreme"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "JOE MAUER",
+    "team": "MIN",
+    "positions": ["C", "1B"],
+    "basicStats": [87, 75, 78, 65, 71],
+    "gradeIncrease": [21, 14, 17, 10, 13],
+    "types": ["supreme"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "EDDIE MURRAY",
+    "team": "BAL",
+    "positions": ["1B"],
+    "basicStats": [82, 77, 78, 65, 76],
+    "gradeIncrease": [18, 15, 17, 10, 15],
+    "types": ["supreme"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "WILLIE MCCOVEY",
+    "team": "SF",
+    "positions": ["1B"],
+    "basicStats": [81, 85, 86, 60, 65],
+    "gradeIncrease": [17, 20, 20, 8, 10],
+    "types": ["supreme"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "CRAIG BIGGIO",
+    "team": "HOU",
+    "positions": ["2B"],
+    "basicStats": [81, 74, 76, 71, 74],
+    "gradeIncrease": [18, 14, 16, 13, 14],
+    "types": ["supreme"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "ADRIAN BELTRE",
+    "team": "TEX",
+    "positions": ["3B"],
+    "basicStats": [82, 82, 72, 62, 77],
+    "gradeIncrease": [19, 19, 13, 9, 15],
+    "types": ["supreme"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "EDDIE MATHEWS",
+    "team": "ATL",
+    "positions": ["3B"],
+    "basicStats": [79, 84, 83, 65, 65],
+    "gradeIncrease": [17, 19, 19, 10, 10],
+    "types": ["supreme"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "WADE BOGGS",
+    "team": "BOS",
+    "positions": ["3B"],
+    "basicStats": [87, 74, 84, 65, 68],
+    "gradeIncrease": [20, 15, 19, 10, 11],
+    "types": ["supreme"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "DEREK JETER",
+    "team": "NYY",
+    "positions": ["SS"],
+    "basicStats": [84, 72, 74, 70, 75],
+    "gradeIncrease": [19, 13, 15, 12, 16],
+    "types": ["supreme"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "OZZIE SMITH",
+    "team": "STL",
+    "positions": ["SS"],
+    "basicStats": [78, 64, 79, 77, 81],
+    "gradeIncrease": [15, 10, 17, 15, 18],
+    "types": ["supreme"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "BILLY WILLIAMS",
+    "team": "CHC",
+    "positions": ["OF"],
+    "basicStats": [83, 79, 79, 65, 71],
+    "gradeIncrease": [19, 17, 16, 10, 13],
+    "types": ["supreme"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "ANDRE DAWSON",
+    "team": "WSH",
+    "positions": ["OF"],
+    "basicStats": [79, 73, 70, 73, 72],
+    "gradeIncrease": [17, 19, 12, 14, 13],
+    "types": ["supreme"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "ROBERTO CLEMENTE",
+    "team": "PIT",
+    "positions": ["OF"],
+    "basicStats": [86, 74, 72, 65, 79],
+    "gradeIncrease": [20, 15, 13, 10, 17],
+    "types": ["supreme"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "EDGAR MARTINEZ",
+    "team": "SEA",
+    "positions": ["DH", "3B"],
+    "basicStats": [85, 79, 83, 67, 63],
+    "gradeIncrease": [20, 16, 19, 11, 9],
+    "types": ["supreme"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "FRANK THOMAS",
+    "team": "CWS",
+    "positions": ["DH", "1B"],
+    "basicStats": [85, 86, 85, 59, 60],
+    "gradeIncrease": [20, 20, 19, 8, 8],
+    "types": ["supreme"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "GARY CARTER",
+    "team": "WSH",
+    "positions": ["C"],
+    "basicStats": [77, 78, 76, 64, 78],
+    "gradeIncrease": [17, 17, 15, 10, 16],
+    "types": ["supreme"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "MIKE PIAZZA",
+    "team": "NYM",
+    "positions": ["C"],
+    "basicStats": [80, 81, 75, 64, 70],
+    "gradeIncrease": [18, 19, 15, 10, 13],
+    "types": ["supreme"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "ROY CAMPANELLA",
+    "team": "LAD",
+    "positions": ["C"],
+    "basicStats": [81, 82, 78, 64, 68],
+    "gradeIncrease": [18, 19, 16, 10, 12],
+    "types": ["supreme"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "YOGI BERRA",
+    "team": "NYY",
+    "positions": ["C"],
+    "basicStats": [78, 77, 77, 63, 78],
+    "gradeIncrease": [17, 17, 16, 9, 16],
+    "types": ["supreme"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "HARMON KILLEBREW",
+    "team": "MIN",
+    "positions": ["1B", "3B"],
+    "basicStats": [75, 87, 85, 59, 67],
+    "gradeIncrease": [15, 21, 20, 8, 11],
+    "types": ["supreme"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "JIM THOME",
+    "team": "CLE",
+    "positions": ["1B"],
+    "basicStats": [79, 90, 79, 58, 67],
+    "gradeIncrease": [17, 22, 17, 7, 12],
+    "types": ["supreme"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "BROOKS ROBINSON",
+    "team": "BAL",
+    "positions": ["3B"],
+    "basicStats": [80, 74, 74, 65, 81],
+    "gradeIncrease": [18, 15, 14, 10, 18],
+    "types": ["supreme"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "SCOTT ROLEN",
+    "team": "STL",
+    "positions": ["3B"],
+    "basicStats": [79, 80, 74, 62, 75],
+    "gradeIncrease": [18, 18, 15, 9, 15],
+    "types": ["supreme"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "ROBIN YOUNT",
+    "team": "MIL",
+    "positions": ["SS", "OF"],
+    "basicStats": [82, 75, 75, 69, 69],
+    "gradeIncrease": [19, 16, 16, 12, 12],
+    "types": ["supreme"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "JIM RICE",
+    "team": "BOS",
+    "positions": ["OF"],
+    "basicStats": [81, 80, 72, 67, 71],
+    "gradeIncrease": [18, 18, 15, 11, 13],
+    "types": ["supreme"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "PAUL MOLITOR",
+    "team": "MIL",
+    "positions": ["DH", "3B"],
+    "basicStats": [85, 72, 76, 71, 67],
+    "gradeIncrease": [20, 15, 16, 13, 11],
+    "types": ["supreme"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "TONY PEREZ",
+    "team": "CIN",
+    "positions": ["1B", "3B"],
+    "basicStats": [80, 80, 72, 68, 69],
+    "gradeIncrease": [18, 18, 15, 12, 12],
+    "types": ["supreme"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "LOU BROCK",
+    "team": "STL",
+    "positions": ["OF"],
+    "basicStats": [77, 70, 72, 84, 63],
+    "gradeIncrease": [17, 13, 15, 20, 10],
+    "types": ["supreme"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "WILLIE STARGELL",
+    "team": "PIT",
+    "positions": ["OF", "1B"],
+    "basicStats": [80, 87, 75, 61, 66],
+    "gradeIncrease": [18, 21, 16, 9, 11],
+    "types": ["supreme"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "DAVID ORTIZ",
+    "team": "BOS",
+    "positions": ["DH", "1B"],
+    "basicStats": [82, 88, 79, 59, 60],
+    "gradeIncrease": [19, 22, 18, 8, 8],
+    "types": ["supreme"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "RON SANTO",
+    "team": "CHC",
+    "positions": ["3B"],
+    "basicStats": [80, 76, 77, 62, 69],
+    "gradeIncrease": [19, 17, 16, 10, 13],
+    "types": ["supreme"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "PEDRO MARTINEZ",
+    "team": "BOS",
+    "positions": ["SP"],
+    "basicStats": [82, 80, 77, 76, 80],
+    "gradeIncrease": [17, 16, 14, 13, 15],
+    "types": ["supreme"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "RANDY JOHNSON",
+    "team": "AZ",
+    "positions": ["SP"],
+    "basicStats": [80, 80, 78, 80, 77],
+    "gradeIncrease": [16, 16, 14, 15, 14],
+    "types": ["supreme"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "CLAYTON KERSHAW",
+    "team": "LAD",
+    "positions": ["SP"],
+    "basicStats": [83, 79, 77, 78, 77],
+    "gradeIncrease": [17, 16, 14, 14, 14],
+    "types": ["supreme"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "CHRISTY MATHEWSON",
+    "team": "SF",
+    "positions": ["SP"],
+    "basicStats": [82, 74, 80, 77, 78],
+    "gradeIncrease": [17, 13, 16, 15, 14],
+    "types": ["supreme"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "DWIGHT GOODEN",
+    "team": "NYM",
+    "positions": ["SP"],
+    "basicStats": [79, 78, 78, 80, 77],
+    "gradeIncrease": [16, 15, 14, 16, 14],
+    "types": ["supreme"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "JUAN MARICHAL",
+    "team": "SF",
+    "positions": ["SP"],
+    "basicStats": [81, 75, 80, 76, 78],
+    "gradeIncrease": [17, 13, 16, 14, 15],
+    "types": ["supreme"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "NOLAN RYAN",
+    "team": "TEX",
+    "positions": ["SP"],
+    "basicStats": [77, 82, 79, 83, 73],
+    "gradeIncrease": [14, 17, 15, 17, 12],
+    "types": ["supreme"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "PETE ALEXANDER",
+    "team": "PHI",
+    "positions": ["SP"],
+    "basicStats": [81, 75, 80, 79, 76],
+    "gradeIncrease": [17, 13, 16, 15, 14],
+    "types": ["supreme"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "ROGER CLEMENS",
+    "team": "BOS",
+    "positions": ["SP"],
+    "basicStats": [79, 77, 81, 80, 75],
+    "gradeIncrease": [16, 14, 16, 16, 13],
+    "types": ["supreme"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "SATCHEL PAIGE",
+    "team": "CLE",
+    "positions": ["SP"],
+    "basicStats": [80, 77, 78, 80, 76],
+    "gradeIncrease": [16, 15, 14, 16, 14],
+    "types": ["supreme"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "TOM SEAVER",
+    "team": "NYM",
+    "positions": ["SP"],
+    "basicStats": [81, 78, 79, 79, 75],
+    "gradeIncrease": [17, 14, 16, 15, 13],
+    "types": ["supreme"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "WALTER JOHNSON",
+    "team": "MIN",
+    "positions": ["SP"],
+    "basicStats": [80, 74, 82, 78, 79],
+    "gradeIncrease": [16, 13, 16, 14, 16],
+    "types": ["supreme"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "BERT BLYLEVEN",
+    "team": "MIN",
+    "positions": ["SP"],
+    "basicStats": [79, 75, 80, 77, 75],
+    "gradeIncrease": [16, 14, 17, 14, 14],
+    "types": ["supreme"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "BOB FELLER",
+    "team": "CLE",
+    "positions": ["SP"],
+    "basicStats": [77, 76, 79, 80, 74],
+    "gradeIncrease": [15, 14, 16, 17, 13],
+    "types": ["supreme"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "BOB GIBSON",
+    "team": "STL",
+    "positions": ["SP"],
+    "basicStats": [80, 76, 82, 77, 74],
+    "gradeIncrease": [16, 15, 17, 14, 13],
+    "types": ["supreme"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "GREG MADDUX",
+    "team": "ATL",
+    "positions": ["SP"],
+    "basicStats": [85, 74, 79, 75, 74],
+    "gradeIncrease": [19, 13, 16, 14, 13],
+    "types": ["supreme"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "JOHN SMOLTZ",
+    "team": "ATL",
+    "positions": ["SP"],
+    "basicStats": [80, 76, 77, 79, 76],
+    "gradeIncrease": [16, 15, 14, 16, 14],
+    "types": ["supreme"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "CATFISH HUNTER",
+    "team": "ATH",
+    "positions": ["SP"],
+    "basicStats": [79, 73, 80, 78, 74],
+    "gradeIncrease": [16, 13, 17, 16, 13],
+    "types": ["supreme"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "DON DRYSDALE",
+    "team": "LAD",
+    "positions": ["SP"],
+    "basicStats": [79, 74, 79, 73, 76],
+    "gradeIncrease": [17, 14, 17, 13, 14],
+    "types": ["supreme"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "DON SUTTON",
+    "team": "LAD",
+    "positions": ["SP"],
+    "basicStats": [79, 75, 80, 76, 74],
+    "gradeIncrease": [16, 15, 17, 14, 13],
+    "types": ["supreme"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "GAYLORD PERRY",
+    "team": "LAD",
+    "positions": ["SP"],
+    "basicStats": [79, 73, 81, 77, 74],
+    "gradeIncrease": [16, 13, 17, 16, 13],
+    "types": ["supreme"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "JIM PALMER",
+    "team": "BAL",
+    "positions": ["SP"],
+    "basicStats": [78, 73, 80, 78, 73],
+    "gradeIncrease": [16, 13, 17, 16, 13],
+    "types": ["supreme"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "LEFTY GROVE",
+    "team": "BOS",
+    "positions": ["SP"],
+    "basicStats": [79, 72, 80, 77, 74],
+    "gradeIncrease": [17, 13, 16, 15, 14],
+    "types": ["supreme"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "PHIL NIEKRO",
+    "team": "ATL",
+    "positions": ["SP"],
+    "basicStats": [79, 73, 77, 75, 80],
+    "gradeIncrease": [16, 13, 15, 14, 17],
+    "types": ["supreme"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "WHITEY FORD",
+    "team": "NYY",
+    "positions": ["SP"],
+    "basicStats": [79, 73, 77, 77, 74],
+    "gradeIncrease": [17, 13, 16, 15, 14],
+    "types": ["supreme"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "DIZZY DEAN",
+    "team": "STL",
+    "positions": ["SP"],
+    "basicStats": [78, 70, 82, 76, 73],
+    "gradeIncrease": [16, 12, 18, 16, 13],
+    "types": ["supreme"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "MIKE MUSSINA",
+    "team": "BAL",
+    "positions": ["SP"],
+    "basicStats": [79, 73, 77, 74, 74],
+    "gradeIncrease": [17, 13, 16, 15, 14],
+    "types": ["supreme"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "ROY HALLADAY",
+    "team": "TOR",
+    "positions": ["SP"],
+    "basicStats": [79, 73, 77, 73, 74],
+    "gradeIncrease": [17, 14, 16, 14, 14],
+    "types": ["supreme"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "ROBIN ROBERTS",
+    "team": "PHI",
+    "positions": ["SP"],
+    "basicStats": [79, 70, 80, 73, 76],
+    "gradeIncrease": [17, 12, 17, 13, 16],
+    "types": ["supreme"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "TOM GLAVINE",
+    "team": "ATL",
+    "positions": ["SP"],
+    "basicStats": [78, 73, 77, 78, 73],
+    "gradeIncrease": [16, 14, 16, 16, 13],
+    "types": ["supreme"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "CARL HUBBELL",
+    "team": "SF",
+    "positions": ["SP"],
+    "basicStats": [78, 70, 77, 75, 72],
+    "gradeIncrease": [17, 13, 17, 15, 13],
+    "types": ["supreme"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "BOB LEMON",
+    "team": "CLE",
+    "positions": ["SP"],
+    "basicStats": [76, 70, 77, 69, 76],
+    "gradeIncrease": [17, 13, 17, 12, 16],
+    "types": ["supreme"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "EARLY WYNN",
+    "team": "CLE",
+    "positions": ["SP"],
+    "basicStats": [75, 71, 79, 74, 70],
+    "gradeIncrease": [16, 13, 18, 15, 13],
+    "types": ["supreme"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "RICH GOSSAGE",
+    "team": "NYY",
+    "positions": ["CP"],
+    "basicStats": [77, 79, 55, 82, 73],
+    "gradeIncrease": [17, 18, 6, 19, 15],
+    "types": ["supreme"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "TREVOR HOFFMAN",
+    "team": "SD",
+    "positions": ["CP"],
+    "basicStats": [77, 79, 54, 79, 76],
+    "gradeIncrease": [17, 18, 6, 18, 16],
+    "types": ["supreme"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "BILLY WAGNER",
+    "team": "HOU",
+    "positions": ["CP"],
+    "basicStats": [76, 80, 52, 83, 73],
+    "gradeIncrease": [16, 19, 5, 20, 15],
+    "types": ["supreme"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "MARIANO RIVERA",
+    "team": "NYY",
+    "positions": ["CP"],
+    "basicStats": [80, 78, 51, 80, 75],
+    "gradeIncrease": [19, 17, 4, 19, 15],
+    "types": ["supreme"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "BRUCE SUTTER",
+    "team": "STL",
+    "positions": ["CP"],
+    "basicStats": [77, 77, 53, 80, 71],
+    "gradeIncrease": [18, 18, 6, 19, 14],
+    "types": ["supreme"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "DENNIS ECKERSLEY",
+    "team": "ATH",
+    "positions": ["CP"],
+    "basicStats": [78, 76, 51, 78, 74],
+    "gradeIncrease": [18, 17, 5, 18, 16],
+    "types": ["supreme"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "HOYT WILHELM",
+    "team": "SF",
+    "positions": ["CP"],
+    "basicStats": [77, 72, 65, 74, 70],
+    "gradeIncrease": [18, 15, 11, 17, 14],
+    "types": ["supreme"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "ROLLIE FINGERS",
+    "team": "ATH",
+    "positions": ["CP"],
+    "basicStats": [77, 73, 58, 77, 74],
+    "gradeIncrease": [18, 15, 8, 18, 16],
+    "types": ["supreme"],
+    "typeOverrides": {}
   }
 ]
