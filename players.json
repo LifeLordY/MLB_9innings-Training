@@ -641,6 +641,15 @@
     "typeOverrides": {}
   },
   {
+    "name": "T.Williams '41",
+    "team": "BOS",
+    "positions": ["OF"],
+    "basicStats": [82, 81, 91, 59, 50],
+    "gradeIncrease": [20, 19, 24, 8, 4],
+    "types": ["legend"],
+    "typeOverrides": {}
+  },
+  {
     "name": "J.Foxx '38",
     "team": "BOS",
     "positions": ["1B"],
