@@ -3699,8 +3699,13 @@
     "positions": ["OF"],
     "basicStats": [74, 86, 72, 64, 70],
     "gradeIncrease": [16, 21, 15, 10, 13],
-    "types": ["signature", "vintage"],
-    "typeOverrides": {}
+    "types": ["signature", "prime", "vintage"],
+    "typeOverrides": {
+      "prime": {
+        "basicStats": [72, 86, 72, 64, 68],
+        "gradeIncrease": [16, 23, 16, 11, 14]
+      }
+    }
   },
   {
     "name": "J.Soto '23",
