@@ -773,7 +773,7 @@
     "typeOverrides": {
       "legend": {
         "basicStats": [87, 75, 76, 62, 68],
-        "gradeIncrease": [21, 16, 17, 9, 12],
+        "gradeIncrease": [21, 16, 17, 9, 12]
       },
       "prime": {
         "gradeIncrease": [18, 17, 19, 10, 16]
