@@ -723,6 +723,33 @@
     "typeOverrides": {}
   },
   {
+    "name": "C.Ripken Jr. '91",
+    "team": "BAL",
+    "positions": ["SS"],
+    "basicStats": [81, 76, 72, 65, 83],
+    "gradeIncrease": [18, 15, 13, 10, 19],
+    "types": ["legend"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "E.Murray '82",
+    "team": "BAL",
+    "positions": ["1B"],
+    "basicStats": [80, 77, 74, 62, 70],
+    "gradeIncrease": [19, 18, 15, 10, 13],
+    "types": ["legend", "signature", "vintage"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "J.Palmer '75",
+    "team": "BAL",
+    "positions": ["SP"],
+    "basicStats": [76, 70, 80, 73, 71],
+    "gradeIncrease": [16, 13, 18, 15, 13],
+    "types": ["legend", "signature", "vintage"],
+    "typeOverrides": {}
+  },
+  {
     "name": "H.Killebrew '69",
     "team": "MIN",
     "positions": ["3B", "1B"],
@@ -733,6 +760,23 @@
       "legend": {
         "basicStats": [74, 86, 85, 59, 71],
         "gradeIncrease": [14, 20, 20, 8, 13]
+      }
+    }
+  },
+  {
+    "name": "J.Mauer '09",
+    "team": "MIN",
+    "positions": ["C"],
+    "basicStats": [77, 75, 79, 62, 72],
+    "gradeIncrease": [17, 16, 18, 10, 14],
+    "types": ["legend", "signature", "prime", "regular"],
+    "typeOverrides": {
+      "legend": {
+        "basicStats": [87, 75, 76, 62, 68],
+        "gradeIncrease": [21, 16, 17, 9, 12],
+      },
+      "prime": {
+        "gradeIncrease": [18, 17, 19, 10, 16]
       }
     }
   },
@@ -752,6 +796,15 @@
         "gradeIncrease": [24, 14, 17, 11, 14]
       }
     }
+  },
+  {
+    "name": "K.Puckett '88",
+    "team": "MIN",
+    "positions": ["OF"],
+    "basicStats": [86, 72, 65, 62, 71],
+    "gradeIncrease": [23, 16, 12, 10, 14],
+    "types": ["legend", "signature", "vintage"],
+    "typeOverrides": {}
   },
   {
     "name": "B.Blyleven '73",
@@ -808,6 +861,19 @@
       "legend": {
         "basicStats": [78, 74, 79, 76, 74],
         "gradeIncrease": [16, 14, 17, 14, 14]
+      }
+    }
+  },
+  {
+    "name": "F.Thomas '94",
+    "team": "CWS",
+    "positions": ["1B"],
+    "basicStats": [85, 86, 85, 59, 59],
+    "gradeIncrease": [20, 20, 19, 8, 8],
+    "types": ["legend", "signature", "prime", "vintage"],
+    "typeOverrides": {
+      "prime": {
+        "gradeIncrease": [21, 22, 21, 8, 8]
       }
     }
   },
@@ -880,6 +946,15 @@
     "positions": ["3B"],
     "basicStats": [78, 76, 81, 62, 65],
     "gradeIncrease": [18, 17, 19, 10, 11],
+    "types": ["legend"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "V.Guerrero '05",
+    "team": "LAA",
+    "positions": ["OF"],
+    "basicStats": [80, 78, 74, 61, 69],
+    "gradeIncrease": [19, 18, 16, 9, 13],
     "types": ["legend"],
     "typeOverrides": {}
   },
@@ -1609,6 +1684,20 @@
     }
   },
   {
+    "name": "B.Wagner '99",
+    "team": "HOU",
+    "positions": ["CP"],
+    "basicStats": [75, 79, 51, 74, 70],
+    "gradeIncrease": [18, 20, 5, 17, 15],
+    "types": ["legend", "signature", "vintage"],
+    "typeOverrides": {
+      "legend": {
+        "basicStats": [77, 80, 51, 74, 70],
+        "gradeIncrease": [19, 20, 5, 17, 14]
+      }
+    }
+  },
+  {
     "name": "G.Cole '19",
     "team": "HOU",
     "positions": ["SP"],
@@ -1771,15 +1860,6 @@
         "gradeIncrease": [18, 18, 15, 14, 15]
       }
     }
-  },
-  {
-    "name": "B.Wagner '99",
-    "team": "HOU",
-    "positions": ["CP"],
-    "basicStats": [75, 79, 51, 74, 70],
-    "gradeIncrease": [18, 20, 5, 17, 15],
-    "types": ["signature", "vintage"],
-    "typeOverrides": {}
   },
   {
     "name": "D.Jones '92",
@@ -1970,6 +2050,15 @@
         "basicStats": [76, 71, 76, 75, 71]
       }
     }
+  },
+  {
+    "name": "W.Spahn '53",
+    "team": "ATL",
+    "positions": ["SP"],
+    "basicStats": [76, 69, 77, 65, 71],
+    "gradeIncrease": [18, 13, 18, 11, 15],
+    "types": ["legend"],
+    "typeOverrides": {}
   },
   {
     "name": "T.Seaver '71",
@@ -2488,6 +2577,15 @@
     }
   },
   {
+    "name": "S.Rolen '04",
+    "team": "STL",
+    "positions": ["3B"],
+    "basicStats": [79, 80, 73, 59, 75],
+    "gradeIncrease": [18, 19, 14, 8, 16],
+    "types": ["legend", "signature", "regular"],
+    "typeOverrides": {}
+  },
+  {
     "name": "O.Smith '87",
     "team": "STL",
     "positions": ["SS"],
@@ -2552,15 +2650,6 @@
     "basicStats": [81, 80, 77, 65, 67],
     "gradeIncrease": [19, 18, 16, 11, 11],
     "types": ["signature", "vintage"],
-    "typeOverrides": {}
-  },
-  {
-    "name": "S.Rolen '04",
-    "team": "STL",
-    "positions": ["3B"],
-    "basicStats": [79, 80, 73, 59, 75],
-    "gradeIncrease": [18, 19, 14, 8, 16],
-    "types": ["signature", "regular"],
     "typeOverrides": {}
   },
   {
@@ -2681,6 +2770,15 @@
     }
   },
   {
+    "name": "B.Gibson '68",
+    "team": "STL",
+    "positions": ["SP"],
+    "basicStats": [80, 76, 82, 77, 74],
+    "gradeIncrease": [16, 15, 17, 14, 13],
+    "types": ["legend", "signature", "vintage"],
+    "typeOverrides": {}
+  },
+  {
     "name": "D.Dean '34",
     "team": "STL",
     "positions": ["SP"],
@@ -2693,15 +2791,6 @@
         "gradeIncrease": [17, 13, 16, 15, 14]
       }
     }
-  },
-  {
-    "name": "B.Gibson '68",
-    "team": "STL",
-    "positions": ["SP"],
-    "basicStats": [80, 76, 82, 77, 74],
-    "gradeIncrease": [16, 15, 17, 14, 13],
-    "types": ["signature", "vintage"],
-    "typeOverrides": {}
   },
   {
     "name": "A.Wainwright '14",
@@ -2878,6 +2967,19 @@
     }
   },
   {
+    "name": "R.Sandberg '84",
+    "team": "CHC",
+    "positions": ["2B"],
+    "basicStats": [79, 71, 69, 74, 78],
+    "gradeIncrease": [18, 13, 12, 15, 17],
+    "types": ["legend", "signature", "prime", "vintage"],
+    "typeOverrides": {
+      "prime": {
+        "gradeIncrease": [19, 14, 13, 16, 18]
+      }
+    }
+  },
+  {
     "name": "B.Williams '70",
     "team": "CHC",
     "positions": ["OF"],
@@ -2979,6 +3081,20 @@
     "gradeIncrease": [16, 21, 19, 9, 10],
     "types": ["legend"],
     "typeOverrides": {}
+  },
+  {
+    "name": "W.Stargell '71",
+    "team": "PIT",
+    "positions": ["OF"],
+    "basicStats": [76, 87, 71, 60, 66],
+    "gradeIncrease": [17, 23, 14, 9, 12],
+    "types": ["legend", "signature", "vintage"],
+    "typeOverrides": {
+      "legend": {
+        "basicStats": [77, 79, 74, 64, 70],
+        "gradeIncrease": [17, 18, 16, 10, 14]
+      }
+    }
   },
   {
     "name": "R.Clemente '66",
@@ -3676,6 +3792,20 @@
     "typeOverrides": {}
   },
   {
+    "name": "D.Winfield '79",
+    "team": "SD",
+    "positions": ["OF"],
+    "basicStats": [78, 77, 76, 66, 62],
+    "gradeIncrease": [18, 18, 17, 12, 10],
+    "types": ["legend", "signature", "vintage"],
+    "typeOverrides": {
+      "legend": {
+        "basicStats": [78, 77, 76, 66, 73],
+        "gradeIncrease": [17, 17, 16, 11, 14]
+      }
+    }
+  },
+  {
     "name": "F.Tatis Jr. '20",
     "team": "SD",
     "positions": ["SS"],
@@ -3827,15 +3957,6 @@
     "positions": ["OF"],
     "basicStats": [75, 76, 73, 72, 62],
     "gradeIncrease": [17, 18, 15, 15, 10],
-    "types": ["signature", "vintage"],
-    "typeOverrides": {}
-  },
-  {
-    "name": "D.Winfield '79",
-    "team": "SD",
-    "positions": ["OF"],
-    "basicStats": [78, 77, 76, 66, 62],
-    "gradeIncrease": [18, 18, 17, 12, 10],
     "types": ["signature", "vintage"],
     "typeOverrides": {}
   },
@@ -4147,6 +4268,15 @@
     "typeOverrides": {}
   },
   {
+    "name": "CARLTON FISK",
+    "team": "BOS",
+    "positions": ["C"],
+    "basicStats": [79, 81, 74, 75, 79],
+    "gradeIncrease": [16, 17, 13, 13, 16],
+    "types": ["supreme"],
+    "typeOverrides": {}
+  },
+  {
     "name": "JOE MORGAN",
     "team": "CIN",
     "positions": ["2B"],
@@ -4278,6 +4408,15 @@
     "positions": ["SS"],
     "basicStats": [85, 71, 82, 64, 79],
     "gradeIncrease": [19, 12, 18, 9, 17],
+    "types": ["supreme"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "ALFONSO SORIANO",
+    "team": "NYY",
+    "positions": ["OF", "2B"],
+    "basicStats": [77, 81, 68, 75, 79],
+    "gradeIncrease": [15, 18, 11, 14, 17],
     "types": ["supreme"],
     "typeOverrides": {}
   },
