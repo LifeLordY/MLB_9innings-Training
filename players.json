@@ -4196,6 +4196,15 @@
     "typeOverrides": {}
   },
   {
+    "name": "MARK MCGWIRE",
+    "team": "ATH",
+    "positions": ["1B"],
+    "basicStats": [78, 98, 83, 60, 73],
+    "gradeIncrease": [15, 23, 17, 7, 13],
+    "types": ["supreme"],
+    "typeOverrides": {}
+  },
+  {
     "name": "ROGERS HORNSBY",
     "team": "STL",
     "positions": ["2B"],
@@ -4984,6 +4993,15 @@
     "positions": ["SP"],
     "basicStats": [79, 73, 77, 75, 80],
     "gradeIncrease": [16, 13, 15, 14, 17],
+    "types": ["supreme"],
+    "typeOverrides": {}
+  },
+  {
+    "name": "TIM LINCECUM",
+    "team": "SF",
+    "positions": ["SP"],
+    "basicStats": [78, 77, 76, 77, 72],
+    "gradeIncrease": [16, 16, 15, 15, 13],
     "types": ["supreme"],
     "typeOverrides": {}
   },
