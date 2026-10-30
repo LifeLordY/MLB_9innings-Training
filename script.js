@@ -136,7 +136,7 @@ function updateTopTableBonuses() {
         else if (pType === 'legend') bdValue = 3;
     }
     else if (pGrade === 'ceilingBreak') {
-        if (pType === 'regular') bdValue = 1;
+        if (['regular', 'prime'].includes(pType)) bdValue = 1;
         else if (['vintage', 'signature'].includes(pType)) bdValue = 2;
         else if (pType === 'supreme') bdValue = 3;
         else if (pType === 'legend') bdValue = 4;
