@@ -101,7 +101,7 @@ function updateHeaderColor() {
     if (gradeSelect.value === 'diamond') {
         themeElements.forEach(el => el.style.backgroundColor = '#003f7f'); // 深藍色
     } else if (gradeSelect.value === 'ceilingBreak') {
-        themeElements.forEach(el => el.style.backgroundColor = '#dfdfef'); // 白色
+        themeElements.forEach(el => el.style.backgroundColor = '#4f4f5f'); // 白色
     } else {
         themeElements.forEach(el => el.style.backgroundColor = ''); // 恢復預設
     }
