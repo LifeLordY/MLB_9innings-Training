@@ -100,6 +100,8 @@ function updateHeaderColor() {
     
     if (gradeSelect.value === 'diamond') {
         themeElements.forEach(el => el.style.backgroundColor = '#003f7f'); // 深藍色
+    } else if (gradeSelect.value === 'ceilingBreak') {
+        themeElements.forEach(el => el.style.backgroundColor = '#dfdfef'); // 白色
     } else {
         themeElements.forEach(el => el.style.backgroundColor = ''); // 恢復預設
     }
@@ -133,6 +135,12 @@ function updateTopTableBonuses() {
         else if (pType === 'supreme') bdValue = 2;
         else if (pType === 'legend') bdValue = 3;
     }
+    else if (pGrade === 'ceilingBreak') {
+        if (pType === 'regular') bdValue = 1;
+        else if (['vintage', 'signature'].includes(pType)) bdValue = 2;
+        else if (pType === 'supreme') bdValue = 3;
+        else if (pType === 'legend') bdValue = 4;
+    }
     bdInput.value = bdValue;
 
     // 2. 團隊加成判定
@@ -140,6 +148,11 @@ function updateTopTableBonuses() {
     if (pGrade === 'blackDiamond') {
         if (['regular', 'vintage', 'legend'].includes(pType)) setDeckValue += 1;
         else if (['prime', 'signature'].includes(pType)) setDeckValue += 2;
+    }
+    else if (pGrade === 'ceilingBreak') {
+        if (['regular', 'vintage', 'legend'].includes(pType)) setDeckValue += 2;
+        else if (pType === 'prime') setDeckValue += 3;
+        else if (pType === 'signature') setDeckValue += 4;
     }
     if (pType === 'signature') setDeckValue *= 2; 
     setDeckInput.value = setDeckValue;
@@ -155,8 +168,8 @@ function updateTopTableBonuses() {
     } else if (pType === 'signature') {
         const batters = ['C', '1B', '2B', '3B', 'SS', 'OF', 'DH'];
         const pitchers = ['SP', 'RP', 'CP'];
-        if (batters.includes(pPos)) mentorValue = 3;
-        else if (pitchers.includes(pPos)) mentorValue = 2;
+        if (batters.includes(pPos)) mentorValue = 2;
+        else if (pitchers.includes(pPos)) mentorValue = 3;
     }
     mentorSelect.value = mentorValue; 
 }
