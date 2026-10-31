@@ -390,8 +390,10 @@ function updateChemistry() {
 
     if (chemSelect && chemSelect.value === 'none') {
         chemValue = 0;
+    } else if (chemSelect && chemSelect.value === 'mysticLegend') {
+        chemValue = isPitcher ? 8 : 9;
     } else if (chemSelect && chemSelect.value === 'legend') {
-        chemValue = 8;
+        chemValue = isPitcher ? 7 : 8;
     } else {
         const isPitcher = ['SP', 'RP', 'CP'].includes(posSelect.value);
         chemValue = isPitcher ? 6 : 7; 
