@@ -386,6 +386,7 @@ function updateChemistry() {
     if (!posSelect || !modal) return;
 
     const chemSelect = modal.querySelector('tbody tr:nth-child(1) select');
+    const isPitcher = ['SP', 'RP', 'CP'].includes(posSelect.value);
     let chemValue = 0;
 
     if (chemSelect && chemSelect.value === 'none') {
@@ -395,7 +396,6 @@ function updateChemistry() {
     } else if (chemSelect && chemSelect.value === 'legend') {
         chemValue = isPitcher ? 7 : 8;
     } else {
-        const isPitcher = ['SP', 'RP', 'CP'].includes(posSelect.value);
         chemValue = isPitcher ? 6 : 7; 
     }
 
